@@ -1,0 +1,66 @@
+Grading at 09/12/2022:19:04:01.560815
+For commit ID 136c344974fc72f704afb51cdc18403818639ee6
+Grading at Mon Sep 12 03:04:00 PM EDT 2022
+**Testing broken implementation 10 **
+-------------------------------------
+
+For input 2,6, expected answer is 64, power answer is 2
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+For input 10,1, expected answer is 10, power answer is 2
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+For input 10,1, expected answer is 10, power answer is 1
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+For input 10,0, expected answer is 1, power answer is 0
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+For input 0,0, expected answer is 1, power answer is 0
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+For input -3,3, expected answer is -27, power answer is 65509
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+For input 2,6, expected answer is 64, power answer is 0
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+For input 10,1, expected answer is 10, power answer is 2
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+For input 10,1, expected answer is 10, power answer is 3
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+For input 2,6, expected answer is 64, power answer is 12
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+For input 10,1, expected answer is 10, power answer is 0
+
+**Testing correct implementation **
+-------------------------------------
+
+
+All tests were ok.
+
+
+Overall Grade: PASSED
