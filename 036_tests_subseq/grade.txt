@@ -1,6 +1,6 @@
-Grading at 09/18/2022:19:05:26.822432
-For commit ID 549c78d4e30cdd8ec9ad1035b9036deb4acd17bb
-Grading at Sun Sep 18 03:05:26 PM EDT 2022
+Grading at 09/18/2022:19:10:07.963892
+For commit ID 2ee434f31561144a0dd896fabadcb7838639d301
+Grading at Sun Sep 18 03:10:06 PM EDT 2022
 **Testing broken implementation 10 **
 -------------------------------------
 
@@ -24,6 +24,42 @@ test case1, expect 5, get 3
 **Testing broken implementation 3 **
 -------------------------------------
 
-Your test program did not identify /usr/local/ece551/subseq/subseq3.o as broken!
+test case5,expect 4, get 5 
 
-Overall Grade: FAILED
+**Testing broken implementation 4 **
+-------------------------------------
+
+test case 7, expect 0, get 1 
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+test case1, expect 5, get 7 
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+test case2,expect 5, get 4 
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+test case1, expect 5, get 18446744073709551615 
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+test case1, expect 5, get 1 
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+test case1, expect 5, get 3 
+
+**Testing correct implementation **
+-------------------------------------
+
+
+All test programs were handled correctly
+
+Overall Grade: PASSED
