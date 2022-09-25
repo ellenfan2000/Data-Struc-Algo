@@ -1,6 +1,6 @@
 E
 E
-A
+D
 D
 D
 D
@@ -14,5 +14,5 @@ A
 D
 C
 B
-A
+C
 C
