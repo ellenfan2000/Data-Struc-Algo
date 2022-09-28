@@ -1,6 +1,6 @@
-Grading at 09/28/2022:20:52:37.444458
-For commit ID d72e8b410c69fc2ca7cb9bc8709bac85af5c04ff
-Grading at Wed Sep 28 04:52:33 PM EDT 2022
+Grading at 09/28/2022:21:52:33.875800
+For commit ID 9f56d4ef8b829e0480e1c6d482cfbbee420f5223
+Grading at Wed Sep 28 05:52:29 PM EDT 2022
 Attempting to compile rotateMatrix.c
 testcase1 passed
 #################################################
@@ -17,8 +17,7 @@ testcase5:
 testcase5 failed, your program didn't indicate this is a failure case
 #################################################
 testcase6:
-Line_1_did_not_match
-Your file did not match the expected ouput
-testcase6 failed, your output did not match with the answer
+Your file matched the expected output
+testcase6 passed
 
 Overall Grade: F
