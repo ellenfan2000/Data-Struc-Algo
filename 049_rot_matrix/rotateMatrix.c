@@ -12,7 +12,7 @@ int main(int argc, char ** argv) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  int matrix[LINESIZE][LINESIZE];
+  char matrix[LINESIZE][LINESIZE];
   char line[LINESIZE + 2];
   int inputSize = 0;
 
