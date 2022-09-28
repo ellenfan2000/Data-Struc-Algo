@@ -21,14 +21,18 @@ int main(int argc, char ** argv) {
       printf("Too mush rows!");
       return EXIT_FAILURE;
     }
-    if (strchr(line, '\n') == NULL) {
-      printf("line is too long");
+    if (line[10] != '\n') {
+      printf("line is either too long or too short!");
       return EXIT_FAILURE;
     }
     for (int j = 0; j < 10; j++) {
       matrix[j][10 - inputSize - 1] = line[j];
     }
     inputSize++;
+  }
+  if (inputSize != 9) {
+    printf("Too Less lines");
+    return EXIT_FAILURE;
   }
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
