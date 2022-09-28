@@ -43,7 +43,9 @@ int main(int argc, char ** argv) {
   frequencyCount(freq, f);
   int c = arrayMax(freq, 26);
   int key = c - 'e';
+  if (key < 0) {
+    key += 26;
+  }
   printf("%d\n", key);
   return EXIT_SUCCESS;
-  //int key = decrypt(ma);
 }
