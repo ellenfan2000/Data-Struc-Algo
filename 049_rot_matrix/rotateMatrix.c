@@ -21,17 +21,17 @@ int main(int argc, char ** argv) {
   while (fgets(line, LINESIZE + 2, f) != NULL) {
     if (inputSize > 9) {
       // fclose(f);
-      printf("Too mush rows!\n");
+      perror("Too mush rows!\n");
       return EXIT_FAILURE;
     }
     if (strchr(line, '\n') == NULL) {
       // fclose(f);
-      printf("line is too long! \n");
+      perror("line is too long! \n");
       return EXIT_FAILURE;
     }
     if (line[10] != '\n') {
       //fclose(f);
-      printf("line is too short!\n");
+      perror("line is too short!\n");
       return EXIT_FAILURE;
     }
     for (int j = 0; j < LINESIZE; j++) {
@@ -41,12 +41,12 @@ int main(int argc, char ** argv) {
   }
   if (inputSize < 9) {
     //fclose(f);
-    printf("Too Less lines\n");
+    perror("Too Less lines\n");
     return EXIT_FAILURE;
   }
 
   if (fclose(f) != 0) {
-    printf("failed to close file\n");
+    perror("failed to close file\n");
     return EXIT_FAILURE;
   }
   for (int i = 0; i < 10; i++) {
