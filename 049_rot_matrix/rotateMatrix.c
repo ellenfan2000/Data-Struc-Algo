@@ -20,17 +20,17 @@ int main(int argc, char ** argv) {
 
   while (fgets(line, LINESIZE + 2, f) != NULL) {
     if (inputSize > 9) {
-      fclose(f);
+      // fclose(f);
       printf("Too mush rows!\n");
       return EXIT_FAILURE;
     }
     if (strchr(line, '\n') == NULL) {
-      fclose(f);
+      // fclose(f);
       printf("line is too long! \n");
       return EXIT_FAILURE;
     }
     if (line[10] != '\n') {
-      fclose(f);
+      //fclose(f);
       printf("line is too short!\n");
       return EXIT_FAILURE;
     }
@@ -40,6 +40,7 @@ int main(int argc, char ** argv) {
     inputSize++;
   }
   if (inputSize < 9) {
+    //fclose(f);
     printf("Too Less lines\n");
     return EXIT_FAILURE;
   }
