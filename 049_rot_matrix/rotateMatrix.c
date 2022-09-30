@@ -1,34 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define LINESIZE 10
 
-void rotate(FILE * f, char matrix[][LINESIZE]) {
+void rotate(FILE * f, char matrix[][10]) {
   int inputSize = 0;
-  char line[LINESIZE + 2];
-  while (fgets(line, LINESIZE + 2, f) != NULL) {
-    if (inputSize > 9) {
-      // fclose(f);
+  char line[12];
+  while (fgets(line, 12, f) != NULL) {
+    inputSize++;
+    if (inputSize > 10) {
       perror("Too mush rows!\n");
+      fclose(f);
       exit(EXIT_FAILURE);
     }
     if (strchr(line, '\n') == NULL) {
-      // fclose(f);
       perror("line is too long! \n");
+      fclose(f);
       exit(EXIT_FAILURE);
     }
     if (line[10] != '\n') {
-      //fclose(f);
       perror("line is too short!\n");
+      fclose(f);
       exit(EXIT_FAILURE);
     }
-    for (int j = 0; j < LINESIZE; j++) {
-      matrix[j][10 - inputSize - 1] = line[j];
+    for (int j = 0; j < 10; j++) {
+      matrix[j][10 - inputSize] = line[j];
     }
-    inputSize++;
+    // inputSize++;
   }
-  if (inputSize < 9) {
-    //fclose(f);
+  if (inputSize < 10) {
+    fclose(f);
     perror("Too Less lines\n");
     exit(EXIT_FAILURE);
   }
@@ -49,7 +49,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  char matrix[LINESIZE][LINESIZE];
+  char matrix[10][10];
   rotate(f, matrix);
   /* char line[LINESIZE + 2]; */
   /* int inputSize = 0; */
