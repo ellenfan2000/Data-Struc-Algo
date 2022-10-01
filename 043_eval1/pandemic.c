@@ -1,10 +1,34 @@
 #include "pandemic.h"
 
+#include <limits.h>
+#include <stdio.h>
+#include <string.h>
+
 country_t parseLine(char * line) {
   //WRITE ME
   country_t ans;
-  ans.name[0] = '\0';
-  ans.population = 0;
+  int index = 0;
+  char population[21];
+  if (strchr(line, ',') == NULL) {
+    perror("Not valid line\n");
+    exit(EXIT_FAILURE);
+  }
+  if (strrchr(line, ',') != strchr(line, ',')) {
+    perror("Invalid line\n");
+    exit(EXIT_FAILURE);
+  }
+
+  while (line[index] != ',') {
+    ans.name[index] = line[index];
+    index++;
+  }
+  index++;
+  ans.name[index] = '\0';
+  line += index;
+  strcpy(population, line);
+
+  ans.population = atoll(population);
+
   return ans;
 }
 
