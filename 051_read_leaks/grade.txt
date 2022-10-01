@@ -1,0 +1,35 @@
+Grading at 10/01/2022:21:25:53.852549
+For commit ID e165096f42ff1c7fe2771db510f9527a1e911c1f
+Grading at Sat Oct  1 05:25:52 PM EDT 2022
+Line_1_did_not_match
+Your file did not match the expected ouput
+Your output did not match what we expected.
+Attempting to compile test.c
+  - Valgrind reported errors
+valgrind was not clean
+==4038906== Memcheck, a memory error detector
+==4038906== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4038906== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==4038906== 
+==4038906== Parent PID: 4038905
+==4038906== 
+==4038906== 
+==4038906== HEAP SUMMARY:
+==4038906==     in use at exit: 8 bytes in 1 blocks
+==4038906==   total heap usage: 3 allocs, 2 frees, 32 bytes allocated
+==4038906== 
+==4038906== 8 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==4038906==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4038906==    by 0x109243: main (in test)
+==4038906== 
+==4038906== LEAK SUMMARY:
+==4038906==    definitely lost: 8 bytes in 1 blocks
+==4038906==    indirectly lost: 0 bytes in 0 blocks
+==4038906==      possibly lost: 0 bytes in 0 blocks
+==4038906==    still reachable: 0 bytes in 0 blocks
+==4038906==         suppressed: 0 bytes in 0 blocks
+==4038906== 
+==4038906== For lists of detected and suppressed errors, rerun with: -s
+==4038906== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Overall Grade: F
