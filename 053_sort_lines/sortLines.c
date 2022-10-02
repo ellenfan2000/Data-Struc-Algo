@@ -54,8 +54,10 @@ int main(int argc, char ** argv) {
       data = parseLine(data, f, &count);
       sortData(data, count);
       free_all(data, count);
-      data = NULL;
-      count = 0;
+      if (argc > 2) {
+        data = NULL;
+        count = 0;
+      }
       if (fclose(f) != 0) {
         perror("failed to close input file");
         free_all(data, count);
