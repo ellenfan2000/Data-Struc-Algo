@@ -1,41 +1,12 @@
-Grading at 10/02/2022:19:23:26.504261
-For commit ID 668f8f7440042427ff19a9dfea6ca1bc44edbd57
-Grading at Sun Oct  2 03:23:21 PM EDT 2022
+Grading at 10/02/2022:19:32:27.354738
+For commit ID 274ed84d166cf1af90351bca1d196c5d9adebf12
+Grading at Sun Oct  2 03:32:22 PM EDT 2022
 Attempting to compile sortLines.c
 #################################################
 testcase1:
 testcase1 passed, your program successfully indicated a failure
-  - Valgrind reported errors
-valgrind was not clean
-==1118046== Memcheck, a memory error detector
-==1118046== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1118046== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1118046== 
-==1118046== Parent PID: 1118045
-==1118046== 
-==1118046== 
-==1118046== HEAP SUMMARY:
-==1118046==     in use at exit: 760 bytes in 7 blocks
-==1118046==   total heap usage: 14 allocs, 7 frees, 5,880 bytes allocated
-==1118046== 
-==1118046== 120 bytes in 1 blocks are definitely lost in loss record 1 of 3
-==1118046==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1118046==    by 0x48E31A2: getdelim (iogetdelim.c:62)
-==1118046==    by 0x10951F: main (in sortLines)
-==1118046== 
-==1118046== 640 (40 direct, 600 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
-==1118046==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1118046==    by 0x1094E2: main (in sortLines)
-==1118046== 
-==1118046== LEAK SUMMARY:
-==1118046==    definitely lost: 160 bytes in 2 blocks
-==1118046==    indirectly lost: 600 bytes in 5 blocks
-==1118046==      possibly lost: 0 bytes in 0 blocks
-==1118046==    still reachable: 0 bytes in 0 blocks
-==1118046==         suppressed: 0 bytes in 0 blocks
-==1118046== 
-==1118046== For lists of detected and suppressed errors, rerun with: -s
-==1118046== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase2:
 Your output is correct
@@ -50,4 +21,4 @@ valgrind was clean
 testcase4:
 Your output is incorrect
 
-Overall Grade: D
+Overall Grade: C
