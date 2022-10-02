@@ -37,17 +37,9 @@ void free_all(char ** data, size_t count) {
 }
 int main(int argc, char ** argv) {
   //WRITE YOUR CODE HERE!
-  //char * line = NULL;
-  // size_t sz = 0;
   size_t count = 0;
   char ** data = NULL;
   if (argc == 1) {
-    /*   while (getline(&line, &sz, stdin) >= 0) { */
-    /*     count++; */
-    /*     data = realloc(data, count * sizeof(*data)); */
-    /*     data[count - 1] = line; */
-    /*     line = NULL; */
-    /*   } */
     data = parseLine(data, stdin, &count);
     sortData(data, count);
   }
@@ -59,21 +51,19 @@ int main(int argc, char ** argv) {
         free_all(data, count);
         return EXIT_FAILURE;
       }
-      /* while (getline(&line, &sz, f) >= 0) { */
-      /*   count++; */
-      /*   data = realloc(data, count * sizeof(*data)); */
-      /*   data[count - 1] = line; */
-      /*   line = NULL; */
-      /* } */
       data = parseLine(data, f, &count);
+      sortData(data, count);
+      free_all(data, count);
+      data = NULL;
+      count = 0;
       if (fclose(f) != 0) {
         perror("failed to close input file");
         free_all(data, count);
         return EXIT_FAILURE;
       }
     }
-    sortData(data, count);
+    //sortData(data, count);
   }
-  free_all(data, count);
+  // free_all(data, count);
   return EXIT_SUCCESS;
 }
