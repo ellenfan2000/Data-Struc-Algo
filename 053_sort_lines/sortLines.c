@@ -44,7 +44,7 @@ int main(int argc, char ** argv) {
     sortData(data, count);
   }
   else {
-    for (int i = 0; i < argc; i++) {
+    for (int i = 1; i < argc; i++) {
       FILE * f = fopen(argv[i], "r");
       if (f == NULL) {
         perror("Could Not Open File");
