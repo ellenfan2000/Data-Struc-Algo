@@ -27,6 +27,15 @@ size_t parseLine(char ** data, FILE * stream) {
   free(line);
   return count;
 }
+
+void free_all(char * line, char ** data, int count) {
+  free(line);
+  for (size_t i = 0; i < count; i++) {
+    printf("%s", data[i]);
+    free(data[i]);
+  }
+  free(data);
+}
 int main(int argc, char ** argv) {
   //WRITE YOUR CODE HERE!
   char * line = NULL;
@@ -48,6 +57,12 @@ int main(int argc, char ** argv) {
       FILE * f = fopen(argv[i], "r");
       if (f == NULL) {
         perror("Could Not Open File");
+        free(line);
+        for (size_t i = 0; i < count; i++) {
+          printf("%s", data[i]);
+          free(data[i]);
+        }
+        free(data);
         return EXIT_FAILURE;
       }
       while (getline(&line, &sz, f) >= 0) {
@@ -57,6 +72,12 @@ int main(int argc, char ** argv) {
         line = NULL;
       }
       if (fclose(f) != 0) {
+        free(line);
+        for (size_t i = 0; i < count; i++) {
+          printf("%s", data[i]);
+          free(data[i]);
+        }
+        free(data);
         perror("failed to close input file");
         return EXIT_FAILURE;
       }
