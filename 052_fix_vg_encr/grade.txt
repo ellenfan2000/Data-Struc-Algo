@@ -1,0 +1,30 @@
+Grading at 10/02/2022:00:38:51.609871
+For commit ID ae517ecdd8bbddfa439663860cbdda755e7f8723
+Grading at Sat Oct  1 08:38:44 PM EDT 2022
+Attempting to compile encrypt.c
+testcase1:
+your output was correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase2:
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase3:
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase4:
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase5:
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase6:
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+
+Overall Grade: A
