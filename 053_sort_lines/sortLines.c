@@ -14,22 +14,21 @@ void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
 
-size_t parseLine(char ** data, FILE * stream) {
+char ** parseLine(char ** data, FILE * stream, size_t * count) {
   char * line = NULL;
   size_t sz = 0;
-  size_t count = 0;
   while (getline(&line, &sz, stream) >= 0) {
-    count++;
-    data = realloc(data, count * sizeof(*data));
-    data[count - 1] = line;
+    *count = *count + 1;
+    data = realloc(data, *count * sizeof(*data));
+    data[*count - 1] = line;
     line = NULL;
   }
   free(line);
-  return count;
+  return data;
 }
 
-void free_all(char * line, char ** data, int count) {
-  free(line);
+void free_all(char ** data, size_t count) {
+  //free(line);
   for (size_t i = 0; i < count; i++) {
     printf("%s", data[i]);
     free(data[i]);
@@ -38,18 +37,18 @@ void free_all(char * line, char ** data, int count) {
 }
 int main(int argc, char ** argv) {
   //WRITE YOUR CODE HERE!
-  char * line = NULL;
-  size_t sz = 0;
+  //char * line = NULL;
+  // size_t sz = 0;
   size_t count = 0;
   char ** data = NULL;
   if (argc == 1) {
-    while (getline(&line, &sz, stdin) >= 0) {
-      count++;
-      data = realloc(data, count * sizeof(*data));
-      data[count - 1] = line;
-      line = NULL;
-    }
-    //count = parseLine(data, stdin);
+    /*   while (getline(&line, &sz, stdin) >= 0) { */
+    /*     count++; */
+    /*     data = realloc(data, count * sizeof(*data)); */
+    /*     data[count - 1] = line; */
+    /*     line = NULL; */
+    /*   } */
+    data = parseLine(data, stdin, &count);
     sortData(data, count);
   }
   else {
@@ -57,38 +56,24 @@ int main(int argc, char ** argv) {
       FILE * f = fopen(argv[i], "r");
       if (f == NULL) {
         perror("Could Not Open File");
-        free(line);
-        for (size_t i = 0; i < count; i++) {
-          printf("%s", data[i]);
-          free(data[i]);
-        }
-        free(data);
+        free_all(data, count);
         return EXIT_FAILURE;
       }
-      while (getline(&line, &sz, f) >= 0) {
-        count++;
-        data = realloc(data, count * sizeof(*data));
-        data[count - 1] = line;
-        line = NULL;
-      }
+      /* while (getline(&line, &sz, f) >= 0) { */
+      /*   count++; */
+      /*   data = realloc(data, count * sizeof(*data)); */
+      /*   data[count - 1] = line; */
+      /*   line = NULL; */
+      /* } */
+      data = parseLine(data, f, &count);
       if (fclose(f) != 0) {
-        free(line);
-        for (size_t i = 0; i < count; i++) {
-          printf("%s", data[i]);
-          free(data[i]);
-        }
-        free(data);
         perror("failed to close input file");
+        free_all(data, count);
         return EXIT_FAILURE;
       }
     }
     sortData(data, count);
   }
-  free(line);
-  for (size_t i = 0; i < count; i++) {
-    printf("%s", data[i]);
-    free(data[i]);
-  }
-  free(data);
+  free_all(data, count);
   return EXIT_SUCCESS;
 }
