@@ -9,3 +9,6 @@ printCountries population_invalid7.csv
 
 #success
 printCountries population.csv
+printCountries population1.csv
+printCountries population2.csv
+printCountries population3.csv
