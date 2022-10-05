@@ -38,7 +38,7 @@ country_t parseLine(char * line) {
   /* get population */
   while (line[index] != '\n') {
     //valid with space
-    if (line[index] == ' ') {
+    if (line[index] == ' ' && pop_len == 0) {
       index++;
       continue;
     }
