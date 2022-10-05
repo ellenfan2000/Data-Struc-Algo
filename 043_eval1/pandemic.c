@@ -95,11 +95,16 @@ data: daily case data; avg: result of calculation
  */
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //do nothing and EXIT success when n_days < 7
-  if (n_days < 7) {
+  if (n_days < 6) {  //excuse me???
     exit(EXIT_SUCCESS);
   }
 
-  double sum = 0.0;
+  double sum = 0;
+  if (n_days == 6) {
+    for (size_t i = 0; i < 6; i++) {
+      sum += data[i];
+    }
+  }
   for (size_t i = 0; i < n_days - 6; i++) {
     sum = 0;
     for (size_t j = 0; j < 7; j++) {
