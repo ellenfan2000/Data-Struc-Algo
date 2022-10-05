@@ -2,7 +2,6 @@
 printCountries population_invalid1.csv
 printCountries population_invalid2.csv
 printCountries population_invalid3.csv
-printCountries population_invalid4.csv
 printCountries population_invalid5.csv
 printCountries population_invalid6.csv
 printCountries population_invalid7.csv
@@ -11,3 +10,4 @@ printCountries population1.csv
 printCountries population.csv
 printCountries population2.csv
 printCountries population3.csv
+printCountries population_invalid4.csv

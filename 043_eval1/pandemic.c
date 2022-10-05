@@ -65,19 +65,27 @@ country_t parseLine(char * line) {
     perror("Invalid line: No population data");
     exit(EXIT_FAILURE);
   }
+
   //check overflow: 20 digits.
   if (pop_len == 20) {
     uint64_t max_num = UINT64_MAX;
     char max_char[21];
+    // printf("%s and %lu\n", population, max_num);
     sprintf(max_char, "%lu", max_num);
     for (int i = 0; i < 21; i++) {
-      if (population[i] > max_char[i]) {
+      if (population[i] < max_char[i]) {
+        break;
+      }
+      else if (population[i] == max_char[i]) {
+        continue;
+      }
+      else {
         perror("Overflow: Population too large\n");
         exit(EXIT_FAILURE);
       }
     }
   }
-  ans.population = atoll(population);
+  ans.population = strtoll(population, NULL, 10);
 
   return ans;
 }

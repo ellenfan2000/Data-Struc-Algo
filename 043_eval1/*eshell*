@@ -1,0 +1,460 @@
+Welcome to the Emacs shell
+
+~/ece551/043_eval1 $ ls
+#README#         pandemic.c        population2.csv~         population_invalid4.csv   printCountries     testcases.txt
+Makefile         pandemic.h        population3.csv          population_invalid5.csv   printCountries.o   testcases.txt~
+README           population.csv    population3.csv~         population_invalid6.csv   printCumulative.o  
+daily_cases.csv  population1.csv   population_invalid1.csv  population_invalid7.csv   printDailyMax.o    
+daily_small.csv  population1.csv~  population_invalid2.csv  population_invalid7.csv~  printRunningAvg.o  
+grade.txt        population2.csv   population_invalid3.csv  population_invalid8.csv   test_country.csv   
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ git add pandemic.c
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master a5038da] pandemic.c
+ 1 file changed, 34 insertions(+), 28 deletions(-)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 912 bytes | 912.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   1d486f5..a5038da  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   population_invalid4.csv
+	modified:   printRunningAvg.o
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Please fix the above before requesting grading
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master 9267ff0] pandemic.c
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ rewrite 043_eval1/printRunningAvg.o (69%)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 8.95 KiB | 1.49 MiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   a5038da..9267ff0  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 9267ff02dfe75bb35a677be41868758da8e0f1e5
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 605 bytes | 60.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   9267ff0..99ec76d  master     -> origin/master
+Updating 9267ff0..99ec76d
+Fast-forward
+ 043_eval1/grade.txt | 76 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 67 insertions(+), 9 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:02:34:35.083873
+For commit ID 9267ff02dfe75bb35a677be41868758da8e0f1e5
+Grading at Tue Oct  4 10:34:27 PM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+9
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+9
+10
+8
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+9
+10
+8
+10
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+9
+10
+0
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+9
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+9
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Line_11_did_not_match
+Line_12_did_not_match
+Line_13_did_not_match
+Line_14_did_not_match
+Line_15_did_not_match
+Line_16_did_not_match
+Line_17_did_not_match
+Line_18_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master e871563] pandemic.c
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 372 bytes | 372.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   99ec76d..e871563  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: e8715633237ddc0a330b272d79de4957ba2c394e
+
+Grading this assignment requires 1 eval tokens
+You have 2999 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 484 bytes | 484.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   e871563..d8772d7  master     -> origin/master
+Updating e871563..d8772d7
+Fast-forward
+ 043_eval1/grade.txt | 62 ++++++--------------------------------------------------------
+ 1 file changed, 6 insertions(+), 56 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:02:37:42.472860
+For commit ID e8715633237ddc0a330b272d79de4957ba2c394e
+Grading at Tue Oct  4 10:37:35 PM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ nil
+nil: command not found
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population1.csv 
+Brazil: 212559409
+China: 143933774
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ cat population1.csv 
+Country,Population
+Brazil,212559409
+China,      14393     3774
+Germany,83783945
+India,1380004385
+Nigeria,206139587
+Norway,5421242
+South Korea,51269183
+United Kingdom,67886004
+United States,331002647
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population1.csv 
+Invalid Population: contain invalid character: Success
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master eed6d7a] pandemic.c
+ 3 files changed, 2 insertions(+), 3 deletions(-)
+ create mode 100755 043_eval1/printCountries
+~/ece551/043_eval1 $ git push
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 33.87 KiB | 6.77 MiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   d8772d7..eed6d7a  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: eed6d7ab43ac2b3ccf91ec48be861a017acb5d59
+
+Grading this assignment requires 1 eval tokens
+You have 2998 eval remaining
+Do you wish to continue? yes
+Grading enqueued. You are position 1 in the queue
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 413 bytes | 413.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   eed6d7a..91b1840  master     -> origin/master
+Updating eed6d7a..91b1840
+Fast-forward
+ 043_eval1/grade.txt | 21 ++++++---------------
+ 1 file changed, 6 insertions(+), 15 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:02:42:35.058674
+For commit ID eed6d7ab43ac2b3ccf91ec48be861a017acb5d59
+Grading at Tue Oct  4 10:42:28 PM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population.cdv
+Could not open file population.cdv
+~/ece551/043_eval1 $ ./printCountries population.csv
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+Brazil: 212559409
+China: 1439323774
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ ./printCountries population1.csv
+18446744073709551615
+Invalid Population: contain invalid character: Success
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
