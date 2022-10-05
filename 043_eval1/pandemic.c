@@ -121,14 +121,14 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
-  unsigned cum_sum = 0;
+  double cum_sum = 0;
   if (pop == 0) {
     perror("population is 0");
     exit(EXIT_FAILURE);
   }
   for (size_t i = 0; i < n_days; i++) {
     cum_sum += data[i];
-    cum[i] = cum_sum * (double)100000 / pop;
+    cum[i] = cum_sum * 100000 / pop;
   }
 }
 

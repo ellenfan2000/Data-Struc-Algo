@@ -2211,4 +2211,410 @@ You have FAILED one or more of your test cases
 Keep debugging
 
 Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ cp daily_1.csv daily_4.csv
+~/ece551/043_eval1 $ bash upload.sh  
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+043_eval1/#upload.sh#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 330d410] test
+ 4 files changed, 2228 insertions(+), 5 deletions(-)
+ create mode 100644 043_eval1/*eshell*
+ create mode 100644 043_eval1/daily_4.csv
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 15.64 KiB | 5.21 MiB/s, done.
+Total 7 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   ddb0f66..330d410  master -> master
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 330d41012a46f61ca3b5af10ae7cf1c1e494e5d8
+
+Grading this assignment requires 1 eval tokens
+You have 2999 eval remaining
+Do you wish to continue? yes
+Grading happening now
 ~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 488 bytes | 488.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   330d410..0f90f5a  master     -> origin/master
+Updating 330d410..0f90f5a
+Fast-forward
+ 043_eval1/grade.txt | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:14:34.648887
+For commit ID 330d41012a46f61ca3b5af10ae7cf1c1e494e5d8
+Grading at Wed Oct  5 01:14:30 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_3.csv
+Line_4_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_4.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ make printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_4.csv 
+Expected 9 entries in 
+
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_4.csv 
+Expected 9 entries in 
+
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_3.csv 
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 613566762.000 613566758.143 613566758.143 4.571 2.143 2.143 0.000 0.000 0.000 0.000 0.000 0.571 3.000 22.429 25.143 46.714 66.714 80.571 117.000 177.571 253.143 362.857 591.714 781.143 1015.857 1261.714
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.571 0.571 0.714
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143 0.143 0.143 0.286 0.286 0.429 0.429 0.429 0.429 0.429 0.714
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143 0.143 0.143 0.286 0.286 0.714 0.571 0.571 0.571 0.714
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:14:34.648887
+For commit ID 330d41012a46f61ca3b5af10ae7cf1c1e494e5d8
+Grading at Wed Oct  5 01:14:30 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_3.csv
+Line_4_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_4.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_3.csv 
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 613566762.000 613566758.143 613566758.143 4.571 2.143 2.143 0.000 0.000 0.000 0.000 0.000 0.571 3.000 22.429 25.143 46.714 66.714 80.571 117.000 177.571 253.143 362.857 591.714 781.143 1015.857 1261.714
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.571 0.571 0.714
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143 0.143 0.143 0.286 0.286 0.429 0.429 0.429 0.429 0.429 0.714
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143 0.143 0.143 0.286 0.286 0.714 0.571 0.571 0.571 0.714
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:14:34.648887
+For commit ID 330d41012a46f61ca3b5af10ae7cf1c1e494e5d8
+Grading at Wed Oct  5 01:14:30 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_3.csv
+Line_4_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_4.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_4.csv 
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+043_eval1/#upload.sh#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 19a64eb] test
+ 1 file changed, 1 deletion(-)
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 332 bytes | 332.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   0f90f5a..19a64eb  master -> master
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 19a64eb7448e8b1a37ac49537e745eb3c6fdef7f
+
+Grading this assignment requires 1 eval tokens
+You have 2998 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 408 bytes | 408.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   19a64eb..b83a672  master     -> origin/master
+Updating 19a64eb..b83a672
+Fast-forward
+ 043_eval1/grade.txt | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:20:38.720737
+For commit ID 19a64eb7448e8b1a37ac49537e745eb3c6fdef7f
+Grading at Wed Oct  5 01:20:34 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_3.csv
+Line_4_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_4.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ cp testcases.txt testcases_runningavg.txt
+~/ece551/043_eval1 $ make printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+~/ece551/043_eval1 $ ./printCumulative population.csv daily_small.csv 
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 0.002 0.002 0.002 0.003 0.003 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.006 0.015 0.016 0.027 0.037 0.043 0.061 0.092 0.138 0.193 0.315 0.416 0.537 0.675
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.001 0.005 0.005 0.006
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.002 0.002 0.002 0.002 0.004 0.004 0.006 0.008 0.008 0.008 0.008 0.014
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.001 0.001 0.002 0.002 0.002 0.002 0.002
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+043_eval1/#upload.sh#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 2409612] test
+ 3 files changed, 12 insertions(+), 7 deletions(-)
+ create mode 100644 043_eval1/testcases_runningavg.txt
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 518 bytes | 518.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   b83a672..2409612  master -> master
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 240961268f020d2cfe58bf959fbbb6f292f73333
+
+Grading this assignment requires 1 eval tokens
+You have 2997 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 532 bytes | 532.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   2409612..b744ad7  master     -> origin/master
+Updating 2409612..b744ad7
+Fast-forward
+ 043_eval1/grade.txt | 27 +++++++--------------------
+ 1 file changed, 7 insertions(+), 20 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:25:23.126467
+For commit ID 240961268f020d2cfe58bf959fbbb6f292f73333
+Grading at Wed Oct  5 01:25:21 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv daily_cases.csv
+Your file matched the expected output
+
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ cp population.csv population_cum.csv
+~/ece551/043_eval1 $ make printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+~/ece551/043_eval1 $ ./printCumulative population_cum.csv daily_small.csv 
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 0.002 0.002 0.002 0.003 0.003 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.006 0.015 0.016 0.027 0.037 0.043 0.061 0.092 0.138 0.193 0.315 0.416 0.537 0.675
+population is 0: Success
+~/ece551/043_eval1 $ make printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+~/ece551/043_eval1 $ ./printCumulative population.csv daily_small.csv 
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 0.002 0.002 0.002 0.003 0.003 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.004 0.006 0.015 0.016 0.027 0.037 0.043 0.061 0.092 0.138 0.193 0.315 0.416 0.537 0.675
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.001 0.005 0.005 0.006
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.002 0.002 0.002 0.002 0.004 0.004 0.006 0.008 0.008 0.008 0.008 0.014
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.001 0.001 0.002 0.002 0.002 0.002 0.002
+~/ece551/043_eval1 $ 
