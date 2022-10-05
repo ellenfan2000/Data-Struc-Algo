@@ -103,6 +103,11 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   for (size_t i = 0; i < n_days - 6; i++) {
     sum = 0;
     for (size_t j = 0; j < 7; j++) {
+      //check overflow
+      if (UINT_MAX - sum < data[i + j]) {
+        perror("Overflow\n");
+        exit(EXIT_FAILURE);
+      }
       sum += data[i + j];
     }
     avg[i] = sum / 7;

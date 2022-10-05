@@ -1,5 +1,5 @@
 #error
-
+printRunningAvg population.csv daily_3.csv
 
 #success
 printRunningAvg population.csv daily_small.csv
