@@ -1,6 +1,6 @@
-Grading at 10/05/2022:04:05:18.113810
-For commit ID 4e4f9ef56002cd64082bc680673e63be8b113f6b
-Grading at Wed Oct  5 12:05:09 AM EDT 2022
+Grading at 10/05/2022:04:12:45.614264
+For commit ID 61078749582a3bed69e8ad94fddede36d5c8f6bf
+Grading at Wed Oct  5 12:12:44 AM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -10,48 +10,11 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o pr
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
 Running your test cases
 +-----------------------------------------------------------------------+
-Test case printCountries population_invalid1.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population_invalid2.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population_invalid3.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population_invalid5.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population_invalid6.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population_invalid7.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population1.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries population.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries population2.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries population3.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries population_invalid4.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv daily_cases.csv
-Line_2_did_not_match
+Test case printRunningAvg population.csv daily_small.csv
 Line_4_did_not_match
 Line_6_did_not_match
 Line_8_did_not_match
-Line_10_did_not_match
-Line_12_did_not_match
 Line_14_did_not_match
-Line_16_did_not_match
 Line_18_did_not_match
 Your file did not match the expected ouput
 
