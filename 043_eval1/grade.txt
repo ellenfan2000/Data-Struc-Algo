@@ -1,6 +1,6 @@
-Grading at 10/05/2022:05:29:38.084815
-For commit ID 1729c0ec2540f10ce2db98866ffd63f0a4f931bb
-Grading at Wed Oct  5 01:29:36 AM EDT 2022
+Grading at 10/05/2022:05:35:41.106993
+For commit ID 15e87bbeee46ab1f801a66b2d4ab4a7c0f3812b4
+Grading at Wed Oct  5 01:35:40 AM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -9,17 +9,7 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o pr
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
 Running your test cases
-+-----------------------------------------------------------------------+
-Test case printCumulative population_cum.csv daily_small.csv
-Our printCumulative does not consider this an error case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv daily_small.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv daily_cases.csv
-Your file matched the expected output
-
-You have FAILED one or more of your test cases
-Keep debugging
+Program must be one of printCountries printRunningAvg printCumulative printDailyMax
+But found "printDailymax"
 
 Overall Grade: NO GRADE YET
