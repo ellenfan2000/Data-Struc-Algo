@@ -128,7 +128,8 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
     cum[i] = cum_sum * 100000 / pop;
   }
 }
-/*This function find the maximum number of daily cases of all countries represented in the data*/
+/*This function find the maximum number of daily cases of all countries 
+represented in data among all days*/
 void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
