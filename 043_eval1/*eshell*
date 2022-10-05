@@ -1,0 +1,2214 @@
+Welcome to the Emacs shell
+
+~/ece551/043_eval1 $ ls
+#README#         pandemic.c        population2.csv~         population_invalid4.csv   printCountries     testcases.txt
+Makefile         pandemic.h        population3.csv          population_invalid5.csv   printCountries.o   testcases.txt~
+README           population.csv    population3.csv~         population_invalid6.csv   printCumulative.o  
+daily_cases.csv  population1.csv   population_invalid1.csv  population_invalid7.csv   printDailyMax.o    
+daily_small.csv  population1.csv~  population_invalid2.csv  population_invalid7.csv~  printRunningAvg.o  
+grade.txt        population2.csv   population_invalid3.csv  population_invalid8.csv   test_country.csv   
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ git add pandemic.c
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master a5038da] pandemic.c
+ 1 file changed, 34 insertions(+), 28 deletions(-)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 912 bytes | 912.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   1d486f5..a5038da  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   population_invalid4.csv
+	modified:   printRunningAvg.o
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Please fix the above before requesting grading
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master 9267ff0] pandemic.c
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ rewrite 043_eval1/printRunningAvg.o (69%)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 8.95 KiB | 1.49 MiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   a5038da..9267ff0  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 9267ff02dfe75bb35a677be41868758da8e0f1e5
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 605 bytes | 60.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   9267ff0..99ec76d  master     -> origin/master
+Updating 9267ff0..99ec76d
+Fast-forward
+ 043_eval1/grade.txt | 76 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 67 insertions(+), 9 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:02:34:35.083873
+For commit ID 9267ff02dfe75bb35a677be41868758da8e0f1e5
+Grading at Tue Oct  4 10:34:27 PM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+9
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+9
+10
+8
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+9
+10
+8
+10
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+9
+10
+0
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+9
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+9
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Line_11_did_not_match
+Line_12_did_not_match
+Line_13_did_not_match
+Line_14_did_not_match
+Line_15_did_not_match
+Line_16_did_not_match
+Line_17_did_not_match
+Line_18_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master e871563] pandemic.c
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 372 bytes | 372.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   99ec76d..e871563  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: e8715633237ddc0a330b272d79de4957ba2c394e
+
+Grading this assignment requires 1 eval tokens
+You have 2999 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 484 bytes | 484.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   e871563..d8772d7  master     -> origin/master
+Updating e871563..d8772d7
+Fast-forward
+ 043_eval1/grade.txt | 62 ++++++--------------------------------------------------------
+ 1 file changed, 6 insertions(+), 56 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:02:37:42.472860
+For commit ID e8715633237ddc0a330b272d79de4957ba2c394e
+Grading at Tue Oct  4 10:37:35 PM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ nil
+nil: command not found
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population1.csv 
+Brazil: 212559409
+China: 143933774
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ cat population1.csv 
+Country,Population
+Brazil,212559409
+China,      14393     3774
+Germany,83783945
+India,1380004385
+Nigeria,206139587
+Norway,5421242
+South Korea,51269183
+United Kingdom,67886004
+United States,331002647
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population1.csv 
+Invalid Population: contain invalid character: Success
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "pandemic.c"
+[master eed6d7a] pandemic.c
+ 3 files changed, 2 insertions(+), 3 deletions(-)
+ create mode 100755 043_eval1/printCountries
+~/ece551/043_eval1 $ git push
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 33.87 KiB | 6.77 MiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   d8772d7..eed6d7a  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: eed6d7ab43ac2b3ccf91ec48be861a017acb5d59
+
+Grading this assignment requires 1 eval tokens
+You have 2998 eval remaining
+Do you wish to continue? yes
+Grading enqueued. You are position 1 in the queue
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 413 bytes | 413.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   eed6d7a..91b1840  master     -> origin/master
+Updating eed6d7a..91b1840
+Fast-forward
+ 043_eval1/grade.txt | 21 ++++++---------------
+ 1 file changed, 6 insertions(+), 15 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:02:42:35.058674
+For commit ID eed6d7ab43ac2b3ccf91ec48be861a017acb5d59
+Grading at Tue Oct  4 10:42:28 PM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Our printCountries does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population.cdv
+Could not open file population.cdv
+~/ece551/043_eval1 $ ./printCountries population.csv
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+18446744073709551615
+Brazil: 212559409
+China: 1439323774
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ ./printCountries population1.csv
+18446744073709551615
+Invalid Population: contain invalid character: Success
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+18446744073709551615
+18446744073709551615
+Overflow: Population too large
+: Success
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+15393237740000000000 and 18446744073709551615
+Overflow: Population too large
+: Success
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+15393237740000000000 and 18446744073709551615
+Overflow: Population too large
+: Success
+3~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+15393237740000000000 and 18446744073709551615
+Brazil: 212559409
+China: 9223372036854775807
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ man strtoll
+#<buffer *Man strtoll*>
+~/ece551/043_eval1 $ man atol
+#<buffer *Man atol*>
+~/ece551/043_eval1 $ man strtoll
+#<buffer *Man strtoll*>
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+15393237740000000000 and 18446744073709551615
+Brazil: 212559409
+China: 9223372036854775807
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+19393237740000000000 and 18446744073709551615
+1
+Overflow: Population too large
+: Success
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+18446744073709551616 and 18446744073709551615
+19
+Overflow: Population too large
+: Success
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+18446744073709551614 and 18446744073709551615
+Brazil: 212559409
+China: 9223372036854775807
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+18446744073709551614 and 18446744073709551615
+Brazil: 212559409
+China: 9223372036854775807
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+Brazil: 212559409
+China: 9223372036854775807
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "overflow"
+[master 715e65a] overflow
+ 4 files changed, 472 insertions(+), 4 deletions(-)
+ create mode 100644 043_eval1/*eshell*
+~/ece551/043_eval1 $ status
+No gradings in progress
+===========================================
+The following items are queued for release:
+===========================================
+943_eval1_late to be done Wed Oct  5 13:00:00 2022
+
+===========================================
+Assignments that are due in the near future
+ (but you have not yet passed) 
+============================================
+043_eval1 Due: Wed Oct  5 17:00:00 2022
+ **HARD DEADLINE**
+   -> requires 1
+055_ch13_rq Due: Fri Oct  7 17:00:00 2022
+
+   -> requires 1
+~/ece551/043_eval1 $ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    printCountries
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/ece551/043_eval1 $ git push
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 3.06 KiB | 3.06 MiB/s, done.
+Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   91b1840..715e65a  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    printCountries
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Please fix the above before requesting grading
+~/ece551/043_eval1 $ ls
+#*eshell*#  daily_cases.csv  population.csv           population_invalid2.csv  population_invalid7.csv  printRunningAvg.o
+#README#    daily_small.csv  population1.csv          population_invalid3.csv  population_invalid8.csv  test_country.csv
+*eshell*    grade.txt        population2.csv          population_invalid4.csv  printCountries.o         testcases.txt
+Makefile    pandemic.c       population3.csv          population_invalid5.csv  printCumulative.o        
+README      pandemic.h       population_invalid1.csv  population_invalid6.csv  printDailyMax.o          
+~/ece551/043_eval1 $ rm *eshell*
+~/ece551/043_eval1 $ ls
+#README#         grade.txt        population2.csv          population_invalid4.csv  printCountries.o   testcases.txt
+Makefile         pandemic.c       population3.csv          population_invalid5.csv  printCumulative.o  
+README           pandemic.h       population_invalid1.csv  population_invalid6.csv  printDailyMax.o    
+daily_cases.csv  population.csv   population_invalid2.csv  population_invalid7.csv  printRunningAvg.o  
+daily_small.csv  population1.csv  population_invalid3.csv  population_invalid8.csv  test_country.csv   
+~/ece551/043_eval1 $ git ls-files
+*eshell*
+.honor/Makefile
+.honor/README
+.honor/daily_cases.csv
+.honor/daily_small.csv
+.honor/pandemic.c
+.honor/pandemic.h
+.honor/population.csv
+.honor/printCountries.o
+.honor/printCumulative.o
+.honor/printDailyMax.o
+.honor/printRunningAvg.o
+Makefile
+README
+daily_cases.csv
+daily_small.csv
+grade.txt
+pandemic.c
+pandemic.h
+population.csv
+population1.csv
+population2.csv
+population3.csv
+population_invalid1.csv
+population_invalid2.csv
+population_invalid3.csv
+population_invalid4.csv
+population_invalid5.csv
+population_invalid6.csv
+population_invalid7.csv
+population_invalid8.csv
+printCountries
+printCountries.o
+printCumulative.o
+printDailyMax.o
+printRunningAvg.o
+test_country.csv
+testcases.txt
+~/ece551/043_eval1 $ git rm *eshell*
+rm '043_eval1/*eshell*'
+~/ece551/043_eval1 $ git ls-files
+.honor/Makefile
+.honor/README
+.honor/daily_cases.csv
+.honor/daily_small.csv
+.honor/pandemic.c
+.honor/pandemic.h
+.honor/population.csv
+.honor/printCountries.o
+.honor/printCumulative.o
+.honor/printDailyMax.o
+.honor/printRunningAvg.o
+Makefile
+README
+daily_cases.csv
+daily_small.csv
+grade.txt
+pandemic.c
+pandemic.h
+population.csv
+population1.csv
+population2.csv
+population3.csv
+population_invalid1.csv
+population_invalid2.csv
+population_invalid3.csv
+population_invalid4.csv
+population_invalid5.csv
+population_invalid6.csv
+population_invalid7.csv
+population_invalid8.csv
+printCountries
+printCountries.o
+printCumulative.o
+printDailyMax.o
+printRunningAvg.o
+test_country.csv
+testcases.txt
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "overflow"
+[master 3c3987d] overflow
+ 1 file changed, 460 deletions(-)
+ delete mode 100644 043_eval1/*eshell*
+~/ece551/043_eval1 $ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 273 bytes | 273.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   715e65a..3c3987d  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    printCountries
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Please fix the above before requesting grading
+~/ece551/043_eval1 $ git ststus
+git: 'ststus' is not a git command. See 'git --help'.
+
+The most similar command is
+	status
+~/ece551/043_eval1 $ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    printCountries
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/ece551/043_eval1 $ git ls-files
+.honor/Makefile
+.honor/README
+.honor/daily_cases.csv
+.honor/daily_small.csv
+.honor/pandemic.c
+.honor/pandemic.h
+.honor/population.csv
+.honor/printCountries.o
+.honor/printCumulative.o
+.honor/printDailyMax.o
+.honor/printRunningAvg.o
+Makefile
+README
+daily_cases.csv
+daily_small.csv
+grade.txt
+pandemic.c
+pandemic.h
+population.csv
+population1.csv
+population2.csv
+population3.csv
+population_invalid1.csv
+population_invalid2.csv
+population_invalid3.csv
+population_invalid4.csv
+population_invalid5.csv
+population_invalid6.csv
+population_invalid7.csv
+population_invalid8.csv
+printCountries
+printCountries.o
+printCumulative.o
+printDailyMax.o
+printRunningAvg.o
+test_country.csv
+testcases.txt
+~/ece551/043_eval1 $ git rm printCountries
+rm '043_eval1/printCountries'
+~/ece551/043_eval1 $ git commit -m "printcountries"
+[master 8981638] printcountries
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100755 043_eval1/printCountries
+~/ece551/043_eval1 $ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 281 bytes | 281.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   3c3987d..8981638  master -> master
+~/ece551/043_eval1 $ frade
+frade: command not found
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 898163809ec7347fb02b7683f26acc6ad33bd525
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading enqueued. You are position 2 in the queue
+~/ece551/043_eval1 $ status
+terminate called after throwing an instance of 'pqxx::argument_error'
+  what():  Unknown column name: 'date_part'.
+Could not read list of gradings in progress
+~/ece551/043_eval1 $ status
+No gradings in progress
+===========================================
+The following items are queued for release:
+===========================================
+943_eval1_late to be done Wed Oct  5 13:00:00 2022
+
+===========================================
+Assignments that are due in the near future
+ (but you have not yet passed) 
+============================================
+043_eval1 Due: Wed Oct  5 17:00:00 2022
+ **HARD DEADLINE**
+   -> requires 1
+055_ch13_rq Due: Fri Oct  7 17:00:00 2022
+
+   -> requires 1
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 480 bytes | 480.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   8981638..a0a4142  master     -> origin/master
+Updating 8981638..a0a4142
+Fast-forward
+ 043_eval1/grade.txt | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:03:12:24.317305
+For commit ID 898163809ec7347fb02b7683f26acc6ad33bd525
+Grading at Tue Oct  4 11:12:16 PM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Line_2_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ man strtoull
+#<buffer *Man strtoull*>
+~/ece551/043_eval1 $ make printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+~/ece551/043_eval1 $ ./printCountries population_invalid4.csv
+Brazil: 212559409
+China: 18446744073709551614
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ make printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_small.csv
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 8.429 13.000 17.571 22.143 24.286 26.429 26.429 26.429 26.429 26.429 26.429 27.000 30.000 52.429 77.571 124.286 191.000 271.571 388.571 566.143 819.286 1182.143 1773.857 2555.000 3570.857 4832.571
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.714 1.286 2.000
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.571 2.000 2.429 2.857 3.286 4.000
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.857 2.429 3.000 3.571 4.286
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_cases.csv
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.429 1.571 1.857 2.857 4.571 6.143 9.429 12.714 17.286 24.286 34.143 46.286 61.714 86.714 116.571 153.286 207.000 284.714 399.857 543.714 736.000 972.714 1245.571 1532.000 1859.714 2218.714 2615.286 3002.429 3386.429 3888.714 4517.714 5231.286 6036.857 6947.429 7929.429 8997.571 10140.429 11439.143 12860.143 14371.857 15864.571 17441.571 19066.429 20715.714 22486.143 24281.571 26287.857 28555.286 30910.286 33360.429 35905.714 38396.714 41120.571 43879.571 47009.571 50328.714 54031.571 58146.857 62776.143 67903.000 73416.429 78852.143 84460.571 90357.571 96476.000 103198.286 110302.000 117979.000 126461.857 135255.000 143905.143 152887.143 161995.143 171682.571 182096.143 193125.143 204322.429 216592.286 230026.429 244684.286 259994.143 276089.429 292411.714 309859.000 327098.714 344183.571 361361.000 379668.286 398850.571 420428.000 442090.571 463740.429 487192.000 511791.286 537033.286 562832.714 587746.571 613019.286 638871.429 665174.286 692088.571 718930.857 745080.571 770463.000 795586.714 821423.714 847664.571 873801.857 898846.714 928004.286 959013.571 990072.714 1021244.000 1053060.714 1086382.714 1122093.000 1156673.143 1191828.571 1228843.571 1266232.857 1302823.571 1339983.857 1378375.857 1416105.429 1453725.000 1490712.429 1527153.714 1565232.000 1603004.429 1639993.143 1677385.429 1714934.857 1752310.000 1789693.286 1826584.000 1862810.857 1899435.429 1934507.000 1968079.857 2001466.714 2034849.429 2068110.857 2105363.143 2144695.143 2187129.143 2232793.857 2278608.429 2324855.429 2371075.000 2417468.000 2463557.571 2509146.000 2553912.286 2598853.143 2642845.000 2688377.857 2732207.571 2775366.143 2818217.143 2861722.143 2904828.571 2948707.429 2992665.857 3036339.000 3081005.286 3125730.714 3169257.000 3212796.286
+China
+ 8.429 13.000 17.571 22.143 24.286 26.429 26.429 26.429 26.429 26.429 26.429 27.000 30.000 52.429 77.571 124.286 191.000 271.571 388.571 566.143 819.286 1182.143 1773.857 2555.000 3570.857 4832.571 6330.571 8103.571 10165.857 12440.143 15058.143 17960.000 21030.429 24289.857 27551.714 30836.714 34015.000 36929.857 41475.286 46163.000 50725.000 55201.286 59545.857 63804.714 68023.857 70136.286 71782.286 73183.714 74390.857 75336.000 76084.714 76642.000 77205.714 77689.143 78115.714 78531.857 78946.143 79305.000 79622.286 79893.571 80142.143 80344.000 80470.429 80574.000 80662.286 80737.714 80799.857 80840.857 80870.143 80896.000 80919.000 80945.286 80970.714 80999.000 81038.286 81082.286 81132.429 81198.714 81268.714 81346.571 81432.714 81518.143 81613.143 81715.000 81811.143 81909.429 82004.286 82098.857 82190.000 82273.000 82346.714 82416.000 82481.286 82551.143 82619.000 82684.714 82752.857 82827.429 82908.429 82994.857 83076.000 83152.000 83270.429 83382.000 83482.857 83569.714 83647.714 83720.857 83788.571 83807.143 83823.429 83838.571 83852.143 83864.857 83875.714 83885.429 83895.714 83904.286 83911.714 83919.143 83923.143 83927.143 83930.857 83933.714 83936.143 83940.429 83947.000 83953.429 83960.571 83968.286 83975.857 83984.714 83992.286 83998.571 84006.000 84012.714 84018.857 84026.000 84032.143 84037.857 84043.714 84049.286 84054.714 84060.286 84064.143 84070.143 84076.429 84083.857 84091.286 84099.286 84107.000 84116.286 84124.000 84132.286 84138.571 84144.286 84149.857 84156.857 84163.286 84170.571 84185.143 84205.714 84232.000 84264.000 84299.571 84339.286 84381.571 84419.429 84453.286 84488.429 84521.429 84552.143 84581.714 84610.429 84637.571 84664.000 84686.286 84705.143 84725.571 84744.000 84760.286 84776.571 84792.857 84809.429 84828.286 84847.429 84871.143 84899.286 84929.857 84965.000 85004.429 85048.571 85090.857 85137.571 85190.000 85248.857 85319.714 85394.714 85472.571 85566.857 85670.000 85784.143 85912.429 86049.143 86204.286 86378.429 86565.143 86771.429 86979.000 87185.571 87387.714 87575.714 87749.429 87908.714 88047.429 88179.571 88300.286 88415.714 88531.000 88639.286 88741.714 88839.429 88930.000 89016.714 89099.857
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.714 1.286 2.000 3.000 4.143 5.429 6.857 7.857 8.857 9.857 10.714 11.429 12.000 12.286 12.857 13.429 13.857 14.143 14.429 14.714 15.000 15.000 15.000 15.000 15.000 15.000 15.000 15.000 15.286 16.143 20.714 26.714 40.429 56.714 77.000 102.571 137.000 187.429 277.000 382.143 492.571 632.857 790.000 976.429 1257.714 1597.429 2018.571 2580.857 3277.000 4114.143 5061.429 6742.714 8903.429 11427.429 14275.429 17589.714 21075.143 25119.429 29140.857 33483.000 37923.571 42569.857 47241.429 52357.429 57645.143 62989.143 68302.857 73898.143 79340.000 84670.286 89793.429 94747.714 99580.429 104134.714 108244.000 112190.429 115886.571 119366.000 122544.286 125445.000 128270.857 131044.857 133710.000 136332.714 138919.857 141433.571 143798.286 145941.000 147980.714 149912.286 151752.286 153459.000 155040.857 156523.000 157846.571 159035.286 160175.571 161250.286 162286.857 163282.857 164217.429 165195.714 166156.000 167070.286 168020.000 168935.571 169813.857 170649.857 171395.714 172129.571 172861.286 173533.000 174204.571 174849.286 175429.286 176011.857 176572.714 177126.000 177667.714 178147.286 178570.857 179034.571 179512.571 179969.857 180433.429 180865.714 181295.143 181730.429 182132.286 182486.857 182843.571 183183.286 183542.571 183898.429 184277.286 184620.571 184955.429 185282.571 185606.571 185934.571 186266.429 186601.857 187010.429 187455.143 187962.714 188519.571 189094.286 189703.571 190320.000 190894.571 191481.429 192006.714 192492.714 192978.000 193446.000 193895.857 194341.286 194748.857 195154.000 195553.000 195936.571 196310.286 196675.286 197033.000 197384.429 197737.143 198081.286 198428.571 198769.286 199123.143 199503.857 199906.143 200301.857 200710.429 201134.714 201573.714 202017.714 202494.857 203008.000 203535.857 204076.714 204633.429 205223.000 205860.143 206505.143 207175.000 207835.571 208520.286 209240.143 209968.143 210716.571 211504.571 212316.429 213173.286 214019.714 214878.571 215806.714 216792.000 217820.429 218890.714 219971.000 221069.143
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.714 1.000 1.429 1.857 2.143 2.429 2.714 2.857 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.286 3.714 7.286 11.000 15.000 19.429 23.857 29.429 35.714 42.143 48.714 56.143 64.143 72.571 84.143 96.571 109.714 126.286 147.429 180.286 229.714 282.143 342.857 412.000 488.143 579.857 674.000 764.286 872.714 992.000 1180.000 1405.286 1695.143 2037.286 2465.286 2918.143 3460.571 3999.000 4586.286 5235.571 5947.286 6673.714 7522.571 8414.571 9364.000 10360.429 11350.571 12401.429 13560.429 14737.143 15958.000 17245.571 18629.857 20076.714 21617.286 23135.429 24683.286 26304.429 27969.714 29679.143 31512.000 33438.286 35529.857 37958.143 40538.000 43381.143 46423.857 49613.286 52893.143 56410.143 59884.857 63440.571 67019.286 70680.429 74434.429 78432.714 82578.000 86918.429 91556.857 96464.857 101675.857 107270.286 113119.000 119215.571 125535.714 131966.714 138534.429 145299.000 152250.714 159432.857 166817.143 174435.143 182413.429 190782.857 199493.000 208477.857 217690.000 227129.429 236828.286 246680.857 256632.286 266741.571 277075.286 287688.714 298519.143 309446.714 320515.571 331996.571 343853.286 356146.857 368938.143 382203.571 396078.429 410666.714 425832.286 441527.857 457800.000 474714.000 492290.571 510379.857 528852.714 547643.571 566949.714 586858.571 607473.714 628773.000 650605.143 673022.857 696259.286 720296.143 744953.429 770151.714 795986.143 822712.857 850393.429 879190.571 909194.857 940309.143 972889.857 1007145.429 1042636.714 1079313.000 1117850.000 1158437.571 1201029.714 1245016.000 1290360.286 1337212.429 1385605.857 1434914.000 1485046.143 1536350.000 1588521.571 1641127.571 1694354.571 1748152.429 1802544.429 1858002.143 1914091.143 1971560.714 2030329.143 2089319.143 2149516.857 2211245.571 2273262.143 2335773.714 2398155.429 2459953.857
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.714 0.857 1.000 1.000 1.000 1.000 1.000 1.143 1.286 1.429 1.571 1.714 1.857 2.000 2.000 2.143 3.000 3.857 5.286 8.143 12.143 17.571 23.429 29.571 37.714 47.571 58.286 67.857 80.857 93.286 107.571 123.143 138.714 154.857 174.143 189.429 207.000 224.857 241.143 257.571 273.000 286.000 301.000 318.000 336.714 358.714 385.571 417.571 461.000 507.000 565.429 632.000 709.000 795.000 886.429 978.714 1074.714 1181.857 1304.000 1439.857 1593.429 1765.714 1949.286 2158.571 2361.143 2563.571 2791.286 3040.143 3292.000 3555.000 3817.714 4080.143 4341.000 4574.714 4793.714 5003.714 5226.571 5445.714 5676.286 5920.000 6184.857 6444.286 6716.429 6985.000 7255.429 7533.000 7826.714 8098.000 8389.571 8722.286 9054.143 9412.714 9766.286 10113.857 10485.429 10848.571 11188.286 11520.286 11837.857 12215.714 12602.429 13036.429 13513.143 14005.857 14520.000 15071.000 15597.286 16149.000 16709.857 17276.429 17865.857 18460.000 19068.714 19672.000 20284.143 20874.714 21467.714 22077.571 22695.143 23297.143 23914.714 24552.429 25194.714 25804.143 26388.429 26980.429 27573.714 28158.714 28696.571 29216.286 29753.286 30299.000 30848.571 31401.000 31947.714 32520.571 33107.143 33697.286 34285.857 34872.286 35454.000 36051.857 36635.429 37220.286 37803.857 38356.714 38909.429 39474.429 40046.286 40598.286 41132.714 41648.714 42157.286 42630.000 43051.286 43426.857 43810.000 44175.000 44537.286 44909.143 45300.000 45691.143 46099.286 46506.857 46917.143 47311.143 47686.857 48042.714
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.714 1.571 3.714 6.429 10.000 14.714 22.571 34.286 49.571 68.429 89.857 113.714 148.571 210.429 286.857 359.429 468.000 597.714 737.286 884.571 1018.000 1151.000 1311.143 1456.714 1607.429 1779.143 1958.857 2172.143 2401.286 2664.000 2938.143 3219.571 3484.571 3753.286 4003.143 4257.286 4489.714 4727.571 4947.286 5165.714 5368.000 5560.143 5735.143 5883.143 5998.857 6109.571 6214.286 6314.714 6410.000 6500.143 6578.286 6673.143 6766.429 6855.714 6941.429 7023.286 7102.429 7190.571 7259.571 7322.000 7382.000 7444.714 7504.286 7556.429 7606.571 7648.286 7691.714 7736.571 7779.143 7820.000 7860.714 7900.000 7944.286 7985.714 8022.714 8055.857 8085.143 8110.857 8134.143 8152.429 8166.429 8186.857 8204.286 8220.000 8233.286 8249.286 8265.286 8281.286 8296.000 8311.286 8327.714 8346.714 8361.286 8375.857 8390.429 8398.857 8410.571 8419.571 8430.429 8443.714 8457.000 8470.286 8489.714 8506.429 8525.000 8541.714 8556.286 8570.857 8585.429 8597.429 8607.143 8619.143 8633.143 8645.429 8660.000 8674.571 8690.857 8708.000 8724.714 8739.143 8756.714 8772.000 8787.286 8803.000 8819.286 8835.000 8849.571 8861.000 8872.429 8883.857 8894.571 8904.714 8913.286 8921.714 8931.714 8941.714 8951.714 8959.000 8965.857 8973.571 8981.714 8988.857 8996.000 9003.143 9009.857 9017.571 9025.000 9032.286 9042.286 9052.286 9062.286 9075.000 9088.429 9102.286 9118.000 9135.571 9153.143 9170.714 9192.286 9221.000 9251.286 9285.143 9322.286 9359.429 9396.571 9449.429 9499.571 9555.000 9608.429 9663.000 9717.571 9772.143
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.571 2.000 2.429 2.857 3.286 4.000 5.429 7.143 8.714 10.429 12.429 15.143 17.571 19.286 20.714 22.429 24.143 25.571 26.286 26.857 27.429 28.000 28.429 28.857 31.429 38.857 57.000 102.286 184.000 288.571 411.571 568.714 785.143 1051.857 1421.286 1839.143 2332.000 2892.000 3489.429 4085.286 4694.143 5242.143 5757.571 6210.429 6596.286 6943.000 7243.429 7485.571 7674.000 7820.857 7942.857 8058.143 8152.143 8251.571 8347.714 8449.571 8554.571 8658.143 8760.571 8864.000 8960.571 9057.714 9154.714 9252.714 9352.714 9459.714 9552.429 9657.429 9761.714 9858.571 9952.000 10041.000 10118.857 10204.286 10268.143 10323.571 10365.571 10404.857 10441.000 10474.286 10503.857 10531.000 10557.429 10586.429 10607.714 10627.286 10644.286 10659.000 10671.714 10682.143 10691.429 10701.000 10710.143 10720.000 10729.571 10738.571 10748.000 10756.857 10766.143 10775.143 10782.571 10789.000 10795.429 10802.286 10810.857 10822.429 10837.857 10856.714 10879.000 10904.857 10932.857 10961.000 10986.143 11008.429 11028.714 11049.857 11068.571 11086.286 11104.571 11124.571 11144.714 11165.714 11187.857 11219.571 11256.714 11296.143 11335.857 11378.286 11423.429 11469.857 11510.571 11548.571 11588.286 11632.286 11676.714 11721.143 11765.714 11811.143 11859.000 11906.429 11950.429 11994.286 12037.571 12079.857 12124.143 12167.429 12213.429 12261.571 12306.857 12353.857 12402.000 12445.714 12488.000 12528.000 12570.000 12615.571 12660.714 12705.714 12754.429 12806.571 12860.429 12914.143 12961.857 13016.286 13072.571 13128.143 13181.143 13230.143 13276.714 13332.143 13379.429 13423.286 13468.857 13516.571 13564.857 13611.714 13653.429 13696.857 13743.714 13790.286 13834.143 13888.571 13946.429 14004.143 14059.429 14112.571 14159.857 14206.429 14241.286 14267.857 14298.429 14329.857 14359.143 14392.000 14422.571 14454.857 14492.286 14526.143 14560.000 14596.857 14635.571 14686.143 14754.286 14857.143 14984.143
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.286 0.571 0.857 1.143 1.571 2.000 2.571 2.857 3.143 4.000 5.000 5.857 6.857 7.714 8.571 9.429 9.714 9.857 10.000 10.000 10.000 10.000 10.143 10.286 10.429 10.857 12.000 13.714 16.571 21.000 26.143 34.429 48.143 69.000 97.286 131.714 176.000 228.143 285.286 357.857 459.571 611.286 824.857 1095.143 1408.429 1776.714 2211.143 2718.429 3310.429 3984.000 4768.571 5672.714 6710.571 7995.143 9509.143 11265.000 13311.143 15634.714 18190.286 20957.286 24000.714 27349.714 31016.000 34936.714 39102.286 43439.000 47880.571 52466.286 57185.714 61936.286 66685.429 71349.143 75949.857 80535.857 84964.143 89231.857 93490.143 97810.429 102222.571 106797.857 111425.143 116149.000 120934.857 125781.000 130608.000 135437.000 140127.000 144762.714 149377.286 153987.429 158591.143 163167.429 167710.429 172179.286 176578.000 180788.571 184849.571 188679.857 192338.857 195758.714 199025.429 202198.857 205400.429 208562.000 211649.286 214573.857 217421.714 220258.429 223025.000 225649.143 228223.286 230713.286 233195.571 235611.571 237948.714 240218.143 242349.714 244284.143 246092.429 247784.429 249400.000 250958.143 252475.571 253966.857 255431.286 256827.286 258149.429 259413.429 260631.143 261797.714 262915.429 263986.571 265035.286 266051.714 267058.429 268077.857 269111.714 270137.571 271155.429 272146.714 273139.429 274122.714 275077.000 276005.143 276912.286 277788.571 278631.286 279430.286 280184.286 280932.857 281653.857 282351.143 283010.000 283650.714 284274.429 284885.000 285460.143 286050.857 286637.857 287222.000 287812.143 288418.429 289022.714 289632.857 290215.286 290800.857 291399.000 292008.429 292616.286 293224.714 293840.429 294463.571 295096.286 295738.429 296380.714 297026.857 297687.000 298336.857 298980.714 299521.286 300063.571 300616.286 301190.286 301779.143 302414.000 303128.429 303928.571 304747.000 305580.286 306412.286 307242.429 308118.143 308977.857 309905.857 310850.714 311821.143 312872.857 313970.143 315064.286
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.857 2.429 3.000 3.571 4.286 5.000 5.857 6.714 7.571 8.429 9.429 10.286 11.000 11.571 11.714 12.000 12.286 12.571 13.000 13.429 13.857 14.286 14.571 14.857 15.000 15.143 18.000 20.857 23.714 29.143 34.571 40.857 47.143 51.571 56.429 64.143 71.286 81.571 95.857 120.571 159.429 211.429 277.857 370.857 499.429 664.143 868.429 1130.714 1490.429 1950.429 2508.571 3280.286 4437.857 6236.000 8728.857 12128.286 16618.571 22587.286 29559.286 38099.143 48347.857 60499.571 74487.857 89890.571 106773.143 125971.286 147046.571 169839.286 194593.429 221389.429 249190.857 278273.143 308157.571 338930.571 370429.571 402371.714 433473.714 464893.143 495521.429 525622.429 555269.857 584598.143 613255.857 642560.857 671434.571 700742.857 731532.143 760527.143 788790.143 815698.714 844836.857 874297.286 902968.571 929760.286 957943.143 986608.000 1017073.286 1044789.857 1072237.143 1099691.857 1127105.000 1154061.286 1180796.429 1206531.857 1231742.143 1256279.000 1280176.429 1303817.714 1326981.000 1349969.143 1372750.286 1395370.714 1417793.286 1440747.857 1463405.571 1486420.857 1509192.000 1531768.714 1553881.000 1576235.429 1598193.143 1619999.429 1641153.714 1661791.286 1682598.857 1703700.857 1724694.143 1745976.286 1767491.857 1789147.143 1810705.714 1832241.571 1853624.000 1875362.857 1896778.286 1917925.286 1939203.000 1960729.714 1982322.286 2004388.714 2026061.000 2047895.429 2070449.857 2093710.714 2117668.571 2142236.429 2168035.429 2194727.286 2223052.429 2252951.143 2284104.143 2317141.000 2352409.000 2388866.714 2427164.429 2466914.429 2507973.000 2551561.429 2596928.429 2643569.000 2690600.286 2739120.143 2788844.857 2840511.429 2893157.714 2947176.143 3002935.000 3061241.000 3120713.429 3181346.429 3243557.286 3307026.857 3372485.857 3438640.429 3504894.714 3571797.286 3638505.000 3705717.000 3773090.571 3838502.143 3904904.143 3971556.000 4037378.857 4103129.286 4167406.286 4232560.000 4298404.571 4362620.000 4425822.429 4487813.143 4548284.429 4608154.429 4664855.714 4720374.571 4774625.857 4828564.857 4882409.000 4936813.571 4989687.857 5043010.286 5095095.429 5148136.000 5200014.286 5251215.000
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ ls
+#*eshell*#       daily_small.csv  population1.csv          population_invalid3.csv  population_invalid8.csv  test_country.csv
+#README#         grade.txt        population2.csv          population_invalid4.csv  printCountries.o         testcases.txt
+Makefile         pandemic.c       population3.csv          population_invalid5.csv  printCumulative.o        
+README           pandemic.h       population_invalid1.csv  population_invalid6.csv  printDailyMax.o          
+daily_cases.csv  population.csv   population_invalid2.csv  population_invalid7.csv  printRunningAvg.o        
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit "test average"
+error: pathspec 'test average' did not match any file(s) known to git
+~/ece551/043_eval1 $ git commit -m "test average"
+[master 3f73978] test average
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 456 bytes | 456.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   a0a4142..3f73978  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 3f73978d3aa93845381859d123cfb54e410ac725
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 519 bytes | 519.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   3f73978..9f1a1e9  master     -> origin/master
+Updating 3f73978..9f1a1e9
+Fast-forward
+ 043_eval1/grade.txt | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:03:09.319216
+For commit ID 3f73978d3aa93845381859d123cfb54e410ac725
+Grading at Wed Oct  5 12:03:01 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Our printRunningAvg does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ git add *
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+~/ece551/043_eval1 $ git commit -m "test average"
+[master 4e4f9ef] test average
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+~/ece551/043_eval1 $ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 342 bytes | 342.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   9f1a1e9..4e4f9ef  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 4e4f9ef56002cd64082bc680673e63be8b113f6b
+
+Grading this assignment requires 1 eval tokens
+You have 2999 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 501 bytes | 125.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   4e4f9ef..a152ad2  master     -> origin/master
+Updating 4e4f9ef..a152ad2
+Fast-forward
+ 043_eval1/grade.txt | 21 +++++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:05:18.113810
+For commit ID 4e4f9ef56002cd64082bc680673e63be8b113f6b
+Grading at Wed Oct  5 12:05:09 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid2.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid3.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid5.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid6.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid7.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population1.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries population.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population2.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population3.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCountries population_invalid4.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Line_2_did_not_match
+Line_4_did_not_match
+Line_6_did_not_match
+Line_8_did_not_match
+Line_10_did_not_match
+Line_12_did_not_match
+Line_14_did_not_match
+Line_16_did_not_match
+Line_18_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ make printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_small.csv
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 8.429 13.000 17.571 22.143 24.286 26.429 26.429 26.429 26.429 26.429 26.429 27.000 30.000 52.429 77.571 124.286 191.000 271.571 388.571 566.143 819.286 1182.143 1773.857 2555.000 3570.857 4832.571
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.714 1.286 2.000
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.571 2.000 2.429 2.857 3.286 4.000
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.857 2.429 3.000 3.571 4.286
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_cases.csv
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.429 1.571 1.857 2.857 4.571 6.143 9.429 12.714 17.286 24.286 34.143 46.286 61.714 86.714 116.571 153.286 207.000 284.714 399.857 543.714 736.000 972.714 1245.571 1532.000 1859.714 2218.714 2615.286 3002.429 3386.429 3888.714 4517.714 5231.286 6036.857 6947.429 7929.429 8997.571 10140.429 11439.143 12860.143 14371.857 15864.571 17441.571 19066.429 20715.714 22486.143 24281.571 26287.857 28555.286 30910.286 33360.429 35905.714 38396.714 41120.571 43879.571 47009.571 50328.714 54031.571 58146.857 62776.143 67903.000 73416.429 78852.143 84460.571 90357.571 96476.000 103198.286 110302.000 117979.000 126461.857 135255.000 143905.143 152887.143 161995.143 171682.571 182096.143 193125.143 204322.429 216592.286 230026.429 244684.286 259994.143 276089.429 292411.714 309859.000 327098.714 344183.571 361361.000 379668.286 398850.571 420428.000 442090.571 463740.429 487192.000 511791.286 537033.286 562832.714 587746.571 613019.286 638871.429 665174.286 692088.571 718930.857 745080.571 770463.000 795586.714 821423.714 847664.571 873801.857 898846.714 928004.286 959013.571 990072.714 1021244.000 1053060.714 1086382.714 1122093.000 1156673.143 1191828.571 1228843.571 1266232.857 1302823.571 1339983.857 1378375.857 1416105.429 1453725.000 1490712.429 1527153.714 1565232.000 1603004.429 1639993.143 1677385.429 1714934.857 1752310.000 1789693.286 1826584.000 1862810.857 1899435.429 1934507.000 1968079.857 2001466.714 2034849.429 2068110.857 2105363.143 2144695.143 2187129.143 2232793.857 2278608.429 2324855.429 2371075.000 2417468.000 2463557.571 2509146.000 2553912.286 2598853.143 2642845.000 2688377.857 2732207.571 2775366.143 2818217.143 2861722.143 2904828.571 2948707.429 2992665.857 3036339.000 3081005.286 3125730.714 3169257.000 3212796.286
+China
+ 8.429 13.000 17.571 22.143 24.286 26.429 26.429 26.429 26.429 26.429 26.429 27.000 30.000 52.429 77.571 124.286 191.000 271.571 388.571 566.143 819.286 1182.143 1773.857 2555.000 3570.857 4832.571 6330.571 8103.571 10165.857 12440.143 15058.143 17960.000 21030.429 24289.857 27551.714 30836.714 34015.000 36929.857 41475.286 46163.000 50725.000 55201.286 59545.857 63804.714 68023.857 70136.286 71782.286 73183.714 74390.857 75336.000 76084.714 76642.000 77205.714 77689.143 78115.714 78531.857 78946.143 79305.000 79622.286 79893.571 80142.143 80344.000 80470.429 80574.000 80662.286 80737.714 80799.857 80840.857 80870.143 80896.000 80919.000 80945.286 80970.714 80999.000 81038.286 81082.286 81132.429 81198.714 81268.714 81346.571 81432.714 81518.143 81613.143 81715.000 81811.143 81909.429 82004.286 82098.857 82190.000 82273.000 82346.714 82416.000 82481.286 82551.143 82619.000 82684.714 82752.857 82827.429 82908.429 82994.857 83076.000 83152.000 83270.429 83382.000 83482.857 83569.714 83647.714 83720.857 83788.571 83807.143 83823.429 83838.571 83852.143 83864.857 83875.714 83885.429 83895.714 83904.286 83911.714 83919.143 83923.143 83927.143 83930.857 83933.714 83936.143 83940.429 83947.000 83953.429 83960.571 83968.286 83975.857 83984.714 83992.286 83998.571 84006.000 84012.714 84018.857 84026.000 84032.143 84037.857 84043.714 84049.286 84054.714 84060.286 84064.143 84070.143 84076.429 84083.857 84091.286 84099.286 84107.000 84116.286 84124.000 84132.286 84138.571 84144.286 84149.857 84156.857 84163.286 84170.571 84185.143 84205.714 84232.000 84264.000 84299.571 84339.286 84381.571 84419.429 84453.286 84488.429 84521.429 84552.143 84581.714 84610.429 84637.571 84664.000 84686.286 84705.143 84725.571 84744.000 84760.286 84776.571 84792.857 84809.429 84828.286 84847.429 84871.143 84899.286 84929.857 84965.000 85004.429 85048.571 85090.857 85137.571 85190.000 85248.857 85319.714 85394.714 85472.571 85566.857 85670.000 85784.143 85912.429 86049.143 86204.286 86378.429 86565.143 86771.429 86979.000 87185.571 87387.714 87575.714 87749.429 87908.714 88047.429 88179.571 88300.286 88415.714 88531.000 88639.286 88741.714 88839.429 88930.000 89016.714 89099.857
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.714 1.286 2.000 3.000 4.143 5.429 6.857 7.857 8.857 9.857 10.714 11.429 12.000 12.286 12.857 13.429 13.857 14.143 14.429 14.714 15.000 15.000 15.000 15.000 15.000 15.000 15.000 15.000 15.286 16.143 20.714 26.714 40.429 56.714 77.000 102.571 137.000 187.429 277.000 382.143 492.571 632.857 790.000 976.429 1257.714 1597.429 2018.571 2580.857 3277.000 4114.143 5061.429 6742.714 8903.429 11427.429 14275.429 17589.714 21075.143 25119.429 29140.857 33483.000 37923.571 42569.857 47241.429 52357.429 57645.143 62989.143 68302.857 73898.143 79340.000 84670.286 89793.429 94747.714 99580.429 104134.714 108244.000 112190.429 115886.571 119366.000 122544.286 125445.000 128270.857 131044.857 133710.000 136332.714 138919.857 141433.571 143798.286 145941.000 147980.714 149912.286 151752.286 153459.000 155040.857 156523.000 157846.571 159035.286 160175.571 161250.286 162286.857 163282.857 164217.429 165195.714 166156.000 167070.286 168020.000 168935.571 169813.857 170649.857 171395.714 172129.571 172861.286 173533.000 174204.571 174849.286 175429.286 176011.857 176572.714 177126.000 177667.714 178147.286 178570.857 179034.571 179512.571 179969.857 180433.429 180865.714 181295.143 181730.429 182132.286 182486.857 182843.571 183183.286 183542.571 183898.429 184277.286 184620.571 184955.429 185282.571 185606.571 185934.571 186266.429 186601.857 187010.429 187455.143 187962.714 188519.571 189094.286 189703.571 190320.000 190894.571 191481.429 192006.714 192492.714 192978.000 193446.000 193895.857 194341.286 194748.857 195154.000 195553.000 195936.571 196310.286 196675.286 197033.000 197384.429 197737.143 198081.286 198428.571 198769.286 199123.143 199503.857 199906.143 200301.857 200710.429 201134.714 201573.714 202017.714 202494.857 203008.000 203535.857 204076.714 204633.429 205223.000 205860.143 206505.143 207175.000 207835.571 208520.286 209240.143 209968.143 210716.571 211504.571 212316.429 213173.286 214019.714 214878.571 215806.714 216792.000 217820.429 218890.714 219971.000 221069.143
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.714 1.000 1.429 1.857 2.143 2.429 2.714 2.857 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.000 3.286 3.714 7.286 11.000 15.000 19.429 23.857 29.429 35.714 42.143 48.714 56.143 64.143 72.571 84.143 96.571 109.714 126.286 147.429 180.286 229.714 282.143 342.857 412.000 488.143 579.857 674.000 764.286 872.714 992.000 1180.000 1405.286 1695.143 2037.286 2465.286 2918.143 3460.571 3999.000 4586.286 5235.571 5947.286 6673.714 7522.571 8414.571 9364.000 10360.429 11350.571 12401.429 13560.429 14737.143 15958.000 17245.571 18629.857 20076.714 21617.286 23135.429 24683.286 26304.429 27969.714 29679.143 31512.000 33438.286 35529.857 37958.143 40538.000 43381.143 46423.857 49613.286 52893.143 56410.143 59884.857 63440.571 67019.286 70680.429 74434.429 78432.714 82578.000 86918.429 91556.857 96464.857 101675.857 107270.286 113119.000 119215.571 125535.714 131966.714 138534.429 145299.000 152250.714 159432.857 166817.143 174435.143 182413.429 190782.857 199493.000 208477.857 217690.000 227129.429 236828.286 246680.857 256632.286 266741.571 277075.286 287688.714 298519.143 309446.714 320515.571 331996.571 343853.286 356146.857 368938.143 382203.571 396078.429 410666.714 425832.286 441527.857 457800.000 474714.000 492290.571 510379.857 528852.714 547643.571 566949.714 586858.571 607473.714 628773.000 650605.143 673022.857 696259.286 720296.143 744953.429 770151.714 795986.143 822712.857 850393.429 879190.571 909194.857 940309.143 972889.857 1007145.429 1042636.714 1079313.000 1117850.000 1158437.571 1201029.714 1245016.000 1290360.286 1337212.429 1385605.857 1434914.000 1485046.143 1536350.000 1588521.571 1641127.571 1694354.571 1748152.429 1802544.429 1858002.143 1914091.143 1971560.714 2030329.143 2089319.143 2149516.857 2211245.571 2273262.143 2335773.714 2398155.429 2459953.857
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.714 0.857 1.000 1.000 1.000 1.000 1.000 1.143 1.286 1.429 1.571 1.714 1.857 2.000 2.000 2.143 3.000 3.857 5.286 8.143 12.143 17.571 23.429 29.571 37.714 47.571 58.286 67.857 80.857 93.286 107.571 123.143 138.714 154.857 174.143 189.429 207.000 224.857 241.143 257.571 273.000 286.000 301.000 318.000 336.714 358.714 385.571 417.571 461.000 507.000 565.429 632.000 709.000 795.000 886.429 978.714 1074.714 1181.857 1304.000 1439.857 1593.429 1765.714 1949.286 2158.571 2361.143 2563.571 2791.286 3040.143 3292.000 3555.000 3817.714 4080.143 4341.000 4574.714 4793.714 5003.714 5226.571 5445.714 5676.286 5920.000 6184.857 6444.286 6716.429 6985.000 7255.429 7533.000 7826.714 8098.000 8389.571 8722.286 9054.143 9412.714 9766.286 10113.857 10485.429 10848.571 11188.286 11520.286 11837.857 12215.714 12602.429 13036.429 13513.143 14005.857 14520.000 15071.000 15597.286 16149.000 16709.857 17276.429 17865.857 18460.000 19068.714 19672.000 20284.143 20874.714 21467.714 22077.571 22695.143 23297.143 23914.714 24552.429 25194.714 25804.143 26388.429 26980.429 27573.714 28158.714 28696.571 29216.286 29753.286 30299.000 30848.571 31401.000 31947.714 32520.571 33107.143 33697.286 34285.857 34872.286 35454.000 36051.857 36635.429 37220.286 37803.857 38356.714 38909.429 39474.429 40046.286 40598.286 41132.714 41648.714 42157.286 42630.000 43051.286 43426.857 43810.000 44175.000 44537.286 44909.143 45300.000 45691.143 46099.286 46506.857 46917.143 47311.143 47686.857 48042.714
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.714 1.571 3.714 6.429 10.000 14.714 22.571 34.286 49.571 68.429 89.857 113.714 148.571 210.429 286.857 359.429 468.000 597.714 737.286 884.571 1018.000 1151.000 1311.143 1456.714 1607.429 1779.143 1958.857 2172.143 2401.286 2664.000 2938.143 3219.571 3484.571 3753.286 4003.143 4257.286 4489.714 4727.571 4947.286 5165.714 5368.000 5560.143 5735.143 5883.143 5998.857 6109.571 6214.286 6314.714 6410.000 6500.143 6578.286 6673.143 6766.429 6855.714 6941.429 7023.286 7102.429 7190.571 7259.571 7322.000 7382.000 7444.714 7504.286 7556.429 7606.571 7648.286 7691.714 7736.571 7779.143 7820.000 7860.714 7900.000 7944.286 7985.714 8022.714 8055.857 8085.143 8110.857 8134.143 8152.429 8166.429 8186.857 8204.286 8220.000 8233.286 8249.286 8265.286 8281.286 8296.000 8311.286 8327.714 8346.714 8361.286 8375.857 8390.429 8398.857 8410.571 8419.571 8430.429 8443.714 8457.000 8470.286 8489.714 8506.429 8525.000 8541.714 8556.286 8570.857 8585.429 8597.429 8607.143 8619.143 8633.143 8645.429 8660.000 8674.571 8690.857 8708.000 8724.714 8739.143 8756.714 8772.000 8787.286 8803.000 8819.286 8835.000 8849.571 8861.000 8872.429 8883.857 8894.571 8904.714 8913.286 8921.714 8931.714 8941.714 8951.714 8959.000 8965.857 8973.571 8981.714 8988.857 8996.000 9003.143 9009.857 9017.571 9025.000 9032.286 9042.286 9052.286 9062.286 9075.000 9088.429 9102.286 9118.000 9135.571 9153.143 9170.714 9192.286 9221.000 9251.286 9285.143 9322.286 9359.429 9396.571 9449.429 9499.571 9555.000 9608.429 9663.000 9717.571 9772.143
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.571 2.000 2.429 2.857 3.286 4.000 5.429 7.143 8.714 10.429 12.429 15.143 17.571 19.286 20.714 22.429 24.143 25.571 26.286 26.857 27.429 28.000 28.429 28.857 31.429 38.857 57.000 102.286 184.000 288.571 411.571 568.714 785.143 1051.857 1421.286 1839.143 2332.000 2892.000 3489.429 4085.286 4694.143 5242.143 5757.571 6210.429 6596.286 6943.000 7243.429 7485.571 7674.000 7820.857 7942.857 8058.143 8152.143 8251.571 8347.714 8449.571 8554.571 8658.143 8760.571 8864.000 8960.571 9057.714 9154.714 9252.714 9352.714 9459.714 9552.429 9657.429 9761.714 9858.571 9952.000 10041.000 10118.857 10204.286 10268.143 10323.571 10365.571 10404.857 10441.000 10474.286 10503.857 10531.000 10557.429 10586.429 10607.714 10627.286 10644.286 10659.000 10671.714 10682.143 10691.429 10701.000 10710.143 10720.000 10729.571 10738.571 10748.000 10756.857 10766.143 10775.143 10782.571 10789.000 10795.429 10802.286 10810.857 10822.429 10837.857 10856.714 10879.000 10904.857 10932.857 10961.000 10986.143 11008.429 11028.714 11049.857 11068.571 11086.286 11104.571 11124.571 11144.714 11165.714 11187.857 11219.571 11256.714 11296.143 11335.857 11378.286 11423.429 11469.857 11510.571 11548.571 11588.286 11632.286 11676.714 11721.143 11765.714 11811.143 11859.000 11906.429 11950.429 11994.286 12037.571 12079.857 12124.143 12167.429 12213.429 12261.571 12306.857 12353.857 12402.000 12445.714 12488.000 12528.000 12570.000 12615.571 12660.714 12705.714 12754.429 12806.571 12860.429 12914.143 12961.857 13016.286 13072.571 13128.143 13181.143 13230.143 13276.714 13332.143 13379.429 13423.286 13468.857 13516.571 13564.857 13611.714 13653.429 13696.857 13743.714 13790.286 13834.143 13888.571 13946.429 14004.143 14059.429 14112.571 14159.857 14206.429 14241.286 14267.857 14298.429 14329.857 14359.143 14392.000 14422.571 14454.857 14492.286 14526.143 14560.000 14596.857 14635.571 14686.143 14754.286 14857.143 14984.143
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.286 0.571 0.857 1.143 1.571 2.000 2.571 2.857 3.143 4.000 5.000 5.857 6.857 7.714 8.571 9.429 9.714 9.857 10.000 10.000 10.000 10.000 10.143 10.286 10.429 10.857 12.000 13.714 16.571 21.000 26.143 34.429 48.143 69.000 97.286 131.714 176.000 228.143 285.286 357.857 459.571 611.286 824.857 1095.143 1408.429 1776.714 2211.143 2718.429 3310.429 3984.000 4768.571 5672.714 6710.571 7995.143 9509.143 11265.000 13311.143 15634.714 18190.286 20957.286 24000.714 27349.714 31016.000 34936.714 39102.286 43439.000 47880.571 52466.286 57185.714 61936.286 66685.429 71349.143 75949.857 80535.857 84964.143 89231.857 93490.143 97810.429 102222.571 106797.857 111425.143 116149.000 120934.857 125781.000 130608.000 135437.000 140127.000 144762.714 149377.286 153987.429 158591.143 163167.429 167710.429 172179.286 176578.000 180788.571 184849.571 188679.857 192338.857 195758.714 199025.429 202198.857 205400.429 208562.000 211649.286 214573.857 217421.714 220258.429 223025.000 225649.143 228223.286 230713.286 233195.571 235611.571 237948.714 240218.143 242349.714 244284.143 246092.429 247784.429 249400.000 250958.143 252475.571 253966.857 255431.286 256827.286 258149.429 259413.429 260631.143 261797.714 262915.429 263986.571 265035.286 266051.714 267058.429 268077.857 269111.714 270137.571 271155.429 272146.714 273139.429 274122.714 275077.000 276005.143 276912.286 277788.571 278631.286 279430.286 280184.286 280932.857 281653.857 282351.143 283010.000 283650.714 284274.429 284885.000 285460.143 286050.857 286637.857 287222.000 287812.143 288418.429 289022.714 289632.857 290215.286 290800.857 291399.000 292008.429 292616.286 293224.714 293840.429 294463.571 295096.286 295738.429 296380.714 297026.857 297687.000 298336.857 298980.714 299521.286 300063.571 300616.286 301190.286 301779.143 302414.000 303128.429 303928.571 304747.000 305580.286 306412.286 307242.429 308118.143 308977.857 309905.857 310850.714 311821.143 312872.857 313970.143 315064.286
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.286 0.429 0.571 0.857 1.143 1.857 2.429 3.000 3.571 4.286 5.000 5.857 6.714 7.571 8.429 9.429 10.286 11.000 11.571 11.714 12.000 12.286 12.571 13.000 13.429 13.857 14.286 14.571 14.857 15.000 15.143 18.000 20.857 23.714 29.143 34.571 40.857 47.143 51.571 56.429 64.143 71.286 81.571 95.857 120.571 159.429 211.429 277.857 370.857 499.429 664.143 868.429 1130.714 1490.429 1950.429 2508.571 3280.286 4437.857 6236.000 8728.857 12128.286 16618.571 22587.286 29559.286 38099.143 48347.857 60499.571 74487.857 89890.571 106773.143 125971.286 147046.571 169839.286 194593.429 221389.429 249190.857 278273.143 308157.571 338930.571 370429.571 402371.714 433473.714 464893.143 495521.429 525622.429 555269.857 584598.143 613255.857 642560.857 671434.571 700742.857 731532.143 760527.143 788790.143 815698.714 844836.857 874297.286 902968.571 929760.286 957943.143 986608.000 1017073.286 1044789.857 1072237.143 1099691.857 1127105.000 1154061.286 1180796.429 1206531.857 1231742.143 1256279.000 1280176.429 1303817.714 1326981.000 1349969.143 1372750.286 1395370.714 1417793.286 1440747.857 1463405.571 1486420.857 1509192.000 1531768.714 1553881.000 1576235.429 1598193.143 1619999.429 1641153.714 1661791.286 1682598.857 1703700.857 1724694.143 1745976.286 1767491.857 1789147.143 1810705.714 1832241.571 1853624.000 1875362.857 1896778.286 1917925.286 1939203.000 1960729.714 1982322.286 2004388.714 2026061.000 2047895.429 2070449.857 2093710.714 2117668.571 2142236.429 2168035.429 2194727.286 2223052.429 2252951.143 2284104.143 2317141.000 2352409.000 2388866.714 2427164.429 2466914.429 2507973.000 2551561.429 2596928.429 2643569.000 2690600.286 2739120.143 2788844.857 2840511.429 2893157.714 2947176.143 3002935.000 3061241.000 3120713.429 3181346.429 3243557.286 3307026.857 3372485.857 3438640.429 3504894.714 3571797.286 3638505.000 3705717.000 3773090.571 3838502.143 3904904.143 3971556.000 4037378.857 4103129.286 4167406.286 4232560.000 4298404.571 4362620.000 4425822.429 4487813.143 4548284.429 4608154.429 4664855.714 4720374.571 4774625.857 4828564.857 4882409.000 4936813.571 4989687.857 5043010.286 5095095.429 5148136.000 5200014.286 5251215.000
+~/ece551/043_eval1 $ cp -r testcases.txt testcases_country.txt
+~/ece551/043_eval1 $ ls
+#*eshell*#       grade.txt        population3.csv          population_invalid6.csv  printRunningAvg
+#README#         pandemic.c       population_invalid1.csv  population_invalid7.csv  printRunningAvg.o
+Makefile         pandemic.h       population_invalid2.csv  population_invalid8.csv  test_country.csv
+README           population.csv   population_invalid3.csv  printCountries.o         testcases.txt
+daily_cases.csv  population1.csv  population_invalid4.csv  printCumulative.o        testcases_country.txt
+daily_small.csv  population2.csv  population_invalid5.csv  printDailyMax.o          
+~/ece551/043_eval1 $ rm test_country.csv 
+~/ece551/043_eval1 $ ls
+#*eshell*#       grade.txt        population3.csv          population_invalid6.csv  printRunningAvg
+#README#         pandemic.c       population_invalid1.csv  population_invalid7.csv  printRunningAvg.o
+Makefile         pandemic.h       population_invalid2.csv  population_invalid8.csv  testcases.txt
+README           population.csv   population_invalid3.csv  printCountries.o         testcases_country.txt
+daily_cases.csv  population1.csv  population_invalid4.csv  printCumulative.o        
+daily_small.csv  population2.csv  population_invalid5.csv  printDailyMax.o          
+~/ece551/043_eval1 $ ls
+#*eshell*#       grade.txt        population3.csv          population_invalid6.csv  printRunningAvg
+#README#         pandemic.c       population_invalid1.csv  population_invalid7.csv  printRunningAvg.o
+Makefile         pandemic.h       population_invalid2.csv  population_invalid8.csv  testcases.txt
+README           population.csv   population_invalid3.csv  printCountries.o         testcases_country.txt
+daily_cases.csv  population1.csv  population_invalid4.csv  printCumulative.o        
+daily_small.csv  population2.csv  population_invalid5.csv  printDailyMax.o          
+~/ece551/043_eval1 $ make clean
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+~/ece551/043_eval1 $ ls
+#*eshell*#       grade.txt        population3.csv          population_invalid6.csv  printRunningAvg.o
+#README#         pandemic.c       population_invalid1.csv  population_invalid7.csv  testcases.txt
+Makefile         pandemic.h       population_invalid2.csv  population_invalid8.csv  testcases_country.txt
+README           population.csv   population_invalid3.csv  printCountries.o         upload.sh
+daily_cases.csv  population1.csv  population_invalid4.csv  printCumulative.o        
+daily_small.csv  population2.csv  population_invalid5.csv  printDailyMax.o          
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master bb3039e] test
+ 3 files changed, 9 insertions(+), 15 deletions(-)
+ rewrite 043_eval1/testcases.txt (96%)
+ copy 043_eval1/{testcases.txt => testcases_country.txt} (100%)
+ create mode 100644 043_eval1/upload.sh
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 478 bytes | 478.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   a152ad2..bb3039e  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    test_country.csv
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Please fix the above before requesting grading
+~/ece551/043_eval1 $ git rm test_country.csv
+rm '043_eval1/test_country.csv'
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    test_country.csv
+
+Please fix the above before requesting grading
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 6107874] test
+ 1 file changed, 3 deletions(-)
+ delete mode 100644 043_eval1/test_country.csv
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 274 bytes | 274.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   bb3039e..6107874  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 61078749582a3bed69e8ad94fddede36d5c8f6bf
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 421 bytes | 421.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   6107874..67d7d0e  master     -> origin/master
+Updating 6107874..67d7d0e
+Fast-forward
+ 043_eval1/grade.txt | 45 ++++-----------------------------------------
+ 1 file changed, 4 insertions(+), 41 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:12:45.614264
+For commit ID 61078749582a3bed69e8ad94fddede36d5c8f6bf
+Grading at Wed Oct  5 12:12:44 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Line_4_did_not_match
+Line_6_did_not_match
+Line_8_did_not_match
+Line_14_did_not_match
+Line_18_did_not_match
+Your file did not match the expected ouput
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ make printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAv~/ece551/043_eval1 $ git commit -m "pandemic.c"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	printRunningAvg
+
+nothing added to commit but untracked files present (use "git add" to track)
+~/ece551/043_eval1 $ LS
+LS: command not found
+~/ece551/043_eval1 $ 
+~/ece551/043_eval1 $ omake printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_small.csv >average.txt 
+~/ece551/043_eval1 $ rm average.txt 
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 2b405fc] test
+ 1 file changed, 1 insertion(+)
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 348 bytes | 348.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   67d7d0e..2b405fc  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 2b405fc3d4bc5c78124de9f7085d5c7302cd2ef9
+
+Grading this assignment requires 1 eval tokens
+You have 2999 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 525 bytes | 525.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   2b405fc..f5aaecc  master     -> origin/master
+Updating 2b405fc..f5aaecc
+Fast-forward
+ 043_eval1/grade.txt | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:20:47.265321
+For commit ID 2b405fc3d4bc5c78124de9f7085d5c7302cd2ef9
+Grading at Wed Oct  5 12:20:45 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
+
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ cp daily_small.csv daily_1.csv
+~/ece551/043_eval1 $ ls
+#*eshell*#   daily_cases.csv  population.csv           population_invalid2.csv  population_invalid7.csv  printRunningAvg.o
+#README#     daily_small.csv  population1.csv          population_invalid3.csv  population_invalid8.csv  testcases.txt
+Makefile     grade.txt        population2.csv          population_invalid4.csv  printCountries.o         testcases_country.txt
+README       pandemic.c       population3.csv          population_invalid5.csv  printCumulative.o        upload.sh
+daily_1.csv  pandemic.h       population_invalid1.csv  population_invalid6.csv  printDailyMax.o          
+~/ece551/043_eval1 $ cp daily_small.csv daily_2.csv
+~/ece551/043_eval1 $ cat daily_2.csv 
+Date,Brazil,China,Germany,India,Nigeria,Norway,South Korea,United Kingdom,United States
+2019-12-31,0,27,0,0,0,0,0,0,0
+2020-01-01,0,0,0,0,0,0,0,0,0
+2020-01-02,0,0,0,0,0,0,0,0,0
+2020-01-03,0,17,0,0,0,0,0,0,0
+2020-01-04,0,0,0,0,0,0,0,0,0
+2020-01-05,0,15,0,0,0,0,0,0,0
+2020-01-06,0,0,0,0,0,0,0,0,0
+2020-01-07,0,0,0,0,0,0,0,0,0
+2020-01-08,0,0,0,0,0,0,0,0,0
+2020-01-09,0,0,0,0,0,0,0,0,0
+2020-01-10,0,0,0,0,0,0,0,0,0
+2020-01-11,0,0,0,0,0,0,0,0,0
+2020-01-12,0,0,0,0,0,0,0,0,0
+2020-01-13,0,0,0,0,0,0,0,0,0
+2020-01-14,0,0,0,0,0,0,0,0,0
+2020-01-15,0,0,0,0,0,0,0,0,0
+2020-01-16,0,0,0,0,0,0,0,0,0
+2020-01-17,0,4,0,0,0,0,0,0,0
+2020-01-18,0,17,0,0,0,0,0,0,0
+2020-01-19,0,136,0,0,0,0,0,0,0
+2020-01-20,0,19,0,0,0,0,1,0,0
+2020-01-21,0,151,0,0,0,0,0,0,1
+2020-01-22,0,140,0,0,0,0,0,0,0
+2020-01-23,0,97,0,0,0,0,0,0,0
+2020-01-24,0,259,0,0,0,0,1,0,0
+2020-01-25,0,441,0,0,0,0,0,0,1
+2020-01-26,0,665,0,0,0,0,1,0,0
+2020-01-27,0,787,0,0,0,0,1,0,3
+2020-01-28,0,1753,1,0,0,0,0,0,0
+2020-01-29,0,1466,3,0,0,0,0,0,0
+2020-01-30,0,1740,0,1,0,0,0,0,0
+2020-01-31,0,1980,1,0,0,0,3,0,1
+~/ece551/043_eval1 $ cp daily_small.csv daily_3.csv
+~/ece551/043_eval1 $ rm daily_3.csv 
+~/ece551/043_eval1 $ cat daily_1.csv 
+Date,Brazil,China,Germany,India,Nigeria,Norway,South Korea,United Kingdom,United States
+2020-01-26,0,665,0,0,0,0,1,0,0
+2020-01-27,0,787,0,0,0,0,1,0,3
+2020-01-28,0,1753,1,0,0,0,0,0,0
+2020-01-29,0,1466,3,0,0,0,0,0,0
+2020-01-30,0,1740,0,1,0,0,0,0,0
+2020-01-31,0,1980,1,0,0,0,3,0,1
+~/ece551/043_eval1 $ cat daily_2.csv  
+Date,Brazil,China,Germany,India,Nigeria,Norway,South Korea,United Kingdom,United States
+2020-01-25,0,441,0,0,0,0,0,0,1
+2020-01-26,0,665,0,0,0,0,1,0,0
+2020-01-27,0,787,0,0,0,0,1,0,3
+2020-01-28,0,1753,1,0,0,0,0,0,0
+2020-01-29,0,1466,3,0,0,0,0,0,0
+2020-01-30,0,1740,0,1,0,0,0,0,0
+2020-01-31,0,1980,1,0,0,0,3,0,1
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master c807701] test
+ 3 files changed, 19 insertions(+), 1 deletion(-)
+ create mode 100644 043_eval1/daily_1.csv
+ create mode 100644 043_eval1/daily_2.csv
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 640 bytes | 640.00 KiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   f5aaecc..c807701  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: c807701a0cdf82d5c00814c5deda57936a07afc4
+
+Grading this assignment requires 1 eval tokens
+You have 2998 eval remaining
+Do you wish to continue? yes
+Grading enqueued. You are position 1 in the queue
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 533 bytes | 533.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   c807701..26c9daf  master     -> origin/master
+Updating c807701..26c9daf
+Fast-forward
+ 043_eval1/grade.txt | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:25:57.176153
+For commit ID c807701a0cdf82d5c00814c5deda57936a07afc4
+Grading at Wed Oct  5 12:25:53 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Line_1_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ cat daily_1.csv 
+Date,Brazil,China,Germany,India,Nigeria,Norway,South Korea,United Kingdom,United States
+2020-01-26,0,665,0,0,0,0,1,0,0
+2020-01-27,0,787,0,0,0,0,1,0,3
+2020-01-28,0,1753,1,0,0,0,0,0,0
+2020-01-29,0,1466,3,0,0,0,0,0,0
+2020-01-30,0,1740,0,1,0,0,0,0,0
+2020-01-31,0,1980,1,0,0,0,3,0,1
+~/ece551/043_eval1 $ make printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_1.csv 
+not enough data~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_1.csv 
+not enough data~/ece551/043_eval1 $ make printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_1.csv 
+~/ece551/043_eval1 $ cat testcases.txt 
+#error
+
+
+#success
+printRunningAvg population.csv daily_small.csv
+printRunningAvg population.csv daily_cases.csv
+printRunningAvg population.csv daily_1.csv
+printRunningAvg population.csv daily_2.csv
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master f9700d7] test
+ 1 file changed, 1 deletion(-)
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 341 bytes | 341.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   26c9daf..f9700d7  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: f9700d7b30cdf806ac768a413c68c9e1f7c85f39
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 405 bytes | 405.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   f9700d7..f8f6183  master     -> origin/master
+Updating f9700d7..f8f6183
+Fast-forward
+ 043_eval1/grade.txt | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:44:28.063280
+For commit ID f9700d7b30cdf806ac768a413c68c9e1f7c85f39
+Grading at Wed Oct  5 12:44:24 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: f8f6183312bbeff284c32e23b88f1cb614f14f71
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading enqueued. You are position 1 in the queue
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Everything up-to-date
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:44:28.063280
+For commit ID f9700d7b30cdf806ac768a413c68c9e1f7c85f39
+Grading at Wed Oct  5 12:44:24 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ obash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master a6a089a] test
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+To /usr/local/assignments/rf96/ece551
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to '/usr/local/assignments/rf96/ece551'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 397 bytes | 397.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   f8f6183..6534d6b  master     -> origin/master
+error: Terminal is dumb, but EDITOR unset
+Not committing merge; use 'git commit' to complete the merge.
+~/ece551/043_eval1 $ git commit
+error: Terminal is dumb, but EDITOR unset
+Please supply the message using either -m or -F option.
+~/ece551/043_eval1 $ git commit -m "new"
+[master 628dceb] new
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:50:59.224137
+For commit ID f8f6183312bbeff284c32e23b88f1cb614f14f71
+Grading at Wed Oct  5 12:50:56 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+~/ece551/043_eval1 $ ls
+#*eshell*#   daily_2.csv      pandemic.h       population_invalid1.csv  population_invalid6.csv  printDailyMax.o
+#README#     daily_cases.csv  population.csv   population_invalid2.csv  population_invalid7.csv  printRunningAvg.o
+Makefile     daily_small.csv  population1.csv  population_invalid3.csv  population_invalid8.csv  testcases.txt
+README       grade.txt        population2.csv  population_invalid4.csv  printCountries.o         testcases_country.txt
+daily_1.csv  pandemic.c       population3.csv  population_invalid5.csv  printCumulative.o        upload.sh
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+Enumerating objects: 13, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 630 bytes | 630.00 KiB/s, done.
+Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   6534d6b..628dceb  master -> master
+~/ece551/043_eval1 $ grade
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 628dceb08d6c171ca35416a75c5794cc122f6fcc
+
+Grading this assignment requires 1 eval tokens
+You have 2999 eval remaining
+Do you wish to continue? yes
+Grading enqueued. You are position 1 in the queue
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 470 bytes | 470.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   628dceb..2b70b2d  master     -> origin/master
+Updating 628dceb..2b70b2d
+Fast-forward
+ 043_eval1/grade.txt | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:53:56.022917
+For commit ID 628dceb08d6c171ca35416a75c5794cc122f6fcc
+Grading at Wed Oct  5 12:53:53 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Our printRunningAvg does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 77772dd] test
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 425 bytes | 425.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   2b70b2d..77772dd  master -> master
+~/ece551/043_eval1 $ grade 
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 77772ddab3cc969c8a7d015a3f922ce47dffc1fc
+
+Grading this assignment requires 1 eval tokens
+You have 2998 eval remaining
+Do you wish to continue? 	yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 452 bytes | 452.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   77772dd..6210612  master     -> origin/master
+Updating 77772dd..6210612
+Fast-forward
+ 043_eval1/grade.txt | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:04:54:59.517100
+For commit ID 77772ddab3cc969c8a7d015a3f922ce47dffc1fc
+Grading at Wed Oct  5 12:54:56 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ ocp daily_small.csv daily_3.csv
+~/ece551/043_eval1 $ make printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_3.csv 
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Overflow
+: Success
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_small.csv .csv 
+You must give exactly two command line arguments:
+(1) The name of the file to read country,population from
+(2) The name of the file to read time series case data from
+~/ece551/043_eval1 $ ./printRunningAvg population.csv daily_small.csv
+Brazil
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+China
+ 8.429 4.571 4.571 4.571 2.143 2.143 0.000 0.000 0.000 0.000 0.000 0.571 3.000 22.429 25.143 46.714 66.714 80.571 117.000 177.571 253.143 362.857 591.714 781.143 1015.857 1261.714
+Germany
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.571 0.571 0.714
+India
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143
+Nigeria
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+Norway
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+South Korea
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143 0.143 0.143 0.286 0.286 0.429 0.429 0.429 0.429 0.429 0.714
+United Kingdom
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+United States
+ 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.143 0.143 0.143 0.143 0.286 0.286 0.714 0.571 0.571 0.571 0.714
+~/ece551/043_eval1 $ bash upload.sh 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master e29cfda] test
+ 4 files changed, 40 insertions(+), 1 deletion(-)
+ create mode 100644 043_eval1/daily_3.csv
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 879 bytes | 879.00 KiB/s, done.
+Total 7 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   6210612..e29cfda  master -> master
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: e29cfda637bd1de9532274e1224297ebaaf692ca
+
+Grading this assignment requires 1 eval tokens
+You have 2997 eval remaining
+Do you wish to continue? yes
+Grading enqueued. You are position 1 in the queue
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 482 bytes | 482.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   e29cfda..ac46fd2  master     -> origin/master
+Updating e29cfda..ac46fd2
+Fast-forward
+ 043_eval1/grade.txt | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:02:36.278036
+For commit ID e29cfda637bd1de9532274e1224297ebaaf692ca
+Grading at Wed Oct  5 01:02:33 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_3.csv
+Our printRunningAvg does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ bash upload.sh  
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+043_eval1/#upload.sh#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 3381e69] test
+ 1 file changed, 1 deletion(-)
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 334 bytes | 334.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   ac46fd2..3381e69  master -> master
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 3381e69632b74f73f3aefacd05e8f928434d0df9
+
+Grading this assignment requires 1 eval tokens
+You have 2996 eval remaining
+Do you wish to continue? oyes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+Already up to date.
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 404 bytes | 404.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   3381e69..d689e52  master     -> origin/master
+Updating 3381e69..d689e52
+Fast-forward
+ 043_eval1/grade.txt | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:05:30.191536
+For commit ID 3381e69632b74f73f3aefacd05e8f928434d0df9
+Grading at Wed Oct  5 01:05:26 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_3.csv
+Our printRunningAvg does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ ols
+#*eshell*#   daily_2.csv      pandemic.h               population_invalid2.csv  population_invalid8.csv  testcases_country.txt
+#README#     daily_3.csv      population.csv           population_invalid3.csv  printCountries.o         upload.sh
+#upload.sh#  daily_cases.csv  population1.csv          population_invalid4.csv  printCumulative.o        
+Makefile     daily_small.csv  population2.csv          population_invalid5.csv  printDailyMax.o          
+README       grade.txt        population3.csv          population_invalid6.csv  printRunningAvg.o        
+daily_1.csv  pandemic.c       population_invalid1.csv  population_invalid7.csv  testcases.txt            
+~/ece551/043_eval1 $ bash upload.sh  
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+The following paths are ignored by one of your .gitignore files:
+043_eval1/#README#
+043_eval1/#upload.sh#
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+[master 28660a0] test
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 488 bytes | 488.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0
+To /usr/local/assignments/rf96/ece551
+   d689e52..28660a0  master -> master
+Checking 'git status'....
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Checking HEAD commit ID....
+Commit ID to grade: 28660a0380f22b6bed7330f30668c554847da387
+
+Grading this assignment requires 1 eval tokens
+You have 3000 eval remaining
+Do you wish to continue? yes
+Grading happening now
+~/ece551/043_eval1 $ git pull
+remote: Enumerating objects: 7, done.        
+remote: Counting objects: 100% (7/7), done.        
+remote: Compressing objects: 100% (4/4), done.        
+remote: Total 4 (delta 3), reused 0 (delta 0), pack-reused 0        
+Unpacking objects: 100% (4/4), 395 bytes | 98.00 KiB/s, done.
+From /usr/local/assignments/rf96/ece551
+   28660a0..ddb0f66  master     -> origin/master
+Updating 28660a0..ddb0f66
+Fast-forward
+ 043_eval1/grade.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+~/ece551/043_eval1 $ cat grade.txt 
+Grading at 10/05/2022:05:09:52.162883
+For commit ID 28660a0380f22b6bed7330f30668c554847da387
+Grading at Wed Oct  5 01:09:48 AM EDT 2022
+
+Compiling 
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+Running your test cases
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_3.csv
+Our printRunningAvg does not consider this an error case
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_1.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_2.csv
+Your file matched the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
+
+Overall Grade: NO GRADE YET
+~/ece551/043_eval1 $ git pull
