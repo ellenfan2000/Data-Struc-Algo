@@ -2,4 +2,4 @@
 
 #success
 printDailyMax population.csv daily_small.csv
-printDailymMax population.csv daily_cases.csv
+printDailyMax population.csv daily_cases.csv
