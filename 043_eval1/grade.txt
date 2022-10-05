@@ -1,6 +1,6 @@
-Grading at 10/05/2022:02:34:35.083873
-For commit ID 9267ff02dfe75bb35a677be41868758da8e0f1e5
-Grading at Tue Oct  4 10:34:27 PM EDT 2022
+Grading at 10/05/2022:02:37:42.472860
+For commit ID e8715633237ddc0a330b272d79de4957ba2c394e
+Grading at Tue Oct  4 10:37:35 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -11,50 +11,28 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o prin
 Running your test cases
 +-----------------------------------------------------------------------+
 Test case printCountries population_invalid1.csv
-9
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population_invalid2.csv
-9
-10
-8
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population_invalid3.csv
-9
-10
-8
-10
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population_invalid4.csv
 Our printCountries does not consider this an error case
 +-----------------------------------------------------------------------+
 Test case printCountries population_invalid5.csv
-9
-10
-0
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population_invalid6.csv
-9
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population_invalid7.csv
-9
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Line_4_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_8_did_not_match
-Line_9_did_not_match
-Your file did not match the expected ouput
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries population1.csv
 Line_1_did_not_match
@@ -66,41 +44,13 @@ Line_6_did_not_match
 Line_7_did_not_match
 Line_8_did_not_match
 Line_9_did_not_match
-Line_10_did_not_match
-Line_11_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_15_did_not_match
-Line_16_did_not_match
-Line_17_did_not_match
-Line_18_did_not_match
 Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printCountries population2.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Line_4_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_8_did_not_match
-Line_9_did_not_match
-Your file did not match the expected ouput
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCountries population3.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Line_4_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_8_did_not_match
-Line_9_did_not_match
-Line_10_did_not_match
-Your file did not match the expected ouput
+Your file matched the expected output
 
 You have FAILED one or more of your test cases
 Keep debugging
