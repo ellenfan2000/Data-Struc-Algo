@@ -1,0 +1,5 @@
+#error
+printCumulative population_cum.csv daily_small.csv
+#success
+printCumulative population.csv daily_small.csv
+printCumulative population.csv daily_cases.csv

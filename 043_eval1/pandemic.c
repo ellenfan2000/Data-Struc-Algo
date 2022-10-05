@@ -122,7 +122,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   double cum_sum = 0;
-  if (pop == 0) {
+  if (pop == 0) {  //does not consider as an error case
     perror("population is 0");
     exit(EXIT_FAILURE);
   }
