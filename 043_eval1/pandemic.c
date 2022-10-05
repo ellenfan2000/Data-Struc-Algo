@@ -96,7 +96,6 @@ data: daily case data; avg: result of calculation
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //do nothing and EXIT success when n_days < 6
   if (n_days < 7) {
-    printf("not enough data");
     exit(EXIT_SUCCESS);
   }
 
