@@ -94,7 +94,7 @@ country_t parseLine(char * line) {
 data: daily case data; avg: result of calculation
  */
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  //do nothing and EXIT success when n_days < 6
+  //do nothing and EXIT success when n_days < 7
   if (n_days < 7) {
     exit(EXIT_SUCCESS);
   }
