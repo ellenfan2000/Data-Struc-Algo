@@ -1,5 +1,5 @@
 #error
 
 #success
-printDailymax population.csv daily_small.csv
-printDailymax population.csv daily_cases.csv
+printDailyMax population.csv daily_small.csv
+printDailymMax population.csv daily_cases.csv
