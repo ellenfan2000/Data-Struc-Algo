@@ -85,7 +85,7 @@ country_t parseLine(char * line) {
       }
     }
   }
-  ans.population = strtoll(population, NULL, 10);
+  ans.population = strtoull(population, NULL, 10);
 
   return ans;
 }

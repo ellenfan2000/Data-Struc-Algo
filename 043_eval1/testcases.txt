@@ -6,6 +6,7 @@ printCountries population_invalid5.csv
 printCountries population_invalid6.csv
 printCountries population_invalid7.csv
 printCountries population1.csv
+printRunningAvg population.csv daily_cases.csv 
 #success
 printCountries population.csv
 printCountries population2.csv
