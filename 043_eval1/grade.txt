@@ -1,6 +1,6 @@
-Grading at 10/05/2022:05:36:32.545873
-For commit ID 92e41610f1d4fc0ab6fa3449c8d1854a445a5652
-Grading at Wed Oct  5 01:36:31 AM EDT 2022
+Grading at 10/05/2022:05:42:21.606883
+For commit ID cb3c06d3879def1039247d6020b054050597a781
+Grading at Wed Oct  5 01:42:19 AM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -11,39 +11,13 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o prin
 Running your test cases
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv daily_cases.csv
 Line_1_did_not_match
-Line_2_did_not_match
-Line_3_did_not_match
-Line_4_did_not_match
-Line_5_did_not_match
-Line_6_did_not_match
-Line_7_did_not_match
-Line_8_did_not_match
-Line_9_did_not_match
-Line_10_did_not_match
-Line_11_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_15_did_not_match
-Line_16_did_not_match
-Line_17_did_not_match
-Line_18_did_not_match
-Line_19_did_not_match
-Line_20_did_not_match
-Line_21_did_not_match
-Line_22_did_not_match
-Line_23_did_not_match
-Line_24_did_not_match
-Line_25_did_not_match
-Line_26_did_not_match
-Line_27_did_not_match
-Line_28_did_not_match
-Line_29_did_not_match
-Line_30_did_not_match
-Line_31_did_not_match
 Your file did not match the expected ouput
-Program must be one of printCountries printRunningAvg printCumulative printDailyMax
-But found "printDailymMax"
+
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
