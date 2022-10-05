@@ -59,7 +59,8 @@ country_t parseLine(char * line) {
     index++;
   }
   population[pop_len] = '\0';
-  printf("%lu\n", pop_len);
+
+  //check empty population
   if (pop_len == 0) {
     perror("Invalid line: No population data");
     exit(EXIT_FAILURE);
