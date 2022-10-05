@@ -136,11 +136,11 @@ void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
                          size_t n_days) {
-  unsigned max_data;
-  size_t max_country;
+  unsigned max_data = 0;
+  size_t max_country = 0;
   for (size_t day = 0; day < n_days; day++) {
-    max_data = 0;
-    max_country = 0;
+    //max_data = 0;
+    // max_country = 0;
     for (size_t ctr_i = 0; ctr_i < n_countries; ctr_i++) {
       if (data[ctr_i][day] > max_data) {
         max_data = data[ctr_i][day];
