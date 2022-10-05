@@ -5,11 +5,11 @@
 #include <stdio.h>
 #include <string.h>
 
+//takes a line ina csv file and extract country name and population
+//in the format country name,population
 country_t parseLine(char * line) {
-  //WRITE ME
   country_t ans;
   int index = 0;
-  // char * population = line;
   char population[21];
 
   //check comma exist
@@ -23,21 +23,19 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
 
-  //get country name
+  /* get country name */
   while (line[index] != ',') {
     ans.name[index] = line[index];
     index++;
   }
   ans.name[index] = '\0';
 
-  //get population
-  //line += index + 1;
-  //strcpy(population, line);
-  //population += index + 1;
-
   index++;  //index now at the first chatacter after ','
 
+  //length of char population: population digits number
   size_t pop_len = 0;
+
+  /* get population */
   while (line[index] != '\n') {
     //valid with space
     if (line[index] == ' ') {
@@ -50,42 +48,50 @@ country_t parseLine(char * line) {
       exit(EXIT_FAILURE);
     }
 
-    //invalid input:cannot convert to digits
+    //invalid input with characters cannot convert to digits
     if (!isdigit(line[index])) {
       perror("Invalid Population: contain invalid character");
       exit(EXIT_FAILURE);
     }
+
     population[pop_len] = line[index];
     pop_len++;
     index++;
   }
   population[pop_len] = '\0';
-
-  //check no population data
-  /* if (*population == '\n') { */
-  /*   perror("Invalid Line: no popualtion data"); */
-  /*   exit(EXIT_FAILURE); */
-  /* } */
+  printf("%lu\n", pop_len);
   if (pop_len == 0) {
     perror("Invalid line: No population data");
     exit(EXIT_FAILURE);
   }
-  //check overflow
-
+  //check overflow: 20 digits.
+  if (pop_len == 20) {
+    uint64_t max_num = UINT64_MAX;
+    char max_char[21];
+    sprintf(max_char, "%lu", max_num);
+    for (int i = 0; i < 21; i++) {
+      if (population[i] > max_char[i]) {
+        perror("Overflow: Population too large\n");
+        exit(EXIT_FAILURE);
+      }
+    }
+  }
   ans.population = atoll(population);
 
   return ans;
 }
 
+/* calculate 7 days running average of case data
+data: daily case data; avg: result of calculation
+ */
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  //WRITE ME
+  //do nothing and EXIT success when n_days < 6
   if (n_days < 7) {
-    perror("not enough data");
-    exit(EXIT_FAILURE);
+    printf("not enough data");
+    exit(EXIT_SUCCESS);
   }
 
-  double sum = 0;
-
+  double sum = 0.0;
   for (size_t i = 0; i < n_days - 6; i++) {
     for (size_t j = 0; j < 7; j++) {
       sum += data[i + j];
@@ -95,7 +101,6 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
-  //WRITE ME
   unsigned cum_sum = 0;
   if (pop == 0) {
     perror("population is 0");
@@ -111,17 +116,18 @@ void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
                          size_t n_days) {
-  unsigned max;
+  unsigned max_data;
   size_t max_country;
   for (size_t day = 0; day < n_days; day++) {
-    max = 0;
+    max_data = 0;
     max_country = 0;
     for (size_t ctr_i = 0; ctr_i < n_countries; ctr_i++) {
-      if (data[ctr_i][day] > max) {
-        max = data[ctr_i][day];
+      if (data[ctr_i][day] > max_data) {
+        max_data = data[ctr_i][day];
         max_country = ctr_i;
       }
     }
-    printf("%s has the most daily cases with %u\n", countries[max_country].name, max);
+    printf(
+        "%s has the most daily cases with %u\n", countries[max_country].name, max_data);
   }
 }
