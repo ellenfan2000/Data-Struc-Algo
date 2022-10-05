@@ -72,7 +72,7 @@ United States, the average is:
 
 (Note: this result is rounded because the calculation was performed by
 hand. You should store your results to double precision.) This statistic of
-a running average "smoothes" the data. Because there are seven pieces of
+a running average "smoothes" the data. Because there are seven pieces oof
 data needed to do a calculation, parameter avg has length n_days - 6. 
 
 Test your code thoroughly before moving on to the next step by doing
