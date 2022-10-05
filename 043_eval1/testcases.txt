@@ -1,9 +1,5 @@
 #error
 
 #success
-printRunningAvg population.csv daily_small.csv
-printRunningAvg population.csv daily_cases.csv
-printRunningAvg population.csv daily_1.csv
-printRunningAvg population.csv daily_2.csv
-printRunningAvg population.csv daily_3.csv
-printRunningAvg population.csv daily_4.csv
+printCumulative population.csv daily_small.csv
+printCumulative population.csv daily_cases.csv
