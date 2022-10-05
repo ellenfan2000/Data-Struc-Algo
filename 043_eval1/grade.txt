@@ -1,6 +1,6 @@
-Grading at 10/05/2022:05:14:34.648887
-For commit ID 330d41012a46f61ca3b5af10ae7cf1c1e494e5d8
-Grading at Wed Oct  5 01:14:30 AM EDT 2022
+Grading at 10/05/2022:05:20:38.720737
+For commit ID 19a64eb7448e8b1a37ac49537e745eb3c6fdef7f
+Grading at Wed Oct  5 01:20:34 AM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -27,9 +27,7 @@ Line_4_did_not_match
 Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv daily_4.csv
-Line_1_did_not_match
-Line_2_did_not_match
-Your file did not match the expected ouput
+Your file matched the expected output
 
 You have FAILED one or more of your test cases
 Keep debugging
