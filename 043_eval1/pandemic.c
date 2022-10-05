@@ -5,8 +5,11 @@
 #include <stdio.h>
 #include <string.h>
 
-//takes a line ina csv file and extract country name and population
-//in the format country name,population
+/*This function takes a line of a csv file of format 
+  country name,population
+and extract country name and population, then return a 
+country_t storing county name and population.
+*/
 country_t parseLine(char * line) {
   country_t ans;
   int index = 0;
@@ -23,7 +26,7 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
 
-  /* get country name */
+  // get country name
   while (line[index] != ',') {
     ans.name[index] = line[index];
     index++;
@@ -32,12 +35,11 @@ country_t parseLine(char * line) {
 
   index++;  //index now at the first chatacter after ','
 
-  //length of char population: population digits number
   size_t pop_len = 0;
 
-  /* get population */
+  // get population
   while (line[index] != '\n') {
-    //valid with space
+    //valid with space after comma
     if (line[index] == ' ' && pop_len == 0) {
       index++;
       continue;
@@ -95,34 +97,29 @@ data: daily case data; avg: result of calculation
  */
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //do nothing and EXIT success when n_days < 7
-  if (n_days < 6) {  //excuse me???
+  if (n_days < 7) {
     exit(EXIT_SUCCESS);
   }
 
   double sum = 0;
-  //excuse me??
-  if (n_days == 6) {
-    for (size_t i = 0; i < 6; i++) {
-      sum += data[i];
-    }
-  }
   for (size_t i = 0; i < n_days - 6; i++) {
     sum = 0;
     for (size_t j = 0; j < 7; j++) {
-      //check overflow using double should not overflow
-      /* if (UINT_MAX - sum < data[i + j]) { */
-      /*   perror("Overflow\n"); */
-      /*   exit(EXIT_FAILURE); */
-      /* } */
       sum += data[i + j];
     }
     avg[i] = sum / 7;
   }
 }
 
+/*This function calculate the cumulative number of cases that day per 100000 people
+data: daily case data
+n_days:number of days
+pop: population
+cum: write the result
+ */
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   double cum_sum = 0;
-  if (pop == 0) {  //does not consider as an error case
+  if (pop == 0) {  //pregrader does not consider as an error case
     perror("population is 0");
     exit(EXIT_FAILURE);
   }
@@ -131,7 +128,7 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
     cum[i] = cum_sum * 100000 / pop;
   }
 }
-
+/*This function find the maximum number of daily cases of all countries represented in the data*/
 void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
