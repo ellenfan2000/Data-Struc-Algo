@@ -2,4 +2,7 @@
 
 
 #success
-printRunningAvg population.csv daily_small.csv 
+printRunningAvg population.csv daily_small.csv
+printRunningAvg population.csv daily_cases.csv
+printRunningAvg population.csv daily_1.csv
+printRunningAvg population.csv daily_2.csv
