@@ -41,7 +41,7 @@ void printCounts(counts_t * c, FILE * outFile) {
     fprintf(outFile, "%s: %d\n", c->counts[i].str, c->counts[i].times);
   }
   if (c->unknown_count > 0) {
-    fprintf(outFile, "%s: %d\n", "<unknown>", c->unknown_count);
+    fprintf(outFile, "%s: %d\n", "<unknown> ", c->unknown_count);
   }
 }
 
