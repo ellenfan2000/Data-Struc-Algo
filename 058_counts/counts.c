@@ -40,7 +40,9 @@ void printCounts(counts_t * c, FILE * outFile) {
   for (int i = 0; i < c->size; i++) {
     fprintf(outFile, "%s: %d\n", c->counts[i].str, c->counts[i].times);
   }
-  fprintf(outFile, "%s: %d\n", "<unknown>", c->unknown_count);
+  if (c->unknown_count > 0) {
+    fprintf(outFile, "%s: %d\n", "<unknown>", c->unknown_count);
+  }
 }
 
 void freeCounts(counts_t * c) {
