@@ -63,7 +63,5 @@ int main(void) {
   else {
     std::cout << "The two int arrays are the same\n";
   }
-  int a = intArray[1000];
-  std::cout << a;
   return EXIT_SUCCESS;
 }
