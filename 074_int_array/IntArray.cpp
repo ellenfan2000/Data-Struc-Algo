@@ -4,7 +4,7 @@
 #include <string.h>
 
 #include <ostream>
-#include <sstream>
+
 IntArray::IntArray() : data(NULL), numElements(0) {
 }
 IntArray::IntArray(int n) : data(new int[n]()), numElements(n) {
@@ -33,12 +33,11 @@ IntArray & IntArray::operator=(const IntArray & rhs) {
   return *this;
 }
 const int & IntArray::operator[](int index) const {
-  assert(index >= 0 && index < numElements);
-
+  assert((index >= 0) && (index < numElements));
   return data[index];
 }
 int & IntArray::operator[](int index) {
-  assert(index >= 0 && index < numElements);
+  assert((index >= 0) && (index < numElements));
   return data[index];
 }
 
