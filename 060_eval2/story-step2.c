@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "provided.h"
 #include "rand_story.h"
@@ -9,6 +10,8 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "usage:");
     return EXIT_FAILURE;
   }
-  parseStoryLine(argv[1]);
+  catarray_t * a = readCatArr(argv[1]);
+  printWords(a);
+  freeCatArray(a);
   return EXIT_SUCCESS;
 }

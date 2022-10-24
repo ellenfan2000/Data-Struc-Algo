@@ -5,6 +5,9 @@
 
 //any functions you want your main to use
 void fillaBlank(char * line);
-void parseLine(char * fname);
+void parseStoryLine(char * fname);
 void free();
+catarray_t * readCatArr(const char * fname);
+int lookupCategory(catarray_t * arr, const char * name);
+void freeCatArray(catarray_t * arr);
 #endif
