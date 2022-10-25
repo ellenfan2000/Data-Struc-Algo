@@ -14,10 +14,7 @@ int arg: whether has -n then running the function, 1 for yes, 0 for no
 This function take case of one blank each time. It locates the blank and
 fills the blank with words chosen.
 */
-void fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
-  //originial length of line
-  int oldLength = strlen(line) + 1;
-
+char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   //find the _
   char * firstSep = strchr(line, '_');
   char * nextSep;
@@ -49,21 +46,28 @@ void fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
     word = getPrevious(pw, num);
   }
   addWord(pw, word);
-  printf("%s: %s\n", category, word);
-  //concat tree pieces together
-  firstSep[0] = '\0';
+
+  //print out result
+  *firstSep = '\0';
   nextSep++;
+  printf("%s%s", line, word);
+  line = nextSep;
+  return line;
+  /* char laststr[strlen(nextSep) + 1]; */
+  /* strcpy(laststr, nextSep); */
 
-  char laststr[strlen(nextSep) + 1];
-  strcpy(laststr, nextSep);
-
-  int newLength = oldLength - blank_len - 1 + strlen(word) + 1;
-  if (newLength > oldLength) {
-    line = realloc(line, newLength * sizeof(*line));
-  }
-  printf("%p", line);
-  strcat(line, word);
-  strcat(line, laststr);
+  /* int newLength = oldLength - blank_len - 1 + strlen(word) + 1; */
+  /* //for (int i = 0; i < oldLength; i++) { */
+  /* //printf("%c", line[i]); */
+  /* //} */
+  /* if (newLength > oldLength) { */
+  /*   line = realloc(line, newLength * sizeof(*line)); */
+  /* } */
+  /* // printf("%p", line); */
+  /* strcat(line, word); */
+  /* strcat(line, laststr); */
+  /* free(line_dup); */
+  /* line_dup = line; */
 }
 
 /*
@@ -88,17 +92,16 @@ void parseStoryLine(char * fname, catarray_t * arr, int arg) {
     if (strchr(line, '_') == NULL) {
       continue;
     }
-
-    while (strchr(line, '_') != NULL) {
-      fillaBlank(line, arr, pw, arg);
+    char * ptr = line;
+    while (strchr(ptr, '_') != NULL) {
+      ptr = fillaBlank(ptr, arr, pw, arg);
     }
-    //print
-    printf("%s", line);
+    printf("%s", ptr);
   }
 
   free(line);
   if (fclose(f) != 0) {
-    perror("cannot close file");
+    perror("cannot close file\n");
     exit(EXIT_FAILURE);
   }
   freePW(pw);
@@ -123,7 +126,7 @@ This function returns a catarray_t to store all the
 category:words pairs.
 */
 catarray_t * readCatArr(const char * fname) {
-  //malloc catarray
+  //initialize and malloc catarray
   catarray_t * catarr = malloc(sizeof(*catarr));
   catarr->n = 0;
   catarr->arr = malloc(sizeof(*(catarr->arr)));
@@ -167,7 +170,10 @@ catarray_t * readCatArr(const char * fname) {
       addWord(&catarr->arr[ind], word);
     }
   }
-  fclose(f);
+  if (fclose(f) != 0) {
+    perror("Could not close file!");
+    exit(EXIT_FAILURE);
+  }
   free(line);
   return catarr;
 }
@@ -231,9 +237,23 @@ Given a category name, this function randomly pick a word in
 the word array of the category.
 */
 char * randomChoose(catarray_t * arr, char * category) {
-  size_t ind = lookupCategory(arr, category);
-  size_t r_ind = rand() % arr->arr[ind].n_words;
-  char * ans = strdup(arr->arr[ind].words[r_ind]);
+  char * ans;
+  if (arr == NULL) {
+    ans = strdup("cat");
+  }
+  else {
+    int ind = lookupCategory(arr, category);
+    if (ind == -1) {
+      fprintf(stderr, "The category %s does not exist!\n", category);
+      exit(EXIT_FAILURE);
+    }
+    if (arr->arr[ind].n_words == 0) {
+      fprintf(stderr, "There are no words to use!\n");
+      exit(EXIT_FAILURE);
+    }
+    size_t r_ind = rand() % arr->arr[ind].n_words;
+    ans = strdup(arr->arr[ind].words[r_ind]);
+  }
   return ans;
 }
 
@@ -243,7 +263,6 @@ size_t num:
 The function returns the numth previously used word. If num
 is larger than the number of words stored in pw, return Null. 
 */
-
 char * getPrevious(category_t * pw, size_t num) {
   if (num > pw->n_words) {
     return NULL;

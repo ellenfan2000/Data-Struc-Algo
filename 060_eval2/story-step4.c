@@ -6,8 +6,8 @@
 #include "rand_story.h"
 
 int main(int argc, char ** argv) {
-  if (argc < 3) {
-    fprintf(stderr, "usage:program option[-n] words_file story files");
+  if (argc < 3 || argc > 4) {
+    fprintf(stderr, "usage:program option[-n] words_file story files\n");
     return EXIT_FAILURE;
   }
   char * word_file;
@@ -18,15 +18,18 @@ int main(int argc, char ** argv) {
     story_file = argv[2];
     arg = 0;
   }
-  else {
+  if (argc == 4 && !strcmp(argv[1], "-n")) {
     word_file = argv[2];
     story_file = argv[3];
     arg = 1;
   }
+
+  if (argc == 4 && strcmp(argv[1], "-n")) {
+    fprintf(stderr, "Usage:program option[-n] words_file story files\n");
+    return EXIT_FAILURE;
+  }
   catarray_t * arr = readCatArr(word_file);
-  //printWords(arr);
   parseStoryLine(story_file, arr, arg);
-  printWords(arr);
   freeCatArray(arr);
   return EXIT_SUCCESS;
 }
