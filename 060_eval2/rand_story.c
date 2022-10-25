@@ -80,7 +80,9 @@ to fill blanks in the line and print the filled line.
 void parseStoryLine(char * fname, catarray_t * arr, int arg) {
   FILE * f = fopen(fname, "r");
   if (f == NULL) {
+    freeCatArray(arr);
     perror("could not open file.");
+    exit(EXIT_FAILURE);
   }
 
   //initial a category_t to store all the used words.
