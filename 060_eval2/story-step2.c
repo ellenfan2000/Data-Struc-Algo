@@ -7,7 +7,7 @@
 
 int main(int argc, char ** argv) {
   if (argc < 2) {
-    fprintf(stderr, "usage:");
+    fprintf(stderr, "usage:program story.txt");
     return EXIT_FAILURE;
   }
   catarray_t * a = readCatArr(argv[1]);
