@@ -1,5 +1,5 @@
-animal:dragon
-animal:walrus
+animal:dragonaa
+animal:walrusaaa
 place:cave
 adjective:peculiar
 adjective:scary
