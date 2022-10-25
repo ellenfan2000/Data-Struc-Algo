@@ -1,6 +1,6 @@
-Grading at 10/25/2022:20:06:18.103641
-For commit ID 09b0f04fd848518c3e4fee9ebded0ba224a36234
-Grading at Tue Oct 25 04:06:15 PM EDT 2022
+Grading at 10/25/2022:20:31:41.734954
+For commit ID 25bf6303dad1d3041089c3b3d2ad3ba1f34dcc57
+Grading at Tue Oct 25 04:31:35 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -16,6 +16,12 @@ Checking with provided test case story.txt
 Your file matched the expected output
 Now running YOUR tests for step 1
 
+1.1: Current test is story-step1 story.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
 Step 2
 Checking that story-step2 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -26,6 +32,30 @@ rm story-step2.o
 The code compiled (good)
 Executable story-step2 exists (good)
 Now running YOUR tests for step 2
+
+2.1: Current test is story-step2 words.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+2.2: Current test is story-step2 words1.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+2.3: Current test is story-step2 words2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+2.4: Current test is story-step2 words3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 Step 3
 Checking that story-step3 compiles
