@@ -11,9 +11,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   catarray_t * arr = readCatArr(argv[1]);
-  // printWords(a);
   parseStoryLine(argv[2], arr, 0);
-
   freeCatArray(arr);
   return EXIT_SUCCESS;
 }
