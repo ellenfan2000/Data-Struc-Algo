@@ -9,12 +9,12 @@ story-step2 words1.txt
 story-step2 words2.txt
 story-step2 words3.txt
 story-step2 words4.txt
-story-step3 words.txt story.txt
-story-step3 words.txt story1.txt
-story-step3 words.txt story2.txt
-story-step3 words.txt story3.txt
-story-step3 words.txt story4.txt
-story-step3 words.txt story5.txt
+story-step3 words1.txt story.txt
+story-step3 words2.txt story1.txt
+story-step3 words3.txt story2.txt
+story-step3 words4.txt story3.txt
+story-step3 words2.txt story4.txt
+story-step3 words1.txt story5.txt
 story-step3 words3.txt story5.txt
 story-step3 words.txt story7.txt
 story-step3 words3.txt story8.txt

@@ -11,6 +11,7 @@ char * line: read from file
 catarray_t * arr: category array read from words.txt
 category_t * pw: stores the previously used words
 int arg: whether has -n then running the function, 1 for yes, 0 for no
+int step: step number, for step 1, donot read number of it is step 1
 This function take case of one blank each time. It locates the blank and
 fills the blank with words chosen.
 */
@@ -61,6 +62,7 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg, int s
 char * fname: file name of the story
 catarray_t * arr: categories read from words.txt
 int arg: whether -n is used, 1 for yes, 0 for no
+int step: step number, for step 1, donot read number of it is step 1
 This function reads lines from story, for each blank, call fillablank 
 to fill blanks in the line and print the filled line. 
 */
