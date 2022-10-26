@@ -101,7 +101,7 @@ void parseStoryLine(char * fname, catarray_t * arr, int arg, int step) {
 }
 
 /*
-category_t * pw: stores all used words
+category_t * pw: stores all PREVIOUS used words
 this function frees all the alocated memory for
 previous used words.
 */
@@ -206,11 +206,11 @@ void freeCatArray(catarray_t * arr) {
 initial a category_t struct specifing the category name
 */
 category_t * initialCate(char * name) {
-  category_t * pw = malloc(sizeof(*pw));
-  pw->name = name;
-  pw->words = malloc(sizeof(*(pw->words)));
-  pw->n_words = 0;
-  return pw;
+  category_t * cate = malloc(sizeof(*cate));
+  cate->name = name;
+  cate->words = malloc(sizeof(*(cate->words)));
+  cate->n_words = 0;
+  return cate;
 }
 
 /*
