@@ -1,6 +1,6 @@
-Grading at 10/25/2022:20:52:07.552943
-For commit ID a428f9987f9b798e33ea107fd5556973f85dbb47
-Grading at Tue Oct 25 04:52:01 PM EDT 2022
+Grading at 10/26/2022:00:53:13.323188
+For commit ID 73df40d91ef4a855567a9d73b250e215abd468c6
+Grading at Tue Oct 25 08:53:04 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -70,13 +70,9 @@ Now running YOUR tests for step 3
 
 3.1: Current test is story-step3 words.txt story.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-Once upon a time, there was a walrus who lived in a very scar |	Once upon a time, there was a walrus who lived in a very pecu
-cave. 								cave. 
-Your file did not match the expected ouput
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 3.2: Current test is story-step3 words.txt story1.txt
 -----------------------------
@@ -86,13 +82,9 @@ Valgrind was clean
 
 3.3: Current test is story-step3 words.txt story2.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-Once upon a time, there was a walrus. This walrus lived in a 	Once upon a time, there was a walrus. This walrus lived in a 
-scary cave. One day, it left its scary cave and met a walrus. |	peculiar cave. One day, it left its peculiar cave and met a w
-Your file did not match the expected ouput
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 3.4: Current test is story-step3 words.txt story3.txt
 -----------------------------
@@ -123,8 +115,8 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
