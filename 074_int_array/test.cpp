@@ -63,5 +63,15 @@ int main(void) {
   else {
     std::cout << "The two int arrays are the same\n";
   }
+  IntArray arr(10);
+  IntArray arr2(14);
+  for (int i = 0; i < arr.size(); i++) {
+    arr[i] = i / 2;
+  }
+  for (int i = 0; i < arr2.size(); i++) {
+    arr2[i] = i % 3;
+  }
+  arr = arr2;
+  std::cout << arr << std::endl;
   return EXIT_SUCCESS;
 }

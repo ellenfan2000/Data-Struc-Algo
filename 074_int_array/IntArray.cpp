@@ -13,7 +13,7 @@ IntArray::IntArray(int n) : data(new int[n]), numElements(n) {
 IntArray::IntArray(const IntArray & rhs) :
     data(new int[rhs.numElements]), numElements(rhs.numElements) {
   for (int i = 0; i < numElements; i++) {
-    data[i] = rhs.data[i];
+    data[i] = rhs[i];
   }
 }
 IntArray::~IntArray() {
@@ -68,7 +68,6 @@ bool IntArray::operator!=(const IntArray & rhs) const {
   }
   return 0;
 }
-
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
   if (rhs.size() == 0) {
     s << "{}";
