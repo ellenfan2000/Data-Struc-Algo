@@ -1,6 +1,6 @@
-Grading at 10/26/2022:18:45:07.297734
-For commit ID 9ecf79403137d5cb0954e672831aeebc3fb4c62e
-Grading at Wed Oct 26 02:44:37 PM EDT 2022
+Grading at 10/26/2022:18:49:23.099659
+For commit ID 2fbb286b25237bcaf8957e90f88c581d3a9722bb
+Grading at Wed Oct 26 02:48:57 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -105,10 +105,10 @@ The code compiled (good)
 Executable story-step2 exists (good)
 Now running YOUR tests for step 2
 
-2.1: Current test is story-step2 words.txt
+2.1: Current test is story-step2 as words.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 2.2: Current test is story-step2 words1.txt
@@ -206,10 +206,10 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.11: Current test is story-step3 words4.txt story9.txt
+3.11: Current test is story-step3 words4.txt story9.txt a
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 Step 4
@@ -254,6 +254,12 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 4.6: Current test is story-step4 -n words.txt story6.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.7: Current test is story-step4 -a words3.txt story.txt a
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
