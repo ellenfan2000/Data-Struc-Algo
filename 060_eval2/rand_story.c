@@ -32,15 +32,12 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   category[blank_len - 1] = '\0';
 
   //get word
-  //const char * word = chooseWord(category, NULL);
   char * word;
   char * endstr = NULL;
   long num = strtol(category, &endstr, 10);
   if (endstr[0] != '\0') {
     const char * word_con = chooseWord(category, arr);
     word = strdup(word_con);
-    // free(word_con);
-    // word = randomChoose(arr, category);
     if (arg == 1) {
       removeWord(arr, lookupCategory(arr, category), word);
     }
@@ -56,21 +53,6 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   printf("%s%s", line, word);
   line = nextSep;
   return line;
-  /* char laststr[strlen(nextSep) + 1]; */
-  /* strcpy(laststr, nextSep); */
-
-  /* int newLength = oldLength - blank_len - 1 + strlen(word) + 1; */
-  /* //for (int i = 0; i < oldLength; i++) { */
-  /* //printf("%c", line[i]); */
-  /* //} */
-  /* if (newLength > oldLength) { */
-  /*   line = realloc(line, newLength * sizeof(*line)); */
-  /* } */
-  /* // printf("%p", line); */
-  /* strcat(line, word); */
-  /* strcat(line, laststr); */
-  /* free(line_dup); */
-  /* line_dup = line; */
 }
 
 /*
@@ -234,34 +216,6 @@ void addWord(category_t * cate, char * word) {
   cate->n_words++;
   cate->words = realloc(cate->words, cate->n_words * sizeof(*(cate->words)));
   cate->words[cate->n_words - 1] = word;
-}
-
-/*
-catarray_t * arr:
-char * category: name of a category
-Given a category name, this function randomly pick a word in
-the word array of the category.
-*/
-char * randomChoose(catarray_t * arr, char * category) {
-  char * ans;
-  if (arr == NULL) {
-    ans = strdup("cat");
-  }
-  else {
-    int ind = lookupCategory(arr, category);
-    if (ind == -1) {
-      fprintf(stderr, "The category %s does not exist!\n", category);
-      exit(EXIT_FAILURE);
-    }
-    if (arr->arr[ind].n_words == 0) {
-      fprintf(stderr, "There are no words to use!\n");
-      exit(EXIT_FAILURE);
-    }
-    size_t r_ind = rand() % arr->arr[ind].n_words;
-    ans = strdup(arr->arr[ind].words[r_ind]);
-  }
-  // ans = chooseWord(category, arr);
-  return ans;
 }
 
 /*

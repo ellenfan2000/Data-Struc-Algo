@@ -18,7 +18,7 @@ int lookupCategory(catarray_t * arr, const char * name);
 void freeCatArray(catarray_t * arr);
 category_t * initialCate(char * name);
 void addWord(category_t * pw, char * word);
-char * randomChoose(catarray_t * arr, char * category);
+//char * randomChoose(catarray_t * arr, char * category);
 char * getPrevious(category_t * pw, size_t num);
 void removeWord(catarray_t * arr, size_t ind, char * word);
 #endif
