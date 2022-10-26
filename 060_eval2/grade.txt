@@ -1,6 +1,6 @@
-Grading at 10/26/2022:18:10:49.069116
-For commit ID 49da687e578c16f6204f95e9bb1b47e75f4137a5
-Grading at Wed Oct 26 02:10:25 PM EDT 2022
+Grading at 10/26/2022:18:25:00.727547
+For commit ID da9b1528376e4379fe9ad1c5f1e41c6f0444f75e
+Grading at Wed Oct 26 02:24:33 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -104,37 +104,37 @@ The code compiled (good)
 Executable story-step3 exists (good)
 Now running YOUR tests for step 3
 
-3.1: Current test is story-step3 words.txt story.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.2: Current test is story-step3 words.txt story1.txt
+3.1: Current test is story-step3 words1.txt story.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.3: Current test is story-step3 words.txt story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-3.4: Current test is story-step3 words.txt story3.txt
+3.2: Current test is story-step3 words2.txt story1.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.5: Current test is story-step3 words.txt story4.txt
+3.3: Current test is story-step3 words3.txt story2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-3.6: Current test is story-step3 words.txt story5.txt
+3.4: Current test is story-step3 words4.txt story3.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+3.5: Current test is story-step3 words2.txt story4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.6: Current test is story-step3 words1.txt story5.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
