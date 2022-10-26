@@ -6,7 +6,7 @@
 #include "rand_story.h"
 
 int main(int argc, char ** argv) {
-  if (argc < 3) {
+  if (argc != 3) {
     fprintf(stderr, "usage:program words_file story files");
     return EXIT_FAILURE;
   }

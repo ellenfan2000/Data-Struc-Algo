@@ -5,7 +5,7 @@
 #include "rand_story.h"
 
 int main(int argc, char ** argv) {
-  if (argc < 2) {
+  if (argc != 2) {
     fprintf(stderr, "usage:");
     return EXIT_FAILURE;
   }
