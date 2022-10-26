@@ -228,7 +228,8 @@ is larger than the number of words stored in pw, return Null.
 */
 char * getPrevious(category_t * pw, size_t num) {
   if (num > pw->n_words) {
-    return NULL;
+    fprintf(stderr, "no enought words for Backreference number:%lu\n ", num);
+    exit(EXIT_FAILURE);
   }
   char * ans = strdup(pw->words[pw->n_words - num]);
   return ans;
