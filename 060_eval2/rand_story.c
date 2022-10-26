@@ -18,7 +18,6 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   //find the _
   char * firstSep = strchr(line, '_');
   char * nextSep;
-
   //if the line only has one _ without the pair _. exit
   if ((nextSep = strchr(firstSep + 1, '_')) == NULL) {
     fprintf(stderr, "%s\n", "wrong input");
@@ -36,10 +35,11 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   char * endstr = NULL;
   long num = strtol(category, &endstr, 10);
 
-  //if category is not a pure numebr
+  //if category is not a pure numebr or number is 0
   if (endstr[0] != '\0' || blank_len == 1 || num == 0) {
     const char * word_con = chooseWord(category, arr);
     word = strdup(word_con);
+    //remove words if -n
     if (arg == 1) {
       removeWord(arr, lookupCategory(arr, category), word);
     }
@@ -77,11 +77,12 @@ void parseStoryLine(char * fname, catarray_t * arr, int arg) {
   char * line = NULL;
   size_t sz = 0;
   while (getline(&line, &sz, f) >= 0) {
-    // if the line does not have blank, go the the next line
+    // if the line does not have blank,print it and go the the next line
     if (strchr(line, '_') == NULL) {
       printf("%s", line);
       continue;
     }
+    // a pointer at the end of each blank
     char * ptr = line;
     while (strchr(ptr, '_') != NULL) {
       ptr = fillaBlank(ptr, arr, pw, arg);
@@ -112,7 +113,7 @@ void freePW(category_t * pw) {
 
 /*
 char * fname: the file name for the words need to read
-This function returns a catarray_t to store all the
+This function returns a catarray_t that stores all the
 category:words pairs.
 */
 catarray_t * readCatArr(const char * fname) {
@@ -133,7 +134,7 @@ catarray_t * readCatArr(const char * fname) {
   char * word;
   size_t sz = 0;
 
-  //index of the category want to find in catarr->arr
+  //index of the category wanted in catarr->arr
   int ind;
 
   while (getline(&line, &sz, f) >= 0) {
@@ -185,7 +186,7 @@ int lookupCategory(catarray_t * arr, const char * name) {
 }
 
 /*
-free all the allocated memory for arr
+free all the allocated memory for catarr
 */
 void freeCatArray(catarray_t * arr) {
   for (size_t i = 0; i < arr->n; i++) {
@@ -224,12 +225,12 @@ void addWord(category_t * cate, char * word) {
 /*
 category_t * pw:
 size_t num: 
-The function returns the numth previously used word. If num
-is larger than the number of words stored in pw, return Null. 
+The function returns the num-th previously used word. If num
+is larger than the number of words stored in pw, exit function.
 */
 char * getPrevious(category_t * pw, size_t num) {
   if (num > pw->n_words) {
-    fprintf(stderr, "no enought words for Backreference number:%lu\n ", num);
+    fprintf(stderr, "Not enought words for Backreference number:%lu\n ", num);
     exit(EXIT_FAILURE);
   }
   char * ans = strdup(pw->words[pw->n_words - num]);
