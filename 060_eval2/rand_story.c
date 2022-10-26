@@ -35,6 +35,8 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   char * word;
   char * endstr = NULL;
   long num = strtol(category, &endstr, 10);
+
+  //if category is not a pure numebr
   if (endstr[0] != '\0' || blank_len == 1) {
     const char * word_con = chooseWord(category, arr);
     word = strdup(word_con);
@@ -66,7 +68,7 @@ void parseStoryLine(char * fname, catarray_t * arr, int arg) {
   FILE * f = fopen(fname, "r");
   if (f == NULL) {
     freeCatArray(arr);
-    perror("could not open file.");
+    fprintf(stderr, "Could not open file: %s.\n", fname);
     exit(EXIT_FAILURE);
   }
 
@@ -88,7 +90,7 @@ void parseStoryLine(char * fname, catarray_t * arr, int arg) {
 
   free(line);
   if (fclose(f) != 0) {
-    perror("cannot close file\n");
+    perror("Cannot close file\n");
     exit(EXIT_FAILURE);
   }
   freePW(pw);
@@ -120,7 +122,7 @@ catarray_t * readCatArr(const char * fname) {
 
   FILE * f = fopen(fname, "r");
   if (f == NULL) {
-    perror("No such file");
+    fprintf(stderr, "Cannot open file: %s", fname);
     exit(EXIT_FAILURE);
   }
 
