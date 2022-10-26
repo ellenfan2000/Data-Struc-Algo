@@ -37,7 +37,10 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   char * endstr = NULL;
   long num = strtol(category, &endstr, 10);
   if (endstr[0] != '\0') {
-    word = randomChoose(arr, category);
+    const char * word_con = chooseWord(category, arr);
+    word = strdup(word_con);
+    // free(word_con);
+    // word = randomChoose(arr, category);
     if (arg == 1) {
       removeWord(arr, lookupCategory(arr, category), word);
     }
@@ -141,7 +144,8 @@ catarray_t * readCatArr(const char * fname) {
 
   char * line = NULL;
   char * line_dup = NULL;
-  char *name, *word;
+  char * name;
+  char * word;
   size_t sz = 0;
 
   //index of the category want to find in catarr->arr
@@ -256,6 +260,7 @@ char * randomChoose(catarray_t * arr, char * category) {
     size_t r_ind = rand() % arr->arr[ind].n_words;
     ans = strdup(arr->arr[ind].words[r_ind]);
   }
+  // ans = chooseWord(category, arr);
   return ans;
 }
 
