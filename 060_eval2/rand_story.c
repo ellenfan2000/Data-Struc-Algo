@@ -79,6 +79,7 @@ void parseStoryLine(char * fname, catarray_t * arr, int arg) {
   while (getline(&line, &sz, f) >= 0) {
     // if the line does not have blank, go the the next line
     if (strchr(line, '_') == NULL) {
+      printf("%s", line);
       continue;
     }
     char * ptr = line;
