@@ -35,7 +35,7 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   char * word;
   char * endstr = NULL;
   long num = strtol(category, &endstr, 10);
-  if (endstr[0] != '\0') {
+  if (endstr[0] != '\0' || blank_len == 1) {
     const char * word_con = chooseWord(category, arr);
     word = strdup(word_con);
     if (arg == 1) {
