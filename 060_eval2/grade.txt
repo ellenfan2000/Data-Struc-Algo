@@ -1,6 +1,6 @@
-Grading at 10/26/2022:18:39:29.493859
-For commit ID 6f2e15ca85485693623e409c901116be225e90d9
-Grading at Wed Oct 26 02:38:59 PM EDT 2022
+Grading at 10/26/2022:18:45:07.297734
+For commit ID 9ecf79403137d5cb0954e672831aeebc3fb4c62e
+Grading at Wed Oct 26 02:44:37 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -92,39 +92,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
-Valgrind reported errors:
-==3286464== Memcheck, a memory error detector
-==3286464== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3286464== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3286464== Command: ./story-step1 a story1.txt
-==3286464== Parent PID: 3286463
-==3286464== 
-==3286464== Invalid read of size 8
-==3286464==    at 0x109D1A: freeCatArray (rand_story.c:194)
-==3286464==    by 0x10975B: parseStoryLine (rand_story.c:72)
-==3286464==    by 0x10942D: main (story-step1.c:12)
-==3286464==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
-==3286464== 
-==3286464== 
-==3286464== Process terminating with default action of signal 11 (SIGSEGV)
-==3286464==  Access not within mapped region at address 0x8
-==3286464==    at 0x109D1A: freeCatArray (rand_story.c:194)
-==3286464==    by 0x10975B: parseStoryLine (rand_story.c:72)
-==3286464==    by 0x10942D: main (story-step1.c:12)
-==3286464==  If you believe this happened as a result of a stack
-==3286464==  overflow in your program's main thread (unlikely but
-==3286464==  possible), you can try to increase the size of the
-==3286464==  main thread stack using the --main-stacksize= flag.
-==3286464==  The main thread stack size used in this run was 8388608.
-==3286464== 
-==3286464== HEAP SUMMARY:
-==3286464==     in use at exit: 0 bytes in 0 blocks
-==3286464==   total heap usage: 1 allocs, 1 frees, 472 bytes allocated
-==3286464== 
-==3286464== For a detailed leak analysis, rerun with: --leak-check=full
-==3286464== 
-==3286464== For lists of detected and suppressed errors, rerun with: -s
-==3286464== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+Valgrind was clean
 
 Step 2
 Checking that story-step2 compiles
@@ -291,8 +259,8 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
