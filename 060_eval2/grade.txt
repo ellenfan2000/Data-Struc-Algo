@@ -1,6 +1,6 @@
-Grading at 10/26/2022:01:09:10.709680
-For commit ID d71d9fac1b82d814c44ea97e9d847805d636df50
-Grading at Tue Oct 25 09:09:02 PM EDT 2022
+Grading at 10/26/2022:01:33:20.751301
+For commit ID a89b1f249414348f5155d086eff4de3ba519cf3b
+Grading at Tue Oct 25 09:33:11 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -92,6 +92,17 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
+3.5: Current test is story-step3 words.txt story4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.6: Current test is story-step3 words.txt story5.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
 Step 4
 Checking that story-step4 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -115,8 +126,8 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have passed the test cases YOU provided
-If your tests are good, this is great. 
-If your tests are insufficient, you should do much more testing
+You have NOT passed your test cases!
+You should go and figure out/understand where thing went wrong
+And fix the problem(s) before the deadline
 
 Overall Grade: NO GRADE YET
