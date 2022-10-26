@@ -122,7 +122,7 @@ catarray_t * readCatArr(const char * fname) {
 
   FILE * f = fopen(fname, "r");
   if (f == NULL) {
-    fprintf(stderr, "Cannot open file: %s", fname);
+    fprintf(stderr, "Cannot open file: %s\n", fname);
     exit(EXIT_FAILURE);
   }
 
