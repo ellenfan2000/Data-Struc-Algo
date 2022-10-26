@@ -1,6 +1,6 @@
-Grading at 10/26/2022:17:59:09.618937
-For commit ID f01b65b690fc947e35cf821b7107fcd46ac69d1b
-Grading at Wed Oct 26 01:58:50 PM EDT 2022
+Grading at 10/26/2022:18:10:49.069116
+For commit ID 49da687e578c16f6204f95e9bb1b47e75f4137a5
+Grading at Wed Oct 26 02:10:25 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -36,9 +36,9 @@ Valgrind was clean
 
 1.4: Current test is story-step1 story3.txt
 -----------------------------
-You considered this a failure case:
-Not enought words for Backreference number:7
- But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 1.5: Current test is story-step1 story4.txt
 -----------------------------
@@ -217,8 +217,8 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
