@@ -31,10 +31,10 @@ story-step3 words.txt story9.txt
 story-step3 words4.txt story9.txt a
 
 
-story-step4 words.txt story-test1.txt
+story-step4 -n  words.txt story-test1.txt
 story-step4 -n words.txt story-test2.txt
-story-step4 words10.txt story.txt
-story-step4 words.txt story.txt
+story-step4 -n words10.txt story.txt
+story-step4 -n words.txt story.txt
 story-step4 -n words.txt story.txt
 story-step4 -n words.txt story6.txt
 story-step4 -a words3.txt story.txt a
