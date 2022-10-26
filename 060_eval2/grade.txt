@@ -1,6 +1,6 @@
-Grading at 10/26/2022:16:43:19.980203
-For commit ID 5758669a77c28c955a1bd6c363ef166840dafd20
-Grading at Wed Oct 26 12:43:08 PM EDT 2022
+Grading at 10/26/2022:17:23:00.116813
+For commit ID 203bfc9f54190c0d58a31819e85893e309b035d3
+Grading at Wed Oct 26 01:22:45 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -110,6 +110,18 @@ Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
+3.8: Current test is story-step3 words.txt story7.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+3.9: Current test is story-step3 words3.txt story8.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
 Step 4
 Checking that story-step4 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -149,6 +161,12 @@ Valgrind was clean
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.6: Current test is story-step4 -n words.txt story6.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 You have passed the test cases YOU provided
