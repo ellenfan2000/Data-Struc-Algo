@@ -11,7 +11,8 @@ story-step1 story_broken1.txt
 story-step1 story_broken2.txt
 story-step1 story_broken3.txt
 story-step1 a story1.txt
-story-step2 words.txt
+
+story-step2 as words.txt
 story-step2 words1.txt
 story-step2 words2.txt
 story-step2 words3.txt
@@ -27,10 +28,13 @@ story-step3 words3.txt story5.txt
 story-step3 words.txt story7.txt
 story-step3 words3.txt story8.txt
 story-step3 words.txt story9.txt
-story-step3 words4.txt story9.txt
+story-step3 words4.txt story9.txt a
+
+
 story-step4 words.txt story-test1.txt
 story-step4 -n words.txt story-test2.txt
 story-step4 words10.txt story.txt
 story-step4 words.txt story.txt
 story-step4 -n words.txt story.txt
 story-step4 -n words.txt story6.txt
+story-step4 -a words3.txt story.txt a
