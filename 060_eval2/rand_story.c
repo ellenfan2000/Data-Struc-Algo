@@ -14,7 +14,7 @@ int arg: whether has -n then running the function, 1 for yes, 0 for no
 This function take case of one blank each time. It locates the blank and
 fills the blank with words chosen.
 */
-char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
+char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg, int step) {
   //find the _
   char * firstSep = strchr(line, '_');
   char * nextSep;
@@ -36,7 +36,7 @@ char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg) {
   long num = strtol(category, &endstr, 10);
 
   //if category is not a pure numebr or number is 0
-  if (endstr[0] != '\0' || blank_len == 1 || num < 1) {
+  if (endstr[0] != '\0' || blank_len == 1 || num < 1 || step == 1) {
     const char * word_con = chooseWord(category, arr);
     word = strdup(word_con);
     //remove words if -n
@@ -64,7 +64,7 @@ int arg: whether -n is used, 1 for yes, 0 for no
 This function reads lines from story, for each blank, call fillablank 
 to fill blanks in the line and print the filled line. 
 */
-void parseStoryLine(char * fname, catarray_t * arr, int arg) {
+void parseStoryLine(char * fname, catarray_t * arr, int arg, int step) {
   FILE * f = fopen(fname, "r");
   if (f == NULL) {
     freeCatArray(arr);
@@ -85,7 +85,7 @@ void parseStoryLine(char * fname, catarray_t * arr, int arg) {
     // a pointer at the end of each blank
     char * ptr = line;
     while (strchr(ptr, '_') != NULL) {
-      ptr = fillaBlank(ptr, arr, pw, arg);
+      ptr = fillaBlank(ptr, arr, pw, arg, step);
     }
     printf("%s", ptr);
   }

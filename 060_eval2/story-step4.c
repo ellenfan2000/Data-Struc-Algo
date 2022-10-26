@@ -29,7 +29,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   catarray_t * arr = readCatArr(word_file);
-  parseStoryLine(story_file, arr, arg);
+  parseStoryLine(story_file, arr, arg, 4);
   freeCatArray(arr);
   return EXIT_SUCCESS;
 }

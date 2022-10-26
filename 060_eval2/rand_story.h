@@ -10,8 +10,8 @@ struct previousCollect_tag {
 };
 typedef struct previousCollect_tag previousCollect_t;
 
-char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg);
-void parseStoryLine(char * fname, catarray_t * arr, int arg);
+char * fillaBlank(char * line, catarray_t * arr, category_t * pw, int arg, int step);
+void parseStoryLine(char * fname, catarray_t * arr, int arg, int step);
 void freePW(category_t * pw);
 catarray_t * readCatArr(const char * fname);
 int lookupCategory(catarray_t * arr, const char * name);
