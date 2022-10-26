@@ -1,6 +1,6 @@
-Grading at 10/26/2022:19:51:55.265780
-For commit ID 8c58f91290dabdad18fbfd4c8fca1c7ee5ef30d2
-Grading at Wed Oct 26 03:51:23 PM EDT 2022
+Grading at 10/26/2022:20:07:06.260695
+For commit ID 8c722c3c7c2340c2542b236c770efa8c7dfd8f04
+Grading at Wed Oct 26 04:06:36 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -223,7 +223,7 @@ The code compiled (good)
 Executable story-step4 exists (good)
 Now running YOUR tests for step 4
 
-4.1: Current test is story-step4 words.txt story-test1.txt
+4.1: Current test is story-step4 -n  words.txt story-test1.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
@@ -235,13 +235,13 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-4.3: Current test is story-step4 words10.txt story.txt
+4.3: Current test is story-step4 -n words10.txt story.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-4.4: Current test is story-step4 words.txt story.txt
+4.4: Current test is story-step4 -n words.txt story.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
