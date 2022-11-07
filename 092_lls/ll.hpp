@@ -17,7 +17,7 @@ class LinkedList {
 
     Node() : data(0), next(NULL), prev(NULL) {}
     Node(T d) : data(d), next(NULL), prev(NULL) {}
-    Node(Node & rhs) : data(rhs.data), next(NULL), prev(NULL) {}
+    //Node(Node & rhs) : data(rhs.data), next(NULL), prev(NULL) {}
     Node(T d, Node * n, Node * p) : data(d), next(n), prev(p) {}
   };
   Node * head;
@@ -68,15 +68,30 @@ class LinkedList {
 
   LinkedList & operator=(const LinkedList & rhs) {
     if (this != &rhs) {
-      LinkedList * ll = new LinkedList();
+      // LinkedList * ll = new LinkedList();
+      // Node * curr = rhs.head;
+      // while (curr != NULL) {
+      //   ll->addBack(curr->data);
+      //   curr = curr->next;
+      // }
+      // this->~LinkedList();
+
+      // head = ll->head;
+      // tail = ll->tail;
+      // size = ll->size;
+      // this = ll;
+      Node * newhead = new Node(rhs.head->data);
+      Node * newtail = newhead;
       Node * curr = rhs.head;
-      while (curr != NULL) {
-        ll->addBack(curr->data);
+      while (curr->next != NULL) {
         curr = curr->next;
+        newtail->next = new Node(curr->data, NULL, newtail);
+        newtail = newtail->next;
       }
-      head = ll->head;
-      tail = ll->tail;
-      size = ll->size;
+      this->~LinkedList();
+      head = newhead;
+      tail = newtail;
+      size = rhs.size;
     }
     return *this;
   }
