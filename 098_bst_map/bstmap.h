@@ -77,20 +77,23 @@ class BstMap : public Map<K, V> {
       Node * temp;
       if (curr->left == NULL) {
         temp = curr->right;
+        delete curr;
       }
       else if (curr->right == NULL) {
         temp = curr->left;
+        delete curr;
       }
       else {
         //find the largest item smaller than key;
-        temp = curr->left;
-        while (temp->right != NULL) {
-          temp = temp->right;
+        Node * swap = curr->left;
+        while (swap->right != NULL) {
+          swap = swap->right;
         }
-        temp->left = curr->left;
-        temp->right = curr->right;
+        curr->data.first = swap->data.first;
+        curr->data.second = swap->data.second;
+        temp = remove(key, curr);
       }
-      delete curr;
+
       return temp;
     }
     Node * ans;

@@ -36,4 +36,13 @@ int main(void) {
   map3 = map2;
   map3.print();
   std::cout << "\n";
+
+  BstMap<char, std::string> map4;
+  map4.add('d', "stupid");
+  map4.add('a', "ahahahha");
+  map4.add('c', "what the hell");
+  map4.print();
+  std::cout << "\n";
+
+  map1 = map3;
 }
