@@ -44,27 +44,12 @@ class BstMap : public Map<K, V> {
     }
   }
 
-  void copy(Node * current) {
+  void copy(const Node * current) {
     if (current != NULL) {
       //Node * ans;
       this->add(current->data.first, current->data.second);
       copy(current->left);
       copy(current->right);
-    }
-  }
-
-  Node * copy2(Node * current) {
-    if (current == NULL) {
-      return NULL;
-    }
-    else {
-      Node * ans;
-      ans->add(current->data.first, current->data.second);
-      Node * l = copy(current->left);
-      Node * r = copy(current->right);
-      ans->left = l;
-      ans->right = r;
-      return ans;
     }
   }
 
@@ -131,33 +116,38 @@ class BstMap : public Map<K, V> {
 
  public:
   BstMap() : root(NULL) {}
-  BstMap(BstMap<K, V> & rhs) : root(NULL) { copy(rhs.root); }
+  BstMap(const BstMap<K, V> & rhs) : root(NULL) { copy(rhs.root); }
 
   BstMap & operator=(const BstMap & rhs) {
     if (this != &rhs) {
-      Node * temp = copy2(rhs.root);
+      BstMap<K, V> newmap(rhs);
       destroyHelper(root);
-      root = temp;
+      root = newmap.root;
+      newmap.root = NULL;
     }
     return *this;
   }
+
   virtual void add(const K & key, const V & value) {
     //std::pair<K, V> newData(key, value);
     root = add(root, key, value);
   }
+
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     return lookup(root, key);
   }
 
   virtual void remove(const K & key) { root = remove(key, root); }
+
   virtual ~BstMap<K, V>() { destroyHelper(root); }
-  void printInorder(Node * curr) {
+  void printPreorder(Node * curr) {
     if (curr != NULL) {
-      printInorder(curr->left);
       std::cout << "(" << curr->data.first << ", " << curr->data.second << " )"
                 << " ";
-      printInorder(curr->right);
+      printPreorder(curr->left);
+      printPreorder(curr->right);
     }
   }
-  void print() { printInorder(root); }
+
+  void print() { printPreorder(root); }
 };

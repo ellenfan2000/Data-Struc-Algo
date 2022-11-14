@@ -5,6 +5,7 @@
 
 int main(void) {
   BstMap<int, int> map1;
+  map1.print();
   map1.add(3, 4);
   map1.add(5, 6);
   map1.add(2, 5);
@@ -25,5 +26,14 @@ int main(void) {
   map2.print();
   std::cout << "\n";
   map1.print();
+  std::cout << "\n";
+
+  BstMap<int, int> map3;
+  map3.add(10, 22);
+  map3.print();
+  std::cout << "\n";
+
+  map3 = map2;
+  map3.print();
   std::cout << "\n";
 }
