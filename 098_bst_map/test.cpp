@@ -18,6 +18,12 @@ int main(void) {
   map1.print();
   std::cout << "\n";
   std::cout << "Look up (5,6), result is " << map1.lookup(5) << std::endl;
-  map1.add(1, 12);
-  std::cout << "Look up (19,1), result is " << map1.lookup(1) << std::endl;
+  map1.add(2, 12);
+  std::cout << "Look up (19,1), result is " << map1.lookup(2) << std::endl;
+  BstMap<int, int> map2 = map1;
+  map2.remove(2);
+  map2.print();
+  std::cout << "\n";
+  map1.print();
+  std::cout << "\n";
 }

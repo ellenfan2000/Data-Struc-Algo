@@ -13,7 +13,7 @@ class BstMap : public Map<K, V> {
     Node * left;
     Node * right;
 
-    Node() : data(std::pair<int, int>(0, 0)), left(NULL), right(NULL) {}
+    Node() : left(NULL), right(NULL) {}
     //    Node(std::pair<K, V> d) : data(d), left(NULL), right(NULL) {}
     Node(K key, V value) : data(std::pair<K, V>(key, value)), left(NULL), right(NULL) {}
     // Node(std::pair<K, V> d, Node * n, Node * p) : data(d), left(n), right(p) {}
@@ -46,9 +46,25 @@ class BstMap : public Map<K, V> {
 
   void copy(Node * current) {
     if (current != NULL) {
+      //Node * ans;
       this->add(current->data.first, current->data.second);
       copy(current->left);
       copy(current->right);
+    }
+  }
+
+  Node * copy2(Node * current) {
+    if (current == NULL) {
+      return NULL;
+    }
+    else {
+      Node * ans;
+      ans->add(current->data.first, current->data.second);
+      Node * l = copy(current->left);
+      Node * r = copy(current->right);
+      ans->left = l;
+      ans->right = r;
+      return ans;
     }
   }
 
@@ -117,6 +133,14 @@ class BstMap : public Map<K, V> {
   BstMap() : root(NULL) {}
   BstMap(BstMap<K, V> & rhs) : root(NULL) { copy(rhs.root); }
 
+  BstMap & operator=(const BstMap & rhs) {
+    if (this != &rhs) {
+      Node * temp = copy2(rhs.root);
+      destroyHelper(root);
+      root = temp;
+    }
+    return *this;
+  }
   virtual void add(const K & key, const V & value) {
     //std::pair<K, V> newData(key, value);
     root = add(root, key, value);
