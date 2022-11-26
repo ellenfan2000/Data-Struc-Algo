@@ -4,7 +4,7 @@
 
 class Story {
   std::vector<Page> pages;
-
+  std::string dir;
   void parseLine(std::string line) {
     size_t f_at = line.find('@');
     size_t f_coma = line.find(':');
@@ -29,13 +29,18 @@ class Story {
     }
   }
 
-  //  void parseLine(const char * line) {
-  //if (strchr(line, '@')!= NULL)
-
-  //}
+  bool validChoice(size_t c, Page & p) {
+    for (size_t i = 0; i < p.options.size(); i++) {
+      if (c == p.options[i].first) {
+        return true;
+      }
+    }
+    return false;
+  }
 
  public:
-  Story(std::string dir) {
+  Story(std::string _dir) {
+    dir = _dir;
     std::string fname = dir + "/story.txt";
     buildStory(fname.c_str());
   }
@@ -54,10 +59,95 @@ class Story {
 
   void printStory(std::string dir) {
     for (size_t i = 0; i < pages.size(); i++) {
-      std::cout << "Page " << pages[i].getPage() << std::endl;
+      std::cout << "Page " << pages[i].pagenum << std::endl;
       std::cout << "==========" << std::endl;
       pages[i].printPage(dir);
       pages[i].printOptions();
     }
+  }
+
+  bool checkChoics() {
+    for (size_t i = 0; i < pages.size(); i++) {
+      for (size_t j = 0; j < pages[i].options.size(); j++) {
+        if (pages[i].options[j].first > pages.size() - 1 ||
+            pages[i].options[j].first < 0) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  bool checkCoverage() {
+    std::vector<int> coverage(pages.size(), 0);
+    for (size_t i = 0; i < pages.size(); i++) {
+      for (size_t j = 0; j < pages[i].options.size(); j++) {
+        coverage[pages[i].options[j].first] = 1;
+      }
+    }
+    for (size_t k = 1; k < coverage.size(); k++) {
+      if (coverage[k] == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool checkEndGame() {
+    int win = 0;
+    int lose = 0;
+    for (size_t i = 0; i < pages.size(); i++) {
+      if (pages[i].type == 'W') {
+        win++;
+      }
+      if (pages[i].type == 'L') {
+        lose++;
+      }
+    }
+
+    if (win > 0 && lose > 0) {
+      return true;
+    }
+
+    return false;
+  }
+
+  bool checkValidStory() {
+    if (checkChoics() && checkCoverage() && checkEndGame()) {
+      return true;
+    }
+    return false;
+  }
+
+  void play() {
+    size_t cur = 0;
+    size_t next;
+    while (pages[cur].type != 'W' && pages[cur].type != 'L') {
+      pages[cur].printPage(dir);
+      pages[cur].printOptions();
+      std::cin >> next;
+
+      while (true) {
+        if (!std::cin.good()) {
+          std::cin.clear();
+          std::cin.ignore();
+          std::cout << "That is not a valid choice, please try again" << std::endl;
+          std::cin >> next;
+        }
+        else if (next < 1 || next > pages[cur].options.size()) {
+          std::cout << "That is not a valid choice, please try again" << std::endl;
+          std::cin >> next;
+        }
+        else {
+          break;
+        }
+      }
+
+      cur = pages[cur].options[next - 1].first;
+    }
+    pages[cur].printPage(dir);
+    pages[cur].printOptions();
+    exit(EXIT_SUCCESS);
   }
 };

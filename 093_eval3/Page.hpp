@@ -46,4 +46,6 @@ class Page {
       std::cout << "Sorry, you have lost. Better luck next time!" << std::endl;
     }
   }
+
+  friend class Story;
 };
