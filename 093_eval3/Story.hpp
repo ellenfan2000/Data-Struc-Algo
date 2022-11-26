@@ -148,6 +148,6 @@ class Story {
     }
     pages[cur].printPage(dir);
     pages[cur].printOptions();
-    exit(EXIT_SUCCESS);
+    //exit(EXIT_SUCCESS);
   }
 };
