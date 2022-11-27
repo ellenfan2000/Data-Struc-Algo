@@ -38,34 +38,6 @@ class Story {
     return false;
   }
 
- public:
-  Story(std::string _dir) {
-    dir = _dir;
-    std::string fname = dir + "/story.txt";
-    buildStory(fname.c_str());
-  }
-  void buildStory(const char * fname) {
-    std::ifstream ifs;
-    std::string line;
-    //char * line;
-    ifs.open(fname, std::ifstream::in);
-    while (!ifs.eof()) {
-      std::getline(ifs, line);
-      if (line.compare("") != 0) {
-        parseLine(line);
-      }
-    }
-  }
-
-  void printStory(std::string dir) {
-    for (size_t i = 0; i < pages.size(); i++) {
-      std::cout << "Page " << pages[i].pagenum << std::endl;
-      std::cout << "==========" << std::endl;
-      pages[i].printPage(dir);
-      pages[i].printOptions();
-    }
-  }
-
   bool checkChoics() {
     for (size_t i = 0; i < pages.size(); i++) {
       for (size_t j = 0; j < pages[i].options.size(); j++) {
@@ -111,6 +83,34 @@ class Story {
     }
 
     return false;
+  }
+
+ public:
+  Story(std::string _dir) {
+    dir = _dir;
+    std::string fname = dir + "/story.txt";
+    buildStory(fname.c_str());
+  }
+  void buildStory(const char * fname) {
+    std::ifstream ifs;
+    std::string line;
+    //char * line;
+    ifs.open(fname, std::ifstream::in);
+    while (!ifs.eof()) {
+      std::getline(ifs, line);
+      if (line.compare("") != 0) {
+        parseLine(line);
+      }
+    }
+  }
+
+  void printStory() {
+    for (size_t i = 0; i < pages.size(); i++) {
+      std::cout << "Page " << pages[i].pagenum << std::endl;
+      std::cout << "==========" << std::endl;
+      pages[i].printPage(dir);
+      pages[i].printOptions();
+    }
   }
 
   bool checkValidStory() {
