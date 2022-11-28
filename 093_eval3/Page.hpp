@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
 class Page {
@@ -9,6 +10,7 @@ class Page {
   std::string filename;
   char type;
   std::vector<std::pair<size_t, std::string> > options;
+  //std::map<size_t, std::string> options;
 
  public:
   Page() {}
@@ -16,6 +18,7 @@ class Page {
 
   void addOption(size_t pn, std::string message) {
     options.push_back(std::pair<size_t, std::string>(pn, message));
+    // options[pn] = message;
   }
 
   const size_t & getPage() const { return pagenum; }
@@ -35,6 +38,14 @@ class Page {
     if (type == 'N') {
       std::cout << "What would you like to do?" << std::endl;
       std::cout << std::endl;
+      // int i = 1;
+      // for (std::map<size_t, std::string>::iterator it = options.begin();
+      //      it != options.end();
+      //      ++it) {
+      //   std::cout << " " << i << ". " << it->second << std::endl;
+      //   i++;
+      // }
+
       for (size_t i = 0; i < options.size(); i++) {
         std::cout << " " << i + 1 << ". " << options[i].second << std::endl;
       }

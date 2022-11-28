@@ -7,6 +7,11 @@ int main(int argc, char ** argv) {
   if (argc == 2) {
     std::string dir = argv[1];
     Story sto(dir);
-    sto.printStory();
+
+    if (sto.checkValidStory()) {
+      // sto.printStory(dir);
+      sto.findWin();
+    }
   }
+  return EXIT_SUCCESS;
 }

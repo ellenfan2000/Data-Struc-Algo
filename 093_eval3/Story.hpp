@@ -1,4 +1,7 @@
 #include <fstream>
+#include <queue>
+#include <set>
+#include <sstream>
 
 #include "Page.hpp"
 
@@ -29,14 +32,14 @@ class Story {
     }
   }
 
-  bool validChoice(size_t c, Page & p) {
-    for (size_t i = 0; i < p.options.size(); i++) {
-      if (c == p.options[i].first) {
-        return true;
-      }
-    }
-    return false;
-  }
+  // bool validChoice(size_t c, Page & p) {
+  //   for (size_t i = 0; i < p.options.size(); i++) {
+  //     if (c == p.options[i].first) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
   bool checkChoics() {
     for (size_t i = 0; i < pages.size(); i++) {
@@ -46,8 +49,14 @@ class Story {
           return false;
         }
       }
+      // for (std::map<size_t, std::string>::iterator it = pages[i].options.begin();
+      //      it != pages[i].options.end();
+      //      ++it) {
+      //   if (it->first > pages.size() - 1 || it->first < 0) {
+      //     return false;
+      //   }
+      // }
     }
-
     return true;
   }
 
@@ -149,5 +158,42 @@ class Story {
     pages[cur].printPage(dir);
     pages[cur].printOptions();
     //exit(EXIT_SUCCESS);
+  }
+  void printPath(std::vector<std::pair<size_t, size_t> > & path) {
+    //std::stringstream s;
+    std::cout << pages[path[0].second].pagenum;
+    for (size_t i = 1; i < path.size(); i++) {
+      std::cout << "(" << path[i].first << "), " << pages[path[i].second].pagenum;
+    }
+    std::cout << "(W)" << std::endl;
+  }
+
+  void findWin() {
+    // std::vector<std::vector<Page *> > allPath;
+    std::queue<std::vector<std::pair<size_t, size_t> > > todo;
+    std::set<size_t> visited;
+    bool flag = false;
+    todo.push(
+        std::vector<std::pair<size_t, size_t> >(1, std::pair<size_t, size_t>(1, 0)));
+    while (todo.size() > 0) {
+      std::vector<std::pair<size_t, size_t> > currentPath = todo.front();
+      todo.pop();
+      Page * currentPage = &pages[currentPath.back().second];
+      if (currentPage->type == 'W') {
+        printPath(currentPath);
+        flag = true;
+      }
+      if (visited.find(currentPage->pagenum) == visited.end()) {
+        visited.insert(currentPage->pagenum);
+        for (size_t i = 0; i < currentPage->options.size(); i++) {
+          std::vector<std::pair<size_t, size_t> > temp = currentPath;
+          temp.push_back(std::pair<size_t, size_t>(i + 1, currentPage->options[i].first));
+          todo.push(temp);
+        }
+      }
+    }
+    if (!flag) {
+      std::cout << "This story is unwinnable!" << std::endl;
+    }
   }
 };

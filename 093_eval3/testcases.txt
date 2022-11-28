@@ -1,7 +1,9 @@
-ec:step2
+ec:step3
 cyoa-step1 story1
 cyoa-step1 story2
 cyoa-step2 story1 < story1/inputs/input1.txt
 cyoa-step2 story1 < story1/inputs/input2.txt
 cyoa-step2 story1 < story1/inputs/input3.txt
 cyoa-step2 story2 < story2/inputs/input1.txt
+cyoa-step3 story1
+cyoa-step3 story2
