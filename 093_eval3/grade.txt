@@ -1,6 +1,6 @@
-Grading at 11/28/2022:05:39:54.262353
-For commit ID 9cdefd46268e9df4a2ece28a1f329c149b769e4f
-Grading at Mon Nov 28 12:39:44 AM EST 2022
+Grading at 11/28/2022:05:42:15.921824
+For commit ID 5bfdbb78789715a3a91b01fdd73ab8944b26b7e1
+Grading at Mon Nov 28 12:42:04 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -77,25 +77,16 @@ Now running YOUR tests for step 3
 
 3.1: Current test is ./cyoa-step3 story1 < /dev/null
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-0(1), 1(2), 3(1), 8(W)					      |	0(1),1(2),3(1),8(win)
-0(1), 1(3), 4(2), 12(W)					      |	0(1),1(3),4(2),12(win)
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 3.2: Current test is ./cyoa-step3 story2 < /dev/null
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-0(1), 1(2), 5(1), 6(1), 8(1), 11(W)			      |	0(1),1(2),5(1),6(1),8(1),11(win)
-0(1), 1(2), 5(2), 7(1), 10(W)				      |	0(1),1(2),5(2),7(1),10(win)
-0(2), 2(W)						      |	0(2),2(win)
-Your file did not match the expected output
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 ------------------------------------
 You have requested that we check for intermediate deadline completion on step 3
 ------------------------------------
@@ -103,21 +94,17 @@ You have requested that we check for intermediate deadline completion on step 3
 Step 3 EC intermediate deadline test 1
 ===========================================================
 ./cyoa-step3 /usr/local/ece551/cyoa/story1
-Your output differs from ours.
-Below is the diff (yours left/ours right)
-0(1), 1(2), 3(1), 8(W)					      |	0(1),1(2),3(1),8(win)
-0(1), 1(3), 4(2), 12(W)					      |	0(1),1(3),4(2),12(win)
-Your file did not match the expected output
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
 
 Step 3 EC intermediate deadline test 2
 ===========================================================
 ./cyoa-step3 /usr/local/ece551/cyoa/story2
-Your output differs from ours.
-Below is the diff (yours left/ours right)
-0(1), 1(2), 5(1), 6(1), 8(1), 11(W)			      |	0(1),1(2),5(1),6(1),8(1),11(win)
-0(1), 1(2), 5(2), 7(1), 10(W)				      |	0(1),1(2),5(2),7(1),10(win)
-0(2), 2(W)						      |	0(2),2(win)
-Your file did not match the expected output
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+Intermediate deadline requirements for Step 3 passed at Mon Nov 28 12:42:15 AM EST 2022
 
 Step 4
 Checking that cyoa-step4 compiles
