@@ -163,9 +163,9 @@ class Story {
     //std::stringstream s;
     std::cout << pages[path[0].second].pagenum;
     for (size_t i = 1; i < path.size(); i++) {
-      std::cout << "(" << path[i].first << "), " << pages[path[i].second].pagenum;
+      std::cout << "(" << path[i].first << ")," << pages[path[i].second].pagenum;
     }
-    std::cout << "(W)" << std::endl;
+    std::cout << "(win)" << std::endl;
   }
 
   void findWin() {
