@@ -6,7 +6,7 @@
 
 #include "Page.hpp"
 
-class Story {
+class Story2 {
   std::vector<Page> pages;
   std::string dir;
   std::map<std::string, long int> variables;
@@ -31,7 +31,23 @@ class Story {
     return ans;
   }
 
-  void parseLine(std::string line) {
+  void addPageOption(std::string line) {
+    size_t f_coma = line.find(':');
+    size_t cur_page = strtoul(line.c_str(), NULL, 0);
+
+    size_t next_page = strtoul(line.substr(f_coma + 1).c_str(), NULL, 0);
+    size_t f_coma2 = line.find_last_of(':');
+
+    std::string message = line.substr(f_coma2 + 1);
+    for (size_t i = 0; i < pages.size(); i++) {
+      if (pages[i].getPage() == cur_page) {
+        pages[i].addOption(next_page, message);
+        break;
+      }
+    }
+  }
+
+  void parseLine(std::string & line) {
     size_t idx = 0;
     size_t pn1 = my_strtoul(line, &idx, 10);
 
@@ -124,6 +140,30 @@ class Story {
     }
   }
 
+  // void parseLine(std::string line) {
+  //   size_t f_at = line.find('@');
+  //   size_t f_coma = line.find(':');
+  //   size_t f_dollar = line.find('$');
+  //   size_t f_equal = line.find('=');
+
+  //   if (f_at != std::string::npos && f_dollar == std::string::npos &&
+  //       f_equal == std::string::npos) {  //number@type:filename
+  //     addPage(line);
+  //   }
+  //   else if (f_at == std::string::npos && f_dollar == std::string::npos &&
+  //            f_equal ==
+  //                std::string::
+  //                    npos) {  //pagenum:destpage:text  or pagenum[var=value]:dest:text
+  //     addPageOption(line);
+  //   }
+  //   else if (f_at == std::string::npos && f_dollar != std::string::npos &&
+  //            f_equal != std::string::npos) {  //pagenumber$var=varibale
+  //     setVariable(line);
+  //   }
+  //   else {
+  //     throw "wrong input story";
+  //   }
+  // }
   void buildStory(const char * fname) {
     std::ifstream ifs;
     std::string line;
@@ -135,6 +175,14 @@ class Story {
       }
     }
   }
+  // bool validChoice(size_t c, Page & p) {
+  //   for (size_t i = 0; i < p.options.size(); i++) {
+  //     if (c == p.options[i].first) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
   bool checkChoics() {
     for (size_t i = 0; i < pages.size(); i++) {
@@ -144,6 +192,13 @@ class Story {
           return false;
         }
       }
+      // for (std::map<size_t, std::string>::iterator it = pages[i].options.begin();
+      //      it != pages[i].options.end();
+      //      ++it) {
+      //   if (it->first > pages.size() - 1 || it->first < 0) {
+      //     return false;
+      //   }
+      // }
     }
     return true;
   }
@@ -183,7 +238,7 @@ class Story {
   }
 
  public:
-  Story(std::string _dir) {
+  Story2(std::string _dir) {
     dir = _dir;
     std::string fname = dir + "/story.txt";
     buildStory(fname.c_str());
@@ -212,6 +267,9 @@ class Story {
       pages[cur].printPage(dir);
 
       std::map<std::string, long int>::iterator it;
+
+      // std::cout << "page number: " << cur
+      //        << "    variables :" << pages[cur].variables.size() << std::endl;
       if (pages[cur].variables.size() != 0) {
         for (it = pages[cur].variables.begin(); it != pages[cur].variables.end(); ++it) {
           variables[it->first] = it->second;
@@ -249,7 +307,6 @@ class Story {
     pages[cur].printOptions(variables);
     //exit(EXIT_SUCCESS);
   }
-
   void printPath(std::vector<std::pair<size_t, size_t> > & path) {
     //std::stringstream s;
     std::cout << pages[path[0].second].pagenum;

@@ -6,10 +6,24 @@
 #include <vector>
 class Page {
  private:
+  class Choice {
+   public:
+    size_t nextpage;
+    std::string message;
+    long int value;
+    std::string varibale;
+
+    Choice(size_t np, std::string mess) :
+        nextpage(np), message(mess), value(0), varibale("") {}
+    Choice(size_t np, std::string mess, long int val, std::string var) :
+        nextpage(np), message(mess), value(val), varibale(var) {}
+  };
   size_t pagenum;
   std::string filename;
   char type;
-  std::vector<std::pair<size_t, std::string> > options;
+  std::vector<Choice> options;
+  std::map<std::string, long int> variables;
+  // std::vector<std::pair<size_t, std::string> > options;
   //std::map<size_t, std::string> options;
 
  public:
@@ -17,12 +31,20 @@ class Page {
   Page(size_t _pn, std::string _fn, char _t) : pagenum(_pn), filename(_fn), type(_t) {}
 
   void addOption(size_t pn, std::string message) {
-    options.push_back(std::pair<size_t, std::string>(pn, message));
+    // options.push_back(std::pair<size_t, std::string>(pn, message));
     // options[pn] = message;
+    options.push_back(Choice(pn, message));
   }
+
+  void addOption(size_t np, std::string mess, long int val, std::string var) {
+    options.push_back(Choice(np, mess, val, var));
+  }
+
+  void setPageVaribale(std::string var, long int val) { variables[var] = val; }
 
   const size_t & getPage() const { return pagenum; }
   const std::string & getFileName() const { return filename; }
+
   void printPage(std::string dir) {
     std::ifstream ifs;
     std::string line;
@@ -34,20 +56,28 @@ class Page {
     }
   }
 
-  void printOptions() {
+  std::map<size_t, bool> * printOptions(std::map<std::string, long int> vars) {
+    std::map<size_t, bool> * valid = new std::map<size_t, bool>;
     if (type == 'N') {
       std::cout << "What would you like to do?" << std::endl;
       std::cout << std::endl;
-      // int i = 1;
-      // for (std::map<size_t, std::string>::iterator it = options.begin();
-      //      it != options.end();
-      //      ++it) {
-      //   std::cout << " " << i << ". " << it->second << std::endl;
-      //   i++;
-      // }
 
       for (size_t i = 0; i < options.size(); i++) {
-        std::cout << " " << i + 1 << ". " << options[i].second << std::endl;
+        if (options[i].varibale.compare("") == 0) {
+          std::cout << i + 1 << "." << options[i].message << std::endl;
+          (*valid)[i] = true;
+        }
+        else {
+          if (vars[options[i].varibale] == options[i].value) {
+            std::cout << i + 1 << "." << options[i].message << std::endl;
+            (*valid)[i] = true;
+          }
+          else {
+            std::cout << i + 1 << "."
+                      << "<UNAVAILABLE>" << std::endl;
+            (*valid)[i] = false;
+          }
+        }
       }
     }
     else if (type == 'W') {
@@ -56,7 +86,9 @@ class Page {
     else {
       std::cout << "Sorry, you have lost. Better luck next time!" << std::endl;
     }
+    return valid;
   }
 
   friend class Story;
+  friend class Story2;
 };
