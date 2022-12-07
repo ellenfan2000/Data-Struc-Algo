@@ -208,6 +208,7 @@ class Story {
   void play() {
     size_t cur = 0;
     size_t next;
+    std::map<size_t, bool> * valid;
     while (pages[cur].type != 'W' && pages[cur].type != 'L') {
       pages[cur].printPage(dir);
 
@@ -218,7 +219,7 @@ class Story {
         }
       }
 
-      std::map<size_t, bool> * valid = pages[cur].printOptions(variables);
+      valid = pages[cur].printOptions(variables);
       std::cin >> next;
 
       while (true) {
@@ -232,12 +233,13 @@ class Story {
           std::cout << "That is not a valid choice, please try again" << std::endl;
           std::cin >> next;
         }
+
+        else if (!(*valid)[next - 1]) {
+          std::cout << "That choice is not available at this time, please try again"
+                    << std::endl;
+          std::cin >> next;
+        }
         else {
-          if (!(*valid)[next - 1]) {
-            std::cout << "That choice is not available at this time, please try again"
-                      << std::endl;
-            std::cin >> next;
-          }
           break;
         }
       }
@@ -246,7 +248,8 @@ class Story {
       delete valid;
     }
     pages[cur].printPage(dir);
-    pages[cur].printOptions(variables);
+    valid = pages[cur].printOptions(variables);
+    delete valid;
     //exit(EXIT_SUCCESS);
   }
 
