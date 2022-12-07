@@ -1,10 +1,11 @@
-Grading at 11/28/2022:05:42:15.921824
-For commit ID 5bfdbb78789715a3a91b01fdd73ab8944b26b7e1
-Grading at Mon Nov 28 12:42:04 AM EST 2022
+Grading at 12/07/2022:23:04:41.954742
+For commit ID de44c017af4284684133326a302cb5012d6d3993
+Grading at Wed Dec  7 06:03:58 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -pedantic -g --std=gnu++98 -Werror -Wall -o cyoa-step1 cyoa-step1.cpp
 The code compiled (good)
 Executable cyoa-step1 exists (good)
@@ -16,19 +17,72 @@ Now running YOUR tests for step 1
 1.1: Current test is ./cyoa-step1 story1 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==497177== Memcheck, a memory error detector
+==497177== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497177== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497177== Command: ./cyoa-step1 story1
+==497177== Parent PID: 497176
+==497177== 
+==497177== 
+==497177== HEAP SUMMARY:
+==497177==     in use at exit: 1,488 bytes in 31 blocks
+==497177==   total heap usage: 306 allocs, 275 frees, 234,676 bytes allocated
+==497177== 
+==497177== 1,488 (720 direct, 768 indirect) bytes in 15 blocks are definitely lost in loss record 2 of 2
+==497177==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497177==    by 0x10B0AF: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497177==    by 0x10C559: Story::printStory() (Story.hpp:197)
+==497177==    by 0x10A750: main (cyoa-step1.cpp:10)
+==497177== 
+==497177== LEAK SUMMARY:
+==497177==    definitely lost: 720 bytes in 15 blocks
+==497177==    indirectly lost: 768 bytes in 16 blocks
+==497177==      possibly lost: 0 bytes in 0 blocks
+==497177==    still reachable: 0 bytes in 0 blocks
+==497177==         suppressed: 0 bytes in 0 blocks
+==497177== 
+==497177== For lists of detected and suppressed errors, rerun with: -s
+==497177== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 1.2: Current test is ./cyoa-step1 story2 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==497206== Memcheck, a memory error detector
+==497206== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497206== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497206== Command: ./cyoa-step1 story2
+==497206== Parent PID: 497205
+==497206== 
+==497206== 
+==497206== HEAP SUMMARY:
+==497206==     in use at exit: 1,200 bytes in 25 blocks
+==497206==   total heap usage: 217 allocs, 192 frees, 201,371 bytes allocated
+==497206== 
+==497206== 1,200 (576 direct, 624 indirect) bytes in 12 blocks are definitely lost in loss record 2 of 2
+==497206==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497206==    by 0x10B0AF: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497206==    by 0x10C559: Story::printStory() (Story.hpp:197)
+==497206==    by 0x10A750: main (cyoa-step1.cpp:10)
+==497206== 
+==497206== LEAK SUMMARY:
+==497206==    definitely lost: 576 bytes in 12 blocks
+==497206==    indirectly lost: 624 bytes in 13 blocks
+==497206==      possibly lost: 0 bytes in 0 blocks
+==497206==    still reachable: 0 bytes in 0 blocks
+==497206==         suppressed: 0 bytes in 0 blocks
+==497206== 
+==497206== For lists of detected and suppressed errors, rerun with: -s
+==497206== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 No request to check for intermediate deadline completion on step 1
 
 Step 2
 Checking that cyoa-step2 compiles
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -pedantic -g --std=gnu++98 -Werror -Wall -o cyoa-step2 cyoa-step2.cpp
 The code compiled (good)
 Executable cyoa-step2 exists (good)
@@ -40,33 +94,138 @@ Now running YOUR tests for step 2
 2.1: Current test is ./cyoa-step2 story1  <  story1/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==497248== Memcheck, a memory error detector
+==497248== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497248== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497248== Command: ./cyoa-step2 story1
+==497248== Parent PID: 497247
+==497248== 
+==497248== 
+==497248== HEAP SUMMARY:
+==497248==     in use at exit: 48 bytes in 1 blocks
+==497248==   total heap usage: 243 allocs, 242 frees, 149,199 bytes allocated
+==497248== 
+==497248== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497248==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497248==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497248==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497248==    by 0x10A7E0: main (cyoa-step2.cpp:13)
+==497248== 
+==497248== LEAK SUMMARY:
+==497248==    definitely lost: 48 bytes in 1 blocks
+==497248==    indirectly lost: 0 bytes in 0 blocks
+==497248==      possibly lost: 0 bytes in 0 blocks
+==497248==    still reachable: 0 bytes in 0 blocks
+==497248==         suppressed: 0 bytes in 0 blocks
+==497248== 
+==497248== For lists of detected and suppressed errors, rerun with: -s
+==497248== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 2.2: Current test is ./cyoa-step2 story1  <  story1/inputs/input2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==497277== Memcheck, a memory error detector
+==497277== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497277== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497277== Command: ./cyoa-step2 story1
+==497277== Parent PID: 497276
+==497277== 
+==497277== 
+==497277== HEAP SUMMARY:
+==497277==     in use at exit: 48 bytes in 1 blocks
+==497277==   total heap usage: 242 allocs, 241 frees, 149,150 bytes allocated
+==497277== 
+==497277== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497277==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497277==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497277==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497277==    by 0x10A7E0: main (cyoa-step2.cpp:13)
+==497277== 
+==497277== LEAK SUMMARY:
+==497277==    definitely lost: 48 bytes in 1 blocks
+==497277==    indirectly lost: 0 bytes in 0 blocks
+==497277==      possibly lost: 0 bytes in 0 blocks
+==497277==    still reachable: 0 bytes in 0 blocks
+==497277==         suppressed: 0 bytes in 0 blocks
+==497277== 
+==497277== For lists of detected and suppressed errors, rerun with: -s
+==497277== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 2.3: Current test is ./cyoa-step2 story1  <  story1/inputs/input3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==497309== Memcheck, a memory error detector
+==497309== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497309== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497309== Command: ./cyoa-step2 story1
+==497309== Parent PID: 497308
+==497309== 
+==497309== 
+==497309== HEAP SUMMARY:
+==497309==     in use at exit: 48 bytes in 1 blocks
+==497309==   total heap usage: 233 allocs, 232 frees, 140,090 bytes allocated
+==497309== 
+==497309== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497309==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497309==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497309==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497309==    by 0x10A7E0: main (cyoa-step2.cpp:13)
+==497309== 
+==497309== LEAK SUMMARY:
+==497309==    definitely lost: 48 bytes in 1 blocks
+==497309==    indirectly lost: 0 bytes in 0 blocks
+==497309==      possibly lost: 0 bytes in 0 blocks
+==497309==    still reachable: 0 bytes in 0 blocks
+==497309==         suppressed: 0 bytes in 0 blocks
+==497309== 
+==497309== For lists of detected and suppressed errors, rerun with: -s
+==497309== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 
 2.4: Current test is ./cyoa-step2 story2  <  story2/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==497335== Memcheck, a memory error detector
+==497335== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497335== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497335== Command: ./cyoa-step2 story2
+==497335== Parent PID: 497334
+==497335== 
+==497335== 
+==497335== HEAP SUMMARY:
+==497335==     in use at exit: 48 bytes in 1 blocks
+==497335==   total heap usage: 191 allocs, 190 frees, 152,552 bytes allocated
+==497335== 
+==497335== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497335==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497335==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497335==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497335==    by 0x10A7E0: main (cyoa-step2.cpp:13)
+==497335== 
+==497335== LEAK SUMMARY:
+==497335==    definitely lost: 48 bytes in 1 blocks
+==497335==    indirectly lost: 0 bytes in 0 blocks
+==497335==      possibly lost: 0 bytes in 0 blocks
+==497335==    still reachable: 0 bytes in 0 blocks
+==497335==         suppressed: 0 bytes in 0 blocks
+==497335== 
+==497335== For lists of detected and suppressed errors, rerun with: -s
+==497335== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 No request to check for intermediate deadline completion on step 2
 
 Step 3
 Checking that cyoa-step3 compiles
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 g++ -pedantic -g --std=gnu++98 -Werror -Wall -o cyoa-step3 cyoa-step3.cpp
 The code compiled (good)
 Executable cyoa-step3 exists (good)
@@ -87,27 +246,1021 @@ Valgrind was clean
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
-------------------------------------
-You have requested that we check for intermediate deadline completion on step 3
-------------------------------------
-
-Step 3 EC intermediate deadline test 1
-===========================================================
-./cyoa-step3 /usr/local/ece551/cyoa/story1
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean for this testcase
-You have passed this test case
-
-Step 3 EC intermediate deadline test 2
-===========================================================
-./cyoa-step3 /usr/local/ece551/cyoa/story2
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean for this testcase
-You have passed this test case
-Intermediate deadline requirements for Step 3 passed at Mon Nov 28 12:42:15 AM EST 2022
+No request to check for intermediate deadline completion on step 3
 
 Step 4
 Checking that cyoa-step4 compiles
-The code did not compile!
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
+g++ -pedantic -g --std=gnu++98 -Werror -Wall -o cyoa-step4 cyoa-step4.cpp
+The code compiled (good)
+Executable cyoa-step4 exists (good)
+------------------------------------
+Now running YOUR tests for step 4
+------------------------------------
+
+
+4.1: Current test is ./cyoa-step4 story4  <  story3/inputs/input1.txt
+-----------------------------
+You exited with a failure status (good) but did not print to stderr (bad)
+------------------------------------
+You have requested that we check for intermediate deadline completion on step 4
+------------------------------------
+
+Step 4 EC intermediate deadline test 1
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input0.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497589== Memcheck, a memory error detector
+==497589== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497589== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497589== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497589== Parent PID: 497588
+==497589== 
+==497589== 
+==497589== HEAP SUMMARY:
+==497589==     in use at exit: 48 bytes in 1 blocks
+==497589==   total heap usage: 466 allocs, 465 frees, 173,641 bytes allocated
+==497589== 
+==497589== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497589==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497589==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497589==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497589==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497589== 
+==497589== LEAK SUMMARY:
+==497589==    definitely lost: 48 bytes in 1 blocks
+==497589==    indirectly lost: 0 bytes in 0 blocks
+==497589==      possibly lost: 0 bytes in 0 blocks
+==497589==    still reachable: 0 bytes in 0 blocks
+==497589==         suppressed: 0 bytes in 0 blocks
+==497589== 
+==497589== For lists of detected and suppressed errors, rerun with: -s
+==497589== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 2
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input10.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+1.Purchase a chocolate croissant.				 1. Purchase a chocolate croissant.
+2.Purchase an eclair.						 2. Purchase an eclair.
+3.Purchase a muffin.						 3. Purchase a muffin.
+You pay the baker, who carefully packs your eclair into a box	You pay the baker, who carefully packs your eclair into a box
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+1.Leave the store						 1. Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+1.Go east, out of town						 1. Go east, out of town
+2.Go west, into town						 2. Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+1.Buy the sword							 1. Buy the sword
+2.Decline and head out of town					 2. Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+1.Now that you have a sword, head out of town			 1. Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+1.Jump off the road and hide behind a large rock		 1. Jump off the road and hide behind a large rock
+2.Keep walking							 2. Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+1.<UNAVAILABLE>							 1. <UNAVAILABLE>
+2.Charge the dragon with your sword.				 2. Charge the dragon with your sword.
+3.<UNAVAILABLE>							 3. <UNAVAILABLE>
+4.Squirt the eclair filling in the dragon's eye.		 4. Squirt the eclair filling in the dragon's eye.
+5.<UNAVAILABLE>							 5. <UNAVAILABLE>
+6.Ask the dragon if he has heard any good jokes lately.		 6. Ask the dragon if he has heard any good jokes lately.
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+You offer the last of your money to the dragon, who seems a b |	That choice is not available at this time, please try again
+"Oh thank you!" he says.  Now, I can just go buy some breafka |	As you charge the dragon with your sword, you realize
+at the bakery rather than eating travelers who wander on the  |	that you don't really have training in sword fighting.
+							      |	The dragon happily eats you for breakfast.
+And everyone lived happily ever after.			      <
+
+Congratulations! You have won. Hooray!			      |	Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+Step 4 EC intermediate deadline test 3
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input11.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497613== Memcheck, a memory error detector
+==497613== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497613== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497613== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497613== Parent PID: 497612
+==497613== 
+==497613== 
+==497613== HEAP SUMMARY:
+==497613==     in use at exit: 48 bytes in 1 blocks
+==497613==   total heap usage: 510 allocs, 509 frees, 201,713 bytes allocated
+==497613== 
+==497613== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497613==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497613==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497613==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497613==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497613== 
+==497613== LEAK SUMMARY:
+==497613==    definitely lost: 48 bytes in 1 blocks
+==497613==    indirectly lost: 0 bytes in 0 blocks
+==497613==      possibly lost: 0 bytes in 0 blocks
+==497613==    still reachable: 0 bytes in 0 blocks
+==497613==         suppressed: 0 bytes in 0 blocks
+==497613== 
+==497613== For lists of detected and suppressed errors, rerun with: -s
+==497613== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 4
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input12.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+1.Purchase a chocolate croissant.				 1. Purchase a chocolate croissant.
+2.Purchase an eclair.						 2. Purchase an eclair.
+3.Purchase a muffin.						 3. Purchase a muffin.
+You pay the baker, who carefully packs your eclair into a box	You pay the baker, who carefully packs your eclair into a box
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+1.Leave the store						 1. Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+1.Go east, out of town						 1. Go east, out of town
+2.Go west, into town						 2. Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+1.Buy the sword							 1. Buy the sword
+2.Decline and head out of town					 2. Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+1.Now that you have a sword, head out of town			 1. Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+1.Jump off the road and hide behind a large rock		 1. Jump off the road and hide behind a large rock
+2.Keep walking							 2. Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+1.<UNAVAILABLE>							 1. <UNAVAILABLE>
+2.Charge the dragon with your sword.				 2. Charge the dragon with your sword.
+3.<UNAVAILABLE>							 3. <UNAVAILABLE>
+4.Squirt the eclair filling in the dragon's eye.		 4. Squirt the eclair filling in the dragon's eye.
+5.<UNAVAILABLE>							 5. <UNAVAILABLE>
+6.Ask the dragon if he has heard any good jokes lately.		 6. Ask the dragon if he has heard any good jokes lately.
+You squirt the eclair filling right in the dragon's eyes!	You squirt the eclair filling right in the dragon's eyes!
+The dragon can't see anything, but now you need			The dragon can't see anything, but now you need
+to quickly decide how to best take advantage of this situatio	to quickly decide how to best take advantage of this situatio
+
+What would you like to do?					What would you like to do?
+
+1.<UNAVAILABLE>							 1. <UNAVAILABLE>
+2.Attack the dragon with your sword				 2. Attack the dragon with your sword
+3.<UNAVAILABLE>							 3. <UNAVAILABLE>
+4.Run for it!							 4. Run for it!
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+As you fling the coins at the dragon, the jangling sound they |	That choice is not available at this time, please try again
+the air lets the dragon know where you are.  He turns and bre |	You run away.  Not the most heroic victory,
+fire at you.						      |	but we'll call it a win.
+
+Sorry, you have lost. Better luck next time!		      |	Congratulations! You have won. Hooray!
+Your file did not match the expected output
+
+Step 4 EC intermediate deadline test 5
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input13.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497634== Memcheck, a memory error detector
+==497634== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497634== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497634== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497634== Parent PID: 497633
+==497634== 
+==497634== 
+==497634== HEAP SUMMARY:
+==497634==     in use at exit: 48 bytes in 1 blocks
+==497634==   total heap usage: 510 allocs, 509 frees, 201,703 bytes allocated
+==497634== 
+==497634== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497634==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497634==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497634==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497634==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497634== 
+==497634== LEAK SUMMARY:
+==497634==    definitely lost: 48 bytes in 1 blocks
+==497634==    indirectly lost: 0 bytes in 0 blocks
+==497634==      possibly lost: 0 bytes in 0 blocks
+==497634==    still reachable: 0 bytes in 0 blocks
+==497634==         suppressed: 0 bytes in 0 blocks
+==497634== 
+==497634== For lists of detected and suppressed errors, rerun with: -s
+==497634== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 6
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input14.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497654== Memcheck, a memory error detector
+==497654== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497654== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497654== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497654== Parent PID: 497653
+==497654== 
+==497654== 
+==497654== HEAP SUMMARY:
+==497654==     in use at exit: 48 bytes in 1 blocks
+==497654==   total heap usage: 494 allocs, 493 frees, 192,316 bytes allocated
+==497654== 
+==497654== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497654==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497654==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497654==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497654==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497654== 
+==497654== LEAK SUMMARY:
+==497654==    definitely lost: 48 bytes in 1 blocks
+==497654==    indirectly lost: 0 bytes in 0 blocks
+==497654==      possibly lost: 0 bytes in 0 blocks
+==497654==    still reachable: 0 bytes in 0 blocks
+==497654==         suppressed: 0 bytes in 0 blocks
+==497654== 
+==497654== For lists of detected and suppressed errors, rerun with: -s
+==497654== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 7
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input15.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497671== Memcheck, a memory error detector
+==497671== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497671== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497671== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497671== Parent PID: 497670
+==497671== 
+==497671== 
+==497671== HEAP SUMMARY:
+==497671==     in use at exit: 48 bytes in 1 blocks
+==497671==   total heap usage: 476 allocs, 475 frees, 182,825 bytes allocated
+==497671== 
+==497671== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497671==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497671==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497671==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497671==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497671== 
+==497671== LEAK SUMMARY:
+==497671==    definitely lost: 48 bytes in 1 blocks
+==497671==    indirectly lost: 0 bytes in 0 blocks
+==497671==      possibly lost: 0 bytes in 0 blocks
+==497671==    still reachable: 0 bytes in 0 blocks
+==497671==         suppressed: 0 bytes in 0 blocks
+==497671== 
+==497671== For lists of detected and suppressed errors, rerun with: -s
+==497671== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 8
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input16.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497684== Memcheck, a memory error detector
+==497684== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497684== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497684== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497684== Parent PID: 497683
+==497684== 
+==497684== 
+==497684== HEAP SUMMARY:
+==497684==     in use at exit: 48 bytes in 1 blocks
+==497684==   total heap usage: 496 allocs, 495 frees, 192,366 bytes allocated
+==497684== 
+==497684== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497684==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497684==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497684==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497684==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497684== 
+==497684== LEAK SUMMARY:
+==497684==    definitely lost: 48 bytes in 1 blocks
+==497684==    indirectly lost: 0 bytes in 0 blocks
+==497684==      possibly lost: 0 bytes in 0 blocks
+==497684==    still reachable: 0 bytes in 0 blocks
+==497684==         suppressed: 0 bytes in 0 blocks
+==497684== 
+==497684== For lists of detected and suppressed errors, rerun with: -s
+==497684== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 9
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input17.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497697== Memcheck, a memory error detector
+==497697== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497697== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497697== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497697== Parent PID: 497696
+==497697== 
+==497697== 
+==497697== HEAP SUMMARY:
+==497697==     in use at exit: 48 bytes in 1 blocks
+==497697==   total heap usage: 496 allocs, 495 frees, 192,366 bytes allocated
+==497697== 
+==497697== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497697==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497697==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497697==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497697==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497697== 
+==497697== LEAK SUMMARY:
+==497697==    definitely lost: 48 bytes in 1 blocks
+==497697==    indirectly lost: 0 bytes in 0 blocks
+==497697==      possibly lost: 0 bytes in 0 blocks
+==497697==    still reachable: 0 bytes in 0 blocks
+==497697==         suppressed: 0 bytes in 0 blocks
+==497697== 
+==497697== For lists of detected and suppressed errors, rerun with: -s
+==497697== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 10
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input18.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497716== Memcheck, a memory error detector
+==497716== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497716== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497716== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497716== Parent PID: 497715
+==497716== 
+==497716== 
+==497716== HEAP SUMMARY:
+==497716==     in use at exit: 48 bytes in 1 blocks
+==497716==   total heap usage: 496 allocs, 495 frees, 192,353 bytes allocated
+==497716== 
+==497716== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497716==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497716==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497716==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497716==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497716== 
+==497716== LEAK SUMMARY:
+==497716==    definitely lost: 48 bytes in 1 blocks
+==497716==    indirectly lost: 0 bytes in 0 blocks
+==497716==      possibly lost: 0 bytes in 0 blocks
+==497716==    still reachable: 0 bytes in 0 blocks
+==497716==         suppressed: 0 bytes in 0 blocks
+==497716== 
+==497716== For lists of detected and suppressed errors, rerun with: -s
+==497716== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 11
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input19.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497731== Memcheck, a memory error detector
+==497731== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497731== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497731== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497731== Parent PID: 497730
+==497731== 
+==497731== 
+==497731== HEAP SUMMARY:
+==497731==     in use at exit: 48 bytes in 1 blocks
+==497731==   total heap usage: 466 allocs, 465 frees, 173,674 bytes allocated
+==497731== 
+==497731== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497731==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497731==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497731==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497731==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497731== 
+==497731== LEAK SUMMARY:
+==497731==    definitely lost: 48 bytes in 1 blocks
+==497731==    indirectly lost: 0 bytes in 0 blocks
+==497731==      possibly lost: 0 bytes in 0 blocks
+==497731==    still reachable: 0 bytes in 0 blocks
+==497731==         suppressed: 0 bytes in 0 blocks
+==497731== 
+==497731== For lists of detected and suppressed errors, rerun with: -s
+==497731== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 12
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input1.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497745== Memcheck, a memory error detector
+==497745== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497745== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497745== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497745== Parent PID: 497744
+==497745== 
+==497745== 
+==497745== HEAP SUMMARY:
+==497745==     in use at exit: 48 bytes in 1 blocks
+==497745==   total heap usage: 494 allocs, 493 frees, 192,309 bytes allocated
+==497745== 
+==497745== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497745==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497745==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497745==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497745==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497745== 
+==497745== LEAK SUMMARY:
+==497745==    definitely lost: 48 bytes in 1 blocks
+==497745==    indirectly lost: 0 bytes in 0 blocks
+==497745==      possibly lost: 0 bytes in 0 blocks
+==497745==    still reachable: 0 bytes in 0 blocks
+==497745==         suppressed: 0 bytes in 0 blocks
+==497745== 
+==497745== For lists of detected and suppressed errors, rerun with: -s
+==497745== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 13
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input20.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+1.Purchase a chocolate croissant.				 1. Purchase a chocolate croissant.
+2.Purchase an eclair.						 2. Purchase an eclair.
+3.Purchase a muffin.						 3. Purchase a muffin.
+You pay the baker, who puts your muffin into a bag,		You pay the baker, who puts your muffin into a bag,
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+1.Leave the store						 1. Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+1.Go east, out of town						 1. Go east, out of town
+2.Go west, into town						 2. Go west, into town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+1.Jump off the road and hide behind a large rock		 1. Jump off the road and hide behind a large rock
+2.Keep walking							 2. Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+1.Offer the dragon your last coins.				 1. Offer the dragon your last coins.
+2.<UNAVAILABLE>							 2. <UNAVAILABLE>
+3.<UNAVAILABLE>							 3. <UNAVAILABLE>
+4.<UNAVAILABLE>							 4. <UNAVAILABLE>
+5.Throw the muffin at the dragon's nose and run for it!		 5. Throw the muffin at the dragon's nose and run for it!
+6.Ask the dragon if he has heard any good jokes lately.		 6. Ask the dragon if he has heard any good jokes lately.
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+"Oh thank you this looks delicious!" the dragon says	      |	That choice is not available at this time, please try again
+as he devours the pastry.   "I was so hungry I couldn't	      |	As you throw the muffin at the dragon, it harmlessly bounces 
+think straight and was about to eat you!  How terrible	      |	his thick scales.  You wonder what you were thinking as the d
+would that have been."					      |	eats you for breakfast.
+							      <
+Having solved the dragon's hunger problems, he is happy	      <
+to give you a ride back to your house.  Everyone lives	      <
+happily ever after.					      <
+
+Congratulations! You have won. Hooray!			      |	Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+Step 4 EC intermediate deadline test 14
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input21.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+1.Purchase a chocolate croissant.				 1. Purchase a chocolate croissant.
+2.Purchase an eclair.						 2. Purchase an eclair.
+3.Purchase a muffin.						 3. Purchase a muffin.
+You pay the baker, who puts your muffin into a bag,		You pay the baker, who puts your muffin into a bag,
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+1.Leave the store						 1. Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+1.Go east, out of town						 1. Go east, out of town
+2.Go west, into town						 2. Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+1.Buy the sword							 1. Buy the sword
+2.Decline and head out of town					 2. Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+1.Now that you have a sword, head out of town			 1. Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+1.Jump off the road and hide behind a large rock		 1. Jump off the road and hide behind a large rock
+2.Keep walking							 2. Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+1.<UNAVAILABLE>							 1. <UNAVAILABLE>
+2.Charge the dragon with your sword.				 2. Charge the dragon with your sword.
+3.<UNAVAILABLE>							 3. <UNAVAILABLE>
+4.<UNAVAILABLE>							 4. <UNAVAILABLE>
+5.Throw the muffin at the dragon's nose and run for it!		 5. Throw the muffin at the dragon's nose and run for it!
+6.Ask the dragon if he has heard any good jokes lately.		 6. Ask the dragon if he has heard any good jokes lately.
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+"Oh thank you this looks delicious!" the dragon says	      |	That choice is not available at this time, please try again
+as he devours the pastry.   "I was so hungry I couldn't	      |	That choice is not available at this time, please try again
+think straight and was about to eat you!  How terrible	      |	As you charge the dragon with your sword, you realize
+would that have been."					      |	that you don't really have training in sword fighting.
+							      |	The dragon happily eats you for breakfast.
+Having solved the dragon's hunger problems, he is happy	      <
+to give you a ride back to your house.  Everyone lives	      <
+happily ever after.					      <
+
+Congratulations! You have won. Hooray!			      |	Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+Step 4 EC intermediate deadline test 15
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input22.txt
+You indicated this was a failure, but it was not
+
+Step 4 EC intermediate deadline test 16
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input23.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497859== Memcheck, a memory error detector
+==497859== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497859== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497859== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497859== Parent PID: 497858
+==497859== 
+==497859== 
+==497859== HEAP SUMMARY:
+==497859==     in use at exit: 48 bytes in 1 blocks
+==497859==   total heap usage: 495 allocs, 494 frees, 192,258 bytes allocated
+==497859== 
+==497859== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497859==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497859==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497859==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497859==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497859== 
+==497859== LEAK SUMMARY:
+==497859==    definitely lost: 48 bytes in 1 blocks
+==497859==    indirectly lost: 0 bytes in 0 blocks
+==497859==      possibly lost: 0 bytes in 0 blocks
+==497859==    still reachable: 0 bytes in 0 blocks
+==497859==         suppressed: 0 bytes in 0 blocks
+==497859== 
+==497859== For lists of detected and suppressed errors, rerun with: -s
+==497859== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 17
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input24.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497883== Memcheck, a memory error detector
+==497883== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497883== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497883== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497883== Parent PID: 497882
+==497883== 
+==497883== 
+==497883== HEAP SUMMARY:
+==497883==     in use at exit: 48 bytes in 1 blocks
+==497883==   total heap usage: 476 allocs, 475 frees, 182,815 bytes allocated
+==497883== 
+==497883== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497883==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497883==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497883==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497883==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497883== 
+==497883== LEAK SUMMARY:
+==497883==    definitely lost: 48 bytes in 1 blocks
+==497883==    indirectly lost: 0 bytes in 0 blocks
+==497883==      possibly lost: 0 bytes in 0 blocks
+==497883==    still reachable: 0 bytes in 0 blocks
+==497883==         suppressed: 0 bytes in 0 blocks
+==497883== 
+==497883== For lists of detected and suppressed errors, rerun with: -s
+==497883== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 18
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input25.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497918== Memcheck, a memory error detector
+==497918== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497918== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497918== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497918== Parent PID: 497917
+==497918== 
+==497918== 
+==497918== HEAP SUMMARY:
+==497918==     in use at exit: 48 bytes in 1 blocks
+==497918==   total heap usage: 462 allocs, 461 frees, 173,452 bytes allocated
+==497918== 
+==497918== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497918==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497918==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497918==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497918==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497918== 
+==497918== LEAK SUMMARY:
+==497918==    definitely lost: 48 bytes in 1 blocks
+==497918==    indirectly lost: 0 bytes in 0 blocks
+==497918==      possibly lost: 0 bytes in 0 blocks
+==497918==    still reachable: 0 bytes in 0 blocks
+==497918==         suppressed: 0 bytes in 0 blocks
+==497918== 
+==497918== For lists of detected and suppressed errors, rerun with: -s
+==497918== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 19
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input2.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497956== Memcheck, a memory error detector
+==497956== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497956== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497956== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497956== Parent PID: 497954
+==497956== 
+==497956== 
+==497956== HEAP SUMMARY:
+==497956==     in use at exit: 48 bytes in 1 blocks
+==497956==   total heap usage: 510 allocs, 509 frees, 201,714 bytes allocated
+==497956== 
+==497956== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497956==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497956==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497956==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497956==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497956== 
+==497956== LEAK SUMMARY:
+==497956==    definitely lost: 48 bytes in 1 blocks
+==497956==    indirectly lost: 0 bytes in 0 blocks
+==497956==      possibly lost: 0 bytes in 0 blocks
+==497956==    still reachable: 0 bytes in 0 blocks
+==497956==         suppressed: 0 bytes in 0 blocks
+==497956== 
+==497956== For lists of detected and suppressed errors, rerun with: -s
+==497956== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 20
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input3.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==497978== Memcheck, a memory error detector
+==497978== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==497978== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==497978== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==497978== Parent PID: 497975
+==497978== 
+==497978== 
+==497978== HEAP SUMMARY:
+==497978==     in use at exit: 48 bytes in 1 blocks
+==497978==   total heap usage: 494 allocs, 493 frees, 192,306 bytes allocated
+==497978== 
+==497978== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==497978==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==497978==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==497978==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==497978==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==497978== 
+==497978== LEAK SUMMARY:
+==497978==    definitely lost: 48 bytes in 1 blocks
+==497978==    indirectly lost: 0 bytes in 0 blocks
+==497978==      possibly lost: 0 bytes in 0 blocks
+==497978==    still reachable: 0 bytes in 0 blocks
+==497978==         suppressed: 0 bytes in 0 blocks
+==497978== 
+==497978== For lists of detected and suppressed errors, rerun with: -s
+==497978== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 21
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input4.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==498022== Memcheck, a memory error detector
+==498022== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==498022== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==498022== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==498022== Parent PID: 498021
+==498022== 
+==498022== 
+==498022== HEAP SUMMARY:
+==498022==     in use at exit: 48 bytes in 1 blocks
+==498022==   total heap usage: 462 allocs, 461 frees, 173,455 bytes allocated
+==498022== 
+==498022== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==498022==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==498022==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==498022==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==498022==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==498022== 
+==498022== LEAK SUMMARY:
+==498022==    definitely lost: 48 bytes in 1 blocks
+==498022==    indirectly lost: 0 bytes in 0 blocks
+==498022==      possibly lost: 0 bytes in 0 blocks
+==498022==    still reachable: 0 bytes in 0 blocks
+==498022==         suppressed: 0 bytes in 0 blocks
+==498022== 
+==498022== For lists of detected and suppressed errors, rerun with: -s
+==498022== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 22
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input5.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==498059== Memcheck, a memory error detector
+==498059== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==498059== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==498059== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==498059== Parent PID: 498058
+==498059== 
+==498059== 
+==498059== HEAP SUMMARY:
+==498059==     in use at exit: 48 bytes in 1 blocks
+==498059==   total heap usage: 482 allocs, 481 frees, 183,064 bytes allocated
+==498059== 
+==498059== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==498059==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==498059==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==498059==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==498059==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==498059== 
+==498059== LEAK SUMMARY:
+==498059==    definitely lost: 48 bytes in 1 blocks
+==498059==    indirectly lost: 0 bytes in 0 blocks
+==498059==      possibly lost: 0 bytes in 0 blocks
+==498059==    still reachable: 0 bytes in 0 blocks
+==498059==         suppressed: 0 bytes in 0 blocks
+==498059== 
+==498059== For lists of detected and suppressed errors, rerun with: -s
+==498059== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 23
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input6.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==498100== Memcheck, a memory error detector
+==498100== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==498100== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==498100== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==498100== Parent PID: 498099
+==498100== 
+==498100== 
+==498100== HEAP SUMMARY:
+==498100==     in use at exit: 48 bytes in 1 blocks
+==498100==   total heap usage: 482 allocs, 481 frees, 183,064 bytes allocated
+==498100== 
+==498100== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==498100==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==498100==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==498100==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==498100==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==498100== 
+==498100== LEAK SUMMARY:
+==498100==    definitely lost: 48 bytes in 1 blocks
+==498100==    indirectly lost: 0 bytes in 0 blocks
+==498100==      possibly lost: 0 bytes in 0 blocks
+==498100==    still reachable: 0 bytes in 0 blocks
+==498100==         suppressed: 0 bytes in 0 blocks
+==498100== 
+==498100== For lists of detected and suppressed errors, rerun with: -s
+==498100== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 24
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input7.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==498132== Memcheck, a memory error detector
+==498132== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==498132== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==498132== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==498132== Parent PID: 498131
+==498132== 
+==498132== 
+==498132== HEAP SUMMARY:
+==498132==     in use at exit: 48 bytes in 1 blocks
+==498132==   total heap usage: 482 allocs, 481 frees, 183,051 bytes allocated
+==498132== 
+==498132== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==498132==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==498132==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==498132==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==498132==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==498132== 
+==498132== LEAK SUMMARY:
+==498132==    definitely lost: 48 bytes in 1 blocks
+==498132==    indirectly lost: 0 bytes in 0 blocks
+==498132==      possibly lost: 0 bytes in 0 blocks
+==498132==    still reachable: 0 bytes in 0 blocks
+==498132==         suppressed: 0 bytes in 0 blocks
+==498132== 
+==498132== For lists of detected and suppressed errors, rerun with: -s
+==498132== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 25
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input8.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==498166== Memcheck, a memory error detector
+==498166== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==498166== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==498166== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==498166== Parent PID: 498165
+==498166== 
+==498166== 
+==498166== HEAP SUMMARY:
+==498166==     in use at exit: 48 bytes in 1 blocks
+==498166==   total heap usage: 482 allocs, 481 frees, 183,051 bytes allocated
+==498166== 
+==498166== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==498166==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==498166==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==498166==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==498166==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==498166== 
+==498166== LEAK SUMMARY:
+==498166==    definitely lost: 48 bytes in 1 blocks
+==498166==    indirectly lost: 0 bytes in 0 blocks
+==498166==      possibly lost: 0 bytes in 0 blocks
+==498166==    still reachable: 0 bytes in 0 blocks
+==498166==         suppressed: 0 bytes in 0 blocks
+==498166== 
+==498166== For lists of detected and suppressed errors, rerun with: -s
+==498166== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Step 4 EC intermediate deadline test 26
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input9.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==498199== Memcheck, a memory error detector
+==498199== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==498199== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==498199== Command: ./cyoa-step4 /usr/local/ece551/cyoa/story3
+==498199== Parent PID: 498198
+==498199== 
+==498199== 
+==498199== HEAP SUMMARY:
+==498199==     in use at exit: 48 bytes in 1 blocks
+==498199==   total heap usage: 465 allocs, 464 frees, 173,565 bytes allocated
+==498199== 
+==498199== 48 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==498199==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==498199==    by 0x10B151: Page::printOptions(std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, long, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, long> > >) (Page.hpp:60)
+==498199==    by 0x10CD1E: Story::play() (Story.hpp:249)
+==498199==    by 0x10A7E0: main (cyoa-step4.cpp:13)
+==498199== 
+==498199== LEAK SUMMARY:
+==498199==    definitely lost: 48 bytes in 1 blocks
+==498199==    indirectly lost: 0 bytes in 0 blocks
+==498199==      possibly lost: 0 bytes in 0 blocks
+==498199==    still reachable: 0 bytes in 0 blocks
+==498199==         suppressed: 0 bytes in 0 blocks
+==498199== 
+==498199== For lists of detected and suppressed errors, rerun with: -s
+==498199== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+You have NOT passed your test cases!
+You should go and figure out/understand where thing went wrong
+And fix the problem(s) before the deadline
 
 Overall Grade: NO GRADE YET
