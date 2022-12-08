@@ -5,121 +5,116 @@
 #include <sstream>
 
 #include "Page.hpp"
-
+//#include "exception.h"
+#include "functions.h"
 class Story {
   std::vector<Page> pages;
   std::string dir;
   std::map<std::string, long int> variables;
 
-  long my_strtol(std::string str, size_t * idx = 0, int base = 10) {
-    const char * string = str.c_str();
-    char * endptr;
-    long ans = strtol(string, &endptr, base);
-    if (idx) {
-      *idx = endptr - string;
+  // parse the line pagenumber@type:filename
+  void initialPage(std::string & line) {
+    size_t idx = 0;
+    size_t pn1 = my_strtoul(line, &idx, 10);
+    if (pn1 != pages.size()) {
+      throw InvalidPageOrder();
     }
-    return ans;
+
+    char type = line[idx + 1];
+
+    if (type != 'N' && type != 'W' && type != 'L') {
+      throw InvalidLine(line);
+    }
+
+    if (line[idx + 2] != ':') {
+      throw InvalidLine(line);
+    }
+    std::string fname = line.substr(idx + 3);
+    pages.push_back(Page(pn1, fname, type));
   }
 
-  unsigned long my_strtoul(std::string str, size_t * idx = 0, int base = 10) {
-    const char * string = str.c_str();
-    char * endptr;
-    unsigned long ans = strtoul(string, &endptr, base);
-    if (idx) {
-      *idx = endptr - string;
+  void setPageVariable(std::string & line) {
+    size_t idx = 0;
+    size_t pn1 = my_strtoul(line, &idx, 10);
+    size_t f_equal = line.find('=', idx);
+    if (f_equal != std::string::npos) {
+      std::string var = line.substr(idx + 1, f_equal - idx - 1);  //is ""possible var??
+      long int value = my_strtol(line.substr(f_equal + 1), NULL, 10);
+      pages[pn1].setPageVaribale(var, value);
+      variables[var] = 0;
     }
-    return ans;
+    else {
+      throw InvalidLine(line);
+    }
+  }
+
+  void setPageOptions(std::string & line) {
+    size_t idx = 0;
+    size_t pn1 = my_strtoul(line, &idx, 10);
+    size_t comma2 = 0;
+
+    std::string sub = line.substr(idx + 1);
+
+    size_t pn2 = my_strtoul(sub, &comma2, 10);
+    if (sub[comma2] != ':') {
+      throw InvalidLine(line);
+    }
+
+    std::string message = sub.substr(comma2 + 1);
+    pages[pn1].addOption(pn2, message);
+  }
+
+  void setPageVarOption(std::string & line) {
+    size_t idx = 0;
+    size_t pn1 = my_strtoul(line, &idx, 10);
+    size_t f_equal = line.find('=', idx);
+
+    if (f_equal != std::string::npos) {
+      std::string var = line.substr(idx + 1, f_equal - idx - 1);  //is ""possible var??
+      size_t pos = 0;
+      std::string sub1 = line.substr(f_equal + 1);
+      long value = my_strtol(sub1, &pos, 10);
+      if (sub1[pos] != ']' && sub1[pos + 1] != ':') {
+        throw InvalidLine(line);
+      }
+
+      std::string sub2 = sub1.substr(pos + 2);
+      size_t pn2 = my_strtoul(sub2, &pos, 10);
+      if (sub2[pos] != ':') {
+        throw InvalidLine(line);
+      }
+      std::string message = sub2.substr(pos + 1);
+      pages[pn1].addOption(pn2, message, value, var);
+    }
+    else {
+      throw InvalidLine(line);
+    }
   }
 
   void parseLine(std::string line) {
     size_t idx = 0;
     size_t pn1 = my_strtoul(line, &idx, 10);
-
+    std::cout << pn1;
     if (line[idx] == '@') {  //number@type:filename
-      if (pn1 != pages.size()) {
-        throw "invalid page declaration order!";
-      }
-
-      char type = line[idx + 1];
-
-      if (type != 'N' && type != 'W' && type != 'L') {
-        throw "Wrong line with invlid type";
-        // exit(EXIT_FAILURE);
-      }
-
-      if (line[idx + 2] != ':') {
-        throw "Wrong line with invlid type";
-        // exit(EXIT_FAILURE);
-      }
-
-      std::string fname = line.substr(idx + 3);
-
-      pages.push_back(Page(pn1, fname, type));
+      initialPage(line);
     }
     else {
       if (pn1 >= pages.size()) {
-        throw "Invalid order, varibale setting before page build";
-        // exit(EXIT_FAILURE);
+        throw InvalidBuildOrder();
       }
 
       if (line[idx] == '$') {  //pagenumber$var=value
-        size_t f_equal = line.find('=', idx);
-        if (f_equal != std::string::npos) {
-          std::string var =
-              line.substr(idx + 1, f_equal - idx - 1);  //is ""possible var??
-          long int value = my_strtol(line.substr(f_equal + 1), NULL, 10);
-          pages[pn1].setPageVaribale(var, value);
-          variables[var] = 0;
-        }
-        else {
-          throw "Invalid varibale setting";
-        }
+        setPageVariable(line);
       }
 
       else if (line[idx] == ':') {  //pagenumber:destpage:text
-        size_t comma2 = 0;
-
-        std::string sub = line.substr(idx + 1);
-
-        size_t pn2 = my_strtoul(sub, &comma2, 10);
-        if (sub[comma2] != ':') {
-          throw "invalid option declaration";
-          exit(EXIT_FAILURE);
-        }
-
-        std::string message = sub.substr(comma2 + 1);
-        pages[pn1].addOption(pn2, message);
+        setPageOptions(line);
       }
-      else if (line[idx] == '[') {  //pagenumber[var=value]:dest:text
-        size_t f_equal = line.find('=', idx);
-
-        if (f_equal != std::string::npos) {
-          std::string var =
-              line.substr(idx + 1, f_equal - idx - 1);  //is ""possible var??
-          size_t pos = 0;
-          std::string sub1 = line.substr(f_equal + 1);
-          long value = my_strtol(sub1, &pos, 10);
-          if (sub1[pos] != ']' && sub1[pos + 1] != ':') {
-            throw "Invalid varibale declaration";
-            exit(EXIT_FAILURE);
-          }
-
-          std::string sub2 = sub1.substr(pos + 2);
-          size_t pn2 = my_strtoul(sub2, &pos, 10);
-          if (sub2[pos] != ':') {
-            throw "Invalid varibale declaration";
-            exit(EXIT_FAILURE);
-          }
-          std::string message = sub2.substr(pos + 1);
-          pages[pn1].addOption(pn2, message, value, var);
-        }
-        else {
-          throw "Invalid varibale declaration";
-          exit(EXIT_FAILURE);
-        }
+      else if (line[idx] == '[') {  //pagenumber[var=value]:dest:texto
+        setPageVarOption(line);
       }
       else {
-        throw "wrong story!";
+        throw InvalidLine(line);
       }
     }
   }

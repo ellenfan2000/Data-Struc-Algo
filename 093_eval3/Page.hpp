@@ -23,16 +23,12 @@ class Page {
   char type;
   std::vector<Choice> options;
   std::map<std::string, long int> variables;
-  // std::vector<std::pair<size_t, std::string> > options;
-  //std::map<size_t, std::string> options;
 
  public:
   Page() {}
   Page(size_t _pn, std::string _fn, char _t) : pagenum(_pn), filename(_fn), type(_t) {}
 
   void addOption(size_t pn, std::string message) {
-    // options.push_back(std::pair<size_t, std::string>(pn, message));
-    // options[pn] = message;
     options.push_back(Choice(pn, message));
   }
 
@@ -41,9 +37,6 @@ class Page {
   }
 
   void setPageVaribale(std::string var, long int val) { variables[var] = val; }
-
-  const size_t & getPage() const { return pagenum; }
-  const std::string & getFileName() const { return filename; }
 
   void printPage(std::string dir) {
     std::ifstream ifs;
