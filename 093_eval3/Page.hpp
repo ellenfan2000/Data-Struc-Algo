@@ -4,6 +4,8 @@
 #include <map>
 #include <string>
 #include <vector>
+
+#include "functions.h"
 class Page {
  private:
   class Choice {
@@ -43,9 +45,14 @@ class Page {
     std::string line;
     std::string fname = dir + "/" + filename;
     ifs.open(fname.c_str(), std::ifstream::in);
-    while (!ifs.eof()) {
-      std::getline(ifs, line);
-      std::cout << line << std::endl;
+    if (ifs.good()) {
+      while (!ifs.eof()) {
+        std::getline(ifs, line);
+        std::cout << line << std::endl;
+      }
+    }
+    else {
+      throw CannotOpenFile(fname);
     }
   }
 

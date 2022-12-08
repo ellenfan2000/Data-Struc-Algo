@@ -5,8 +5,7 @@
 #include <sstream>
 
 #include "Page.hpp"
-//#include "exception.h"
-#include "functions.h"
+//#include "functions.h"
 class Story {
   std::vector<Page> pages;
   std::string dir;
@@ -123,11 +122,16 @@ class Story {
     std::ifstream ifs;
     std::string line;
     ifs.open(fname, std::ifstream::in);
-    while (!ifs.eof()) {
-      std::getline(ifs, line);
-      if (line.compare("") != 0) {
-        parseLine(line);
+    if (ifs.good()) {
+      while (!ifs.eof()) {
+        std::getline(ifs, line);
+        if (line.compare("") != 0) {
+          parseLine(line);
+        }
       }
+    }
+    else {
+      throw CannotOpenFile(fname);
     }
   }
 

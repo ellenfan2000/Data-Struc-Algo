@@ -29,3 +29,15 @@ class InvalidBuildOrder : public InvalidStoryFile {
     return "Choice setting before page setting";
   }
 };
+class CannotOpenFile : public std::exception {
+ private:
+  std::string fname;
+
+ public:
+  CannotOpenFile(std::string f) throw() : fname(f) {}
+  virtual const char * what() const throw() {
+    std::cerr << "Cannot open file: ";
+    return fname.c_str();
+  }
+  ~CannotOpenFile() throw() {}
+};
