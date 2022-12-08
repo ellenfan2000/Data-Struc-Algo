@@ -189,7 +189,8 @@ class Story {
       std::cout << "Page " << pages[i].pagenum << std::endl;
       std::cout << "==========" << std::endl;
       pages[i].printPage(dir);
-      pages[i].printOptions(variables);
+      std::map<size_t, bool> * valid = pages[i].printOptions(variables);
+      delete valid;
     }
   }
 
