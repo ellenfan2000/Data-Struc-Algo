@@ -1,6 +1,6 @@
-Grading at 12/08/2022:09:37:16.811605
-For commit ID 6b88e85891e91ab3c8ca034de232be047a5f69b8
-Grading at Thu Dec  8 04:37:05 AM EST 2022
+Grading at 12/08/2022:09:44:30.566170
+For commit ID 296eebaca97e2dc09652b1efd7e6f9209950bae1
+Grading at Thu Dec  8 04:44:18 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -115,12 +115,16 @@ Now running YOUR tests for step 4
 
 4.1: Current test is ./cyoa-step4 story4  <  story3/inputs/input1.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open file: story4/page15.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 No request to check for intermediate deadline completion on step 4
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
