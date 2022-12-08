@@ -1,6 +1,6 @@
-Grading at 12/08/2022:09:01:35.691832
-For commit ID 3cbfafa2ce46c14843d987536b5b36619eea93a6
-Grading at Thu Dec  8 04:01:23 AM EST 2022
+Grading at 12/08/2022:09:28:19.043375
+For commit ID af910a9cf60526569fc3c1f0a8561d274c6c1091
+Grading at Thu Dec  8 04:28:07 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -32,8 +32,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid line format in story.txt: 
-0:1a:I am ready for this story!
+Cannot open file: story4/page15.txt
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -116,19 +115,12 @@ Now running YOUR tests for step 4
 
 4.1: Current test is ./cyoa-step4 story4  <  story3/inputs/input1.txt
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-terminate called after throwing an instance of 'InvalidLine'
-Invalid line format in story.txt: 
-  what():  0:1a:I am ready for this story!
-timeout: the monitored command dumped core
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
 No request to check for intermediate deadline completion on step 4
 
-You have passed the test cases YOU provided
-If your tests are good, this is great. 
-If your tests are insufficient, you should do much more testing
+You have NOT passed your test cases!
+You should go and figure out/understand where thing went wrong
+And fix the problem(s) before the deadline
 
 Overall Grade: NO GRADE YET
