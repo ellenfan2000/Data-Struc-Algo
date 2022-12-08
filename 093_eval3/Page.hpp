@@ -40,11 +40,11 @@ class Page {
 
   void setPageVaribale(std::string var, long int val) { variables[var] = val; }
 
-  void printPage(std::string dir) {
+  void printPage() {
     std::ifstream ifs;
     std::string line;
-    std::string fname = dir + "/" + filename;
-    ifs.open(fname.c_str(), std::ifstream::in);
+    // std::string fname = dir + "/" + filename;
+    ifs.open(filename.c_str(), std::ifstream::in);
     if (ifs.good()) {
       while (!ifs.eof()) {
         std::getline(ifs, line);
@@ -52,7 +52,7 @@ class Page {
       }
     }
     else {
-      throw CannotOpenFile(fname);
+      throw CannotOpenFile(filename);
     }
   }
 

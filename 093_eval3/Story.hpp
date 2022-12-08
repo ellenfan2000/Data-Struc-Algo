@@ -28,7 +28,13 @@ class Story {
     if (line[idx + 2] != ':') {
       throw InvalidLine(line);
     }
-    std::string fname = line.substr(idx + 3);
+    std::string filename = line.substr(idx + 3);
+    std::ifstream ifs;
+    std::string fname = dir + "/" + filename;
+    ifs.open(fname.c_str(), std::ifstream::in);
+    if (!ifs.good()) {
+      throw CannotOpenFile(fname);
+    }
     pages.push_back(Page(pn1, fname, type));
   }
 
@@ -192,7 +198,7 @@ class Story {
     for (size_t i = 0; i < pages.size(); i++) {
       std::cout << "Page " << pages[i].pagenum << std::endl;
       std::cout << "==========" << std::endl;
-      pages[i].printPage(dir);
+      pages[i].printPage();
       std::map<size_t, bool> * valid = pages[i].printOptions(variables);
       delete valid;
     }
@@ -210,7 +216,7 @@ class Story {
     size_t next;
     std::map<size_t, bool> * valid;
     while (pages[cur].type != 'W' && pages[cur].type != 'L') {
-      pages[cur].printPage(dir);
+      pages[cur].printPage();
 
       std::map<std::string, long int>::iterator it;
       if (pages[cur].variables.size() != 0) {
@@ -247,7 +253,7 @@ class Story {
       cur = pages[cur].options[next - 1].nextpage;
       delete valid;
     }
-    pages[cur].printPage(dir);
+    pages[cur].printPage();
     valid = pages[cur].printOptions(variables);
     delete valid;
     //exit(EXIT_SUCCESS);
