@@ -94,7 +94,7 @@ class Story {
   void parseLine(std::string line) {
     size_t idx = 0;
     size_t pn1 = my_strtoul(line, &idx, 10);
-    std::cout << pn1;
+
     if (line[idx] == '@') {  //number@type:filename
       initialPage(line);
     }
