@@ -1,6 +1,6 @@
-Grading at 12/09/2022:19:31:26.825132
-For commit ID 8d432df072c331179b60c1bc6c39d273a16106e4
-Grading at Fri Dec  9 02:31:01 PM EST 2022
+Grading at 12/09/2022:19:35:57.537777
+For commit ID f680228f9017d76bc9c295b7ba2b7d15bc357a6c
+Grading at Fri Dec  9 02:35:30 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -194,7 +194,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid number to convert: -3:Purchase a muffin.
+Invalid number to convert: stry=2]:13:Squirt the eclair filling in the dragon's eye.
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
