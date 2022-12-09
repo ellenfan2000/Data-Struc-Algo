@@ -19,7 +19,7 @@ class Story {
   // parse the line pagenumber@type:filename
   void initialPage(std::string & line) {
     size_t idx = 0;
-    size_t pn1 = myStrtoul(line, &idx, 10);
+    size_t pn1 = myStrtoul(line, &idx, 10);  //idx = index of '@' sign
 
     //page not defined in order
     if (pn1 != pages.size()) {
@@ -37,6 +37,7 @@ class Story {
     std::string filename = line.substr(idx + 3);
     std::ifstream ifs;
     std::string fname = dir + "/" + filename;
+    //check if file existed
     ifs.open(fname.c_str(), std::ifstream::in);
     if (!ifs.good()) {
       throw CannotOpenFile(fname);
@@ -82,17 +83,17 @@ class Story {
   //parse the line: pagenumber:nextpage:message
   void setPageOptions(std::string & line) {
     size_t idx = 0;
-    size_t pn1 = myStrtoul(line, &idx, 10);  //idx = index of the first comma
-    size_t comma2 = 0;
+    size_t pn1 = myStrtoul(line, &idx, 10);  //idx = index of the first colon
+    size_t colon2 = 0;
 
-    std::string sub = line.substr(idx + 1);  //string after first comma
+    std::string sub = line.substr(idx + 1);  //string after first colon
 
-    size_t pn2 = myStrtoul(sub, &comma2, 10);  //comma2 = index of the second comma
-    if (sub[comma2] != ':') {
+    size_t pn2 = myStrtoul(sub, &colon2, 10);  //colon2 = index of the second colon
+    if (sub[colon2] != ':') {
       throw InvalidLine(line);
     }
 
-    std::string message = sub.substr(comma2 + 1);
+    std::string message = sub.substr(colon2 + 1);
     pages[pn1].addOption(pn2, message);
   }
 
@@ -221,7 +222,6 @@ class Story {
   Story(std::string _dir) {
     dir = _dir;
     std::string fname = dir + "/story.txt";
-    // buildStory(fname.c_str());
     std::ifstream ifs;
     std::string line;
     ifs.open(fname.c_str(), std::ifstream::in);
@@ -263,16 +263,15 @@ class Story {
     }
     return false;
   }
+
   //play the story
   void play() {
     size_t cur = 0;
     size_t next;
     //whether each choice can be chosen
     std::map<size_t, bool> * valid;
-
     while (pages[cur].type != 'W' && pages[cur].type != 'L') {
       pages[cur].printPage();
-
       //update varibales with the one store in each page
       std::map<std::string, long int>::iterator it;
       if (pages[cur].variables.size() != 0) {
@@ -282,10 +281,11 @@ class Story {
       }
       valid = pages[cur].printOptions(variables);
       std::string input;
+      //keep asking user to input option until gets a valid one
       while (true) {
         std::getline(std::cin, input);
         size_t pos;
-        try {
+        try {  //input is not a number
           next = myStrtoul(input, &pos, 10);
         }
         catch (InvalidNumber & e) {
@@ -302,7 +302,6 @@ class Story {
           break;
         }
       }
-
       cur = pages[cur].options[next - 1].nextpage;
       delete valid;
     }
@@ -311,8 +310,12 @@ class Story {
     delete valid;
   }
 
+  /*
+    path: (choice number, page number the option leads to)
+    the function prints the according path following the format:
+    1(1),2(3),3(1),4(2),5(3),6(1),7(win)
+  */
   void printPath(std::vector<std::pair<size_t, size_t> > & path) {
-    //std::stringstream s;
     std::cout << pages[path[0].second].pagenum;
     for (size_t i = 1; i < path.size(); i++) {
       std::cout << "(" << path[i].first << ")," << pages[path[i].second].pagenum;
@@ -320,21 +323,33 @@ class Story {
     std::cout << "(win)" << std::endl;
   }
 
+  /*
+    find all cycle-free path to win
+    if cannot win, print unwinnable 
+  */
   void findWin() {
-    // std::vector<std::vector<Page *> > allPath;
+    //stores each path that is going to visit
     std::queue<std::vector<std::pair<size_t, size_t> > > todo;
+    //stores each page that is visited
     std::set<size_t> visited;
+    //whether the game is winnable;
     bool flag = false;
     todo.push(
         std::vector<std::pair<size_t, size_t> >(1, std::pair<size_t, size_t>(1, 0)));
     while (todo.size() > 0) {
       std::vector<std::pair<size_t, size_t> > currentPath = todo.front();
       todo.pop();
+
+      //current page is the last item in the path
       Page * currentPage = &pages[currentPath.back().second];
-      if (currentPage->type == 'W') {
+      if (currentPage->type == 'W') {  // if win
         printPath(currentPath);
         flag = true;
       }
+      /*if current page not in visited:
+	for each of its choice, create a new path with corresponding next page number
+	append to current path, and push the new path to the todo queue
+      */
       if (visited.find(currentPage->pagenum) == visited.end()) {
         visited.insert(currentPage->pagenum);
         for (size_t i = 0; i < currentPage->options.size(); i++) {
