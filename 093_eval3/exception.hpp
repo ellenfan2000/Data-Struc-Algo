@@ -1,6 +1,7 @@
 #include <exception>
 #include <iostream>
 
+//errors in story.txt
 class InvalidStoryFile : public std::exception {
  public:
   virtual const char * what() const throw() { return "Content errors in story.txt"; }
@@ -42,6 +43,8 @@ class InvalidBuildOrder : public InvalidStoryFile {
     return "Choice setting before page setting";
   }
 };
+
+//file cannot be opened
 class CannotOpenFile : public std::exception {
  private:
   std::string fname;
@@ -54,6 +57,8 @@ class CannotOpenFile : public std::exception {
   }
   ~CannotOpenFile() throw() {}
 };
+
+//cannot parse the number
 class InvalidNumber : public std::exception {
  private:
   std::string number;
