@@ -289,17 +289,14 @@ class Story {
           next = myStrtoul(input, &pos, 10);
         }
         catch (InvalidNumber & e) {
-          std::cout << input << std::endl;
           next = 0;
         }
         if (next < 1 || next > pages[cur].options.size() || input.size() != pos) {
           std::cout << "That is not a valid choice, please try again" << std::endl;
-          continue;
         }
         else if (!(*valid)[next - 1]) {
           std::cout << "That choice is not available at this time, please try again"
                     << std::endl;
-          continue;
         }
         else {
           break;
@@ -313,56 +310,6 @@ class Story {
     valid = pages[cur].printOptions(variables);
     delete valid;
   }
-
-  // //play the story
-  // void play() {
-  //   size_t cur = 0;
-  //   size_t next;
-  //   //whether each choice can be chosen
-  //   std::map<size_t, bool> * valid;
-
-  //   while (pages[cur].type != 'W' && pages[cur].type != 'L') {
-  //     pages[cur].printPage();
-
-  //     //update varibales with the one store in each page
-  //     std::map<std::string, long int>::iterator it;
-  //     if (pages[cur].variables.size() != 0) {
-  //       for (it = pages[cur].variables.begin(); it != pages[cur].variables.end(); ++it) {
-  //         variables[it->first] = it->second;
-  //       }
-  //     }
-  //     valid = pages[cur].printOptions(variables);
-  //     std::cin >> next;
-
-  //     while (true) {
-  //       if (!std::cin.good()) {  //input is not a number
-  //         std::cin.clear();
-  //         std::cin.ignore();
-  //         std::cout << "That is not a valid choice, please try again" << std::endl;
-  //         std::cin >> next;
-  //       }
-  //       else if (next < 1 || next > pages[cur].options.size()) {
-  //         std::cout << "That is not a valid choice, please try again" << std::endl;
-  //         std::cin >> next;
-  //       }
-  //       else if (!(*valid)[next - 1]) {
-  //         std::cout << "That choice is not available at this time, please try again"
-  //                   << std::endl;
-  //         std::cin >> next;
-  //       }
-  //       else {
-  //         break;
-  //       }
-  //     }
-
-  //     cur = pages[cur].options[next - 1].nextpage;
-  //     delete valid;
-  //   }
-  //   pages[cur].printPage();
-  //   valid = pages[cur].printOptions(variables);
-  //   delete valid;
-  //   //exit(EXIT_SUCCESS);
-  // }
 
   void printPath(std::vector<std::pair<size_t, size_t> > & path) {
     //std::stringstream s;
