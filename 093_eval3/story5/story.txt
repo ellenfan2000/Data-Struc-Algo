@@ -1,12 +1,12 @@
 0@N:start.txt
 0:1:Purchase a chocolate croissant.
 0:2:Purchase an eclair.
-0:-3:Purchase a muffin.
+0:3:Purchase a muffin.
 1@N:croissant.txt
 2@N:eclair.txt
 3@N:muffin.txt
 1$pas@]try=1
-2$p:stry=2
+2$p:stry=1
 3$pastry=1
 1:4:Leave the store
 2:4:Leave the store
