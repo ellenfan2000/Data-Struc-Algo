@@ -35,6 +35,9 @@ class Story {
       throw InvalidLine(line);
     }
     std::string filename = line.substr(idx + 3);
+    if (filename.empty()) {
+      throw CannotOpenFile(filename);
+    }
     std::ifstream ifs;
     std::string fname = dir + "/" + filename;
     //check if file existed

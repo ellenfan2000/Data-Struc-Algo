@@ -1,17 +1,17 @@
-ec:step1
-ec:step2
-ec:step3
-ec:step4
 cyoa-step1 story1
 cyoa-step1 story2
 cyoa-step1 story4
+cyoa-step1 story6
+cyoa-step1 story8
 cyoa-step2 story4 < story4/inputs/input1.txt
 cyoa-step2 story6 < story6/inputs/input5.txt
-cyoa-step2 story7 < story6/inputs/input5.txt
+cyoa-step2 story7 < story6/inputs/input5.txtb
+cyoa-step2 story8 < story6/inputs/input5.txtb
 cyoa-step3 story1
 cyoa-step3 story2
 cyoa-step3 story4
 cyoa-step3 story6
 cyoa-step3 story7
+cyoa-step3 story8
 cyoa-step4 story4 < story3/inputs/input1.txt
 cyoa-step4 story5 < story5/inputs/input1.txt
