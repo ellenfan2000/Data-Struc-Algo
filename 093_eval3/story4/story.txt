@@ -8,6 +8,11 @@
 2:5:Go to Denevieve for help.
 2:6:Go to Grew for help.
 2:7:Go alone.
+
+
+
+              
+		
 3@N:page3.txt
 3:8:Go to Denevieve for help.
 3:9:Go to Grew for help.
@@ -29,7 +34,6 @@
 12@W:page12.txt
 13@L:page13.txt
 14@L:page14.txt
-15@L:page15.txt
 
 
 

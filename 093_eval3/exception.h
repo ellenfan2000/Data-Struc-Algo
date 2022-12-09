@@ -22,6 +22,19 @@ class InvalidLine : public InvalidStoryFile {
   }
   ~InvalidLine() throw() {}
 };
+class InvalidOptionSet : public InvalidStoryFile {
+ private:
+  std::string line;
+
+ public:
+  InvalidOptionSet(std::string _line) throw() : line(_line) {}
+  virtual const char * what() const throw() {
+    std::cerr << "Invalid Option: Win and Lose page should not have options "
+              << std::endl;
+    return line.c_str();
+  }
+  ~InvalidOptionSet() throw() {}
+};
 
 class InvalidBuildOrder : public InvalidStoryFile {
  public:
@@ -40,4 +53,16 @@ class CannotOpenFile : public std::exception {
     return fname.c_str();
   }
   ~CannotOpenFile() throw() {}
+};
+class InvalidNumber : public std::exception {
+ private:
+  std::string number;
+
+ public:
+  InvalidNumber(std::string _line) throw() : number(_line) {}
+  virtual const char * what() const throw() {
+    std::cerr << "Invalid number to convert: ";
+    return number.c_str();
+  }
+  ~InvalidNumber() throw() {}
 };

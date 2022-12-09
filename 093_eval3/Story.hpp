@@ -5,20 +5,26 @@
 #include <sstream>
 
 #include "Page.hpp"
-//#include "functions.h"
+
+/*
+pages: a vector of pages
+dir: the directory name of the input story
+variables: map of <string, long>, stores the each varibale's value when play in step 4
+ */
 class Story {
   std::vector<Page> pages;
   std::string dir;
-  std::map<std::string, long int> variables;
+  std::map<std::string, long> variables;
 
   // parse the line pagenumber@type:filename
   void initialPage(std::string & line) {
     size_t idx = 0;
-    size_t pn1 = my_strtoul(line, &idx, 10);
+    size_t pn1 = myStrtoul(line, &idx, 10);
+
+    //page not defined in order
     if (pn1 != pages.size()) {
       throw InvalidPageOrder();
     }
-
     char type = line[idx + 1];
 
     if (type != 'N' && type != 'W' && type != 'L') {
@@ -38,29 +44,50 @@ class Story {
     pages.push_back(Page(pn1, fname, type));
   }
 
-  void setPageVariable(std::string & line) {
+  //parse the line: pagenumber$variable=value
+  void setVariables(std::string & line) {
     size_t idx = 0;
-    size_t pn1 = my_strtoul(line, &idx, 10);
-    size_t f_equal = line.find('=', idx);
+    size_t pn1 = myStrtoul(line, &idx, 10);  //first page number
+    size_t f_equal = line.find('=', idx);    //index of '=' sign
+
     if (f_equal != std::string::npos) {
-      std::string var = line.substr(idx + 1, f_equal - idx - 1);  //is ""possible var??
-      long int value = my_strtol(line.substr(f_equal + 1), NULL, 10);
-      pages[pn1].setPageVaribale(var, value);
-      variables[var] = 0;
+      std::string var = line.substr(idx + 1, f_equal - idx - 1);
+      std::string sub = line.substr(f_equal + 1);  //string after '='sign
+
+      //whether value is not empty
+      bool flag = false;
+      for (size_t i = 0; i < sub.size(); i++) {
+        if (!isspace(sub[i])) {
+          flag = true;
+          long value = myStrtol(sub, &idx, 10);
+          // if there are still characters after value
+          if (idx < sub.size()) {
+            throw InvalidLine(line);
+          }
+          pages[pn1].setPageVaribale(var, value);
+          variables[var] = 0;
+          break;
+        }
+      }
+      //value is empty
+      if (!flag) {
+        throw InvalidLine(line);
+      }
     }
-    else {
+    else {  //no '=' sign in the line
       throw InvalidLine(line);
     }
   }
 
+  //parse the line: pagenumber:nextpage:message
   void setPageOptions(std::string & line) {
     size_t idx = 0;
-    size_t pn1 = my_strtoul(line, &idx, 10);
+    size_t pn1 = myStrtoul(line, &idx, 10);  //idx = index of the first comma
     size_t comma2 = 0;
 
-    std::string sub = line.substr(idx + 1);
+    std::string sub = line.substr(idx + 1);  //string after first comma
 
-    size_t pn2 = my_strtoul(sub, &comma2, 10);
+    size_t pn2 = myStrtoul(sub, &comma2, 10);  //comma2 = index of the second comma
     if (sub[comma2] != ':') {
       throw InvalidLine(line);
     }
@@ -69,49 +96,65 @@ class Story {
     pages[pn1].addOption(pn2, message);
   }
 
+  //parse the line: pagenumber[var=value]:nextpage:message
   void setPageVarOption(std::string & line) {
     size_t idx = 0;
-    size_t pn1 = my_strtoul(line, &idx, 10);
-    size_t f_equal = line.find('=', idx);
+    size_t pn1 = myStrtoul(line, &idx, 10);  //idx = index of the '['
+    size_t f_equal = line.find('=', idx);    //index of the '=' sign
 
     if (f_equal != std::string::npos) {
-      std::string var = line.substr(idx + 1, f_equal - idx - 1);  //is ""possible var??
+      std::string var;
+      //empty variable name
+      if (f_equal == idx + 1) {
+        var = "";
+      }
+      var = line.substr(idx + 1, f_equal - idx - 1);
+
       size_t pos = 0;
-      std::string sub1 = line.substr(f_equal + 1);
-      long value = my_strtol(sub1, &pos, 10);
+      std::string sub1 =
+          line.substr(f_equal + 1);  //string after '=' sign, value]:nextpage:message
+      long value = myStrtol(sub1, &pos, 10);  //pos is the first char after number
+
+      //if exist char between value and ']:', error
       if (sub1[pos] != ']' && sub1[pos + 1] != ':') {
         throw InvalidLine(line);
       }
 
-      std::string sub2 = sub1.substr(pos + 2);
-      size_t pn2 = my_strtoul(sub2, &pos, 10);
+      std::string sub2 = sub1.substr(pos + 2);  //string after ']:', nextpage:message
+      size_t pn2 = myStrtoul(sub2, &pos, 10);   //pos=index of ':'
       if (sub2[pos] != ':') {
         throw InvalidLine(line);
       }
       std::string message = sub2.substr(pos + 1);
       pages[pn1].addOption(pn2, message, value, var);
     }
-    else {
+    else {  //if '=' does not exist, throw exception
       throw InvalidLine(line);
     }
   }
 
+  //parse line read from story.txt, integrate four kinds of lines
   void parseLine(std::string line) {
     size_t idx = 0;
-    size_t pn1 = my_strtoul(line, &idx, 10);
+    size_t pn1 = myStrtoul(line, &idx, 10);
 
+    //differenciate line by the first char after number(page number 1)
     if (line[idx] == '@') {  //number@type:filename
       initialPage(line);
     }
     else {
+      //all the set option lines
+      //if set option before page defined, throw error
       if (pn1 >= pages.size()) {
         throw InvalidBuildOrder();
       }
-
-      if (line[idx] == '$') {  //pagenumber$var=value
-        setPageVariable(line);
+      //if page is a Win or Lose page, throw error
+      if (pages[pn1].type == 'W' || pages[pn1].type == 'L') {
+        throw InvalidOptionSet(line);
       }
-
+      if (line[idx] == '$') {  //pagenumber$var=value
+        setVariables(line);
+      }
       else if (line[idx] == ':') {  //pagenumber:destpage:text
         setPageOptions(line);
       }
@@ -124,23 +167,7 @@ class Story {
     }
   }
 
-  void buildStory(const char * fname) {
-    std::ifstream ifs;
-    std::string line;
-    ifs.open(fname, std::ifstream::in);
-    if (ifs.good()) {
-      while (!ifs.eof()) {
-        std::getline(ifs, line);
-        if (line.compare("") != 0) {
-          parseLine(line);
-        }
-      }
-    }
-    else {
-      throw CannotOpenFile(fname);
-    }
-  }
-
+  //Every page that is referenced by a choice is valid
   bool checkChoics() {
     for (size_t i = 0; i < pages.size(); i++) {
       for (size_t j = 0; j < pages[i].options.size(); j++) {
@@ -153,11 +180,13 @@ class Story {
     return true;
   }
 
+  //Every page (except page 0) is referenced by at least one *other* page's choices.
   bool checkCoverage() {
+    //count how many times a page is referenced
     std::vector<int> coverage(pages.size(), 0);
     for (size_t i = 0; i < pages.size(); i++) {
       for (size_t j = 0; j < pages[i].options.size(); j++) {
-        coverage[pages[i].options[j].nextpage] = 1;
+        coverage[pages[i].options[j].nextpage] += 1;
       }
     }
     for (size_t k = 1; k < coverage.size(); k++) {
@@ -168,6 +197,7 @@ class Story {
     return true;
   }
 
+  //At least one page must be a WIN page and at least one page must be a LOSE page.
   bool checkEndGame() {
     int win = 0;
     int lose = 0;
@@ -191,9 +221,31 @@ class Story {
   Story(std::string _dir) {
     dir = _dir;
     std::string fname = dir + "/story.txt";
-    buildStory(fname.c_str());
+    // buildStory(fname.c_str());
+    std::ifstream ifs;
+    std::string line;
+    ifs.open(fname.c_str(), std::ifstream::in);
+    if (ifs.good()) {
+      while (!ifs.eof()) {
+        std::getline(ifs, line);
+        //jump an empty line
+        if (line.compare("") != 0) {
+          //jump a line with only white space
+          for (size_t i = 0; i < line.size(); i++) {
+            if (!isspace(line[i])) {
+              parseLine(line);
+              break;
+            }
+          }
+        }
+      }
+    }
+    else {
+      throw CannotOpenFile(fname);
+    }
   }
 
+  //print the story
   void printStory() {
     for (size_t i = 0; i < pages.size(); i++) {
       std::cout << "Page " << pages[i].pagenum << std::endl;
@@ -204,46 +256,50 @@ class Story {
     }
   }
 
+  //check if story is a whole
   bool checkValidStory() {
     if (checkChoics() && checkCoverage() && checkEndGame()) {
       return true;
     }
     return false;
   }
-
+  //play the story
   void play() {
     size_t cur = 0;
     size_t next;
+    //whether each choice can be chosen
     std::map<size_t, bool> * valid;
+
     while (pages[cur].type != 'W' && pages[cur].type != 'L') {
       pages[cur].printPage();
 
+      //update varibales with the one store in each page
       std::map<std::string, long int>::iterator it;
       if (pages[cur].variables.size() != 0) {
         for (it = pages[cur].variables.begin(); it != pages[cur].variables.end(); ++it) {
           variables[it->first] = it->second;
         }
       }
-
       valid = pages[cur].printOptions(variables);
-      std::cin >> next;
-
+      std::string input;
       while (true) {
-        if (!std::cin.good()) {
-          std::cin.clear();
-          std::cin.ignore();
-          std::cout << "That is not a valid choice, please try again" << std::endl;
-          std::cin >> next;
+        std::getline(std::cin, input);
+        size_t pos;
+        try {
+          next = myStrtoul(input, &pos, 10);
         }
-        else if (next < 1 || next > pages[cur].options.size()) {
-          std::cout << "That is not a valid choice, please try again" << std::endl;
-          std::cin >> next;
+        catch (InvalidNumber & e) {
+          std::cout << input << std::endl;
+          next = 0;
         }
-
+        if (next < 1 || next > pages[cur].options.size() || input.size() != pos) {
+          std::cout << "That is not a valid choice, please try again" << std::endl;
+          continue;
+        }
         else if (!(*valid)[next - 1]) {
           std::cout << "That choice is not available at this time, please try again"
                     << std::endl;
-          std::cin >> next;
+          continue;
         }
         else {
           break;
@@ -256,8 +312,57 @@ class Story {
     pages[cur].printPage();
     valid = pages[cur].printOptions(variables);
     delete valid;
-    //exit(EXIT_SUCCESS);
   }
+
+  // //play the story
+  // void play() {
+  //   size_t cur = 0;
+  //   size_t next;
+  //   //whether each choice can be chosen
+  //   std::map<size_t, bool> * valid;
+
+  //   while (pages[cur].type != 'W' && pages[cur].type != 'L') {
+  //     pages[cur].printPage();
+
+  //     //update varibales with the one store in each page
+  //     std::map<std::string, long int>::iterator it;
+  //     if (pages[cur].variables.size() != 0) {
+  //       for (it = pages[cur].variables.begin(); it != pages[cur].variables.end(); ++it) {
+  //         variables[it->first] = it->second;
+  //       }
+  //     }
+  //     valid = pages[cur].printOptions(variables);
+  //     std::cin >> next;
+
+  //     while (true) {
+  //       if (!std::cin.good()) {  //input is not a number
+  //         std::cin.clear();
+  //         std::cin.ignore();
+  //         std::cout << "That is not a valid choice, please try again" << std::endl;
+  //         std::cin >> next;
+  //       }
+  //       else if (next < 1 || next > pages[cur].options.size()) {
+  //         std::cout << "That is not a valid choice, please try again" << std::endl;
+  //         std::cin >> next;
+  //       }
+  //       else if (!(*valid)[next - 1]) {
+  //         std::cout << "That choice is not available at this time, please try again"
+  //                   << std::endl;
+  //         std::cin >> next;
+  //       }
+  //       else {
+  //         break;
+  //       }
+  //     }
+
+  //     cur = pages[cur].options[next - 1].nextpage;
+  //     delete valid;
+  //   }
+  //   pages[cur].printPage();
+  //   valid = pages[cur].printOptions(variables);
+  //   delete valid;
+  //   //exit(EXIT_SUCCESS);
+  // }
 
   void printPath(std::vector<std::pair<size_t, size_t> > & path) {
     //std::stringstream s;

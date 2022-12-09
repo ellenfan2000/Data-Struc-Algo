@@ -24,6 +24,10 @@ int main(int argc, char ** argv) {
       std::cerr << e.what() << std::endl;
       return EXIT_FAILURE;
     }
+    catch (InvalidNumber & e) {
+      std::cerr << e.what() << std::endl;
+      return EXIT_FAILURE;
+    }
   }
   else {
     std::cerr << "Usage: program dir" << std::endl;

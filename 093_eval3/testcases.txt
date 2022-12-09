@@ -8,3 +8,4 @@ cyoa-step2 story2 < story2/inputs/input1.txt
 cyoa-step3 story1
 cyoa-step3 story2
 cyoa-step4 story4 < story3/inputs/input1.txt
+cyoa-step4 story5 < story3/inputs/input1.txt

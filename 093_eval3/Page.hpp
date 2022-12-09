@@ -10,15 +10,16 @@ class Page {
  private:
   class Choice {
    public:
+    char type;
     size_t nextpage;
     std::string message;
     long int value;
     std::string varibale;
 
     Choice(size_t np, std::string mess) :
-        nextpage(np), message(mess), value(0), varibale("") {}
+        type('N'), nextpage(np), message(mess), value(0), varibale("") {}
     Choice(size_t np, std::string mess, long int val, std::string var) :
-        nextpage(np), message(mess), value(val), varibale(var) {}
+        type('V'), nextpage(np), message(mess), value(val), varibale(var) {}
   };
   size_t pagenum;
   std::string filename;
@@ -63,7 +64,7 @@ class Page {
       std::cout << std::endl;
 
       for (size_t i = 0; i < options.size(); i++) {
-        if (options[i].varibale.compare("") == 0) {
+        if (options[i].type == 'N') {
           std::cout << i + 1 << "." << options[i].message << std::endl;
           (*valid)[i] = true;
         }
@@ -90,5 +91,4 @@ class Page {
   }
 
   friend class Story;
-  friend class Story2;
 };
