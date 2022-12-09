@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "functions.h"
+#include "functions.hpp"
 
 /*
 pagenum: this page's pagenum

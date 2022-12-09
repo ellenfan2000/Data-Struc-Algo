@@ -1,12 +1,8 @@
-#include <climits>
 #include <cstdlib>
-#include <fstream>
 #include <iostream>
-#include <map>
 #include <string>
-#include <vector>
 
-#include "exception.h"
+#include "exception.hpp"
 
 /*
 str: string that going to convert to number
