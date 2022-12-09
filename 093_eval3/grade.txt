@@ -1,6 +1,6 @@
-Grading at 12/09/2022:19:26:14.183425
-For commit ID 8bf952ce6718bf405db245a4edd82e5b2672620c
-Grading at Fri Dec  9 02:25:50 PM EST 2022
+Grading at 12/09/2022:19:31:26.825132
+For commit ID 8d432df072c331179b60c1bc6c39d273a16106e4
+Grading at Fri Dec  9 02:31:01 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -51,11 +51,8 @@ Valgrind was clean
 
 1.5: Current test is ./cyoa-step1 story8 < /dev/null
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Cannot open file: story8/    page1.txt
------------------------------------------
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 No request to check for intermediate deadline completion on step 1
 
@@ -166,11 +163,8 @@ Valgrind was clean
 
 3.6: Current test is ./cyoa-step3 story8 < /dev/null
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Cannot open file: story8/    page1.txt
------------------------------------------
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 No request to check for intermediate deadline completion on step 3
 
