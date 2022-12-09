@@ -1,6 +1,6 @@
-Grading at 12/09/2022:19:35:57.537777
-For commit ID f680228f9017d76bc9c295b7ba2b7d15bc357a6c
-Grading at Fri Dec  9 02:35:30 PM EST 2022
+Grading at 12/09/2022:19:42:57.206284
+For commit ID 6f08cbbc9bbf2a9d80199521b91397ca8f7f1638
+Grading at Fri Dec  9 02:42:23 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -194,7 +194,8 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid number to convert: stry=2]:13:Squirt the eclair filling in the dragon's eye.
+Invalid line format in story.txt: 
+2$p:stry=
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
