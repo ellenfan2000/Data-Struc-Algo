@@ -2,7 +2,7 @@ As always, read and understand Chapter 22, then answer these questions
 in "answers.txt".
 
 
-1. What do you call a node with no children?
+1. What do you call a node with no children? c
 
 A. Orphan node
 B. Widow node
@@ -12,7 +12,7 @@ E. Lonely node
 F. Young node
 G. None of the above
 
-2. A tree is balanced if 
+2. A tree is balanced if D
 
 A. it has exactly the same number of nodes on all paths from
    the root to null
@@ -24,7 +24,7 @@ D. every node's children differ in height by at most one
 E. None of the above
 
 3. The worst case access time to find a particular value
-   in a binary search tree with N nodes is 
+   in a binary search tree with N nodes is C
 
 A. O(1)
 B. O(lg(N))
@@ -34,7 +34,7 @@ E. O(2^N)
 F. O(N!)
 G. None of the above.
 
-4.  When you add to a binary search tree, the new node is inserted:
+4.  When you add to a binary search tree, the new node is inserted: D
 
 A. At the root
 B. As a child of the root
@@ -47,7 +47,7 @@ For questions 5--8, construct a binary search tree by adding
 the following items (in this order) to an empty tree:
 9, 7, 81, 4, 32, 16, 99, 1, 6, 22
 
-5. What are the leaf nodes in the resulting tree?
+5. What are the leaf nodes in the resulting tree? C
 
 A. 1, 7 32, 99
 B. 1, 6, 7, 22, 81
@@ -58,7 +58,7 @@ F. 7, 9, 22
 G. 4, 16, 99
 H. None of the above
 
-6. What node is 32's left child?
+6. What node is 32's left child? F
 
 A. 1
 B. 4
@@ -70,7 +70,7 @@ G. 22
 H. 81
 I. 99
 
-7. What is the height of the tree (count a leaf node as height 1)?
+7. What is the height of the tree (count a leaf node as height 1)? C
 
 A. 3
 B. 4
@@ -81,7 +81,7 @@ F. 8
 G. 9
 H. None of the above
 
-8.  Which set of operations would make the tree full?
+8.  Which set of operations would make the tree full? I
 
 A. Remove 99, insert 8
 B. Remove 22, insert 8

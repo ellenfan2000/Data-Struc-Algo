@@ -16,7 +16,7 @@ For questions 1--6, consider the following tree:
 For questions 1--4, consider this tree as an AVL tree.
 For questions 5--6, consider this tree as a Red/Black tree.
 
-1. If you were to add 4 to this tree, what rotation would be required?
+1. If you were to add 4 to this tree, what rotation would be required? B
 
 A. A single rotation at 8
 B. A single rotation at 16
@@ -29,7 +29,7 @@ H. A dobule rotation at 55
 I. No rotation is required.
 J. Some other rotation (not listed here) is required.
 
-2.  If you were to add 67 to the original tree, what rotation would be required?
+2.  If you were to add 67 to the original tree, what rotation would be required? K
 
 A. A single rotation at 70.
 B. A single rotation at 73.
@@ -44,7 +44,7 @@ J. A double rotation at 55
 K. No rotation is required.
 L. Some other rotation (not listed here) is required.
 
-3. If you were to add 47 to the original tree, what rotation would be required?
+3. If you were to add 47 to the original tree, what rotation would be required? G
 
 A. A single rotation at 50.
 B. A single rotation at 32.
@@ -55,7 +55,7 @@ F. A double rotation at 55.
 G. No rotation is required.
 H. Some other rotation (not listed here) is required.
 
-4. If you were to add 69 to the original tree, what rotation would be required?
+4. If you were to add 69 to the original tree, what rotation would be required? E
 
 A. A single rotation at 68.
 B. A single rotation at 73.
@@ -67,7 +67,7 @@ G. No rotation is required.
 H. Some other rotation (not listed here) is required.
 
 5. To red black color this tree, how many black nodes must there be on
-   all paths from the root to NULL [do not include NULL nodes in this count]:
+   all paths from the root to NULL [do not include NULL nodes in this count]: C
 
 A. 1
 B. 2
@@ -79,7 +79,7 @@ G. 2 or 3
 H. 1, 2, or 3
 
 6. Which of the following nodes must be colored RED to correctly 
-   red/black color this tree?
+   red/black color this tree? F
 
 A. 16
 B. 32
@@ -91,7 +91,7 @@ G. 72
 H. 90
 
 7. What is the worst case time complexity for the "insert" operation
-   in a balanced BST? (n is the number of nodes in the tree)
+   in a balanced BST? (n is the number of nodes in the tree) B
 
 A. O(1)
 B. O(lg(n))
@@ -99,7 +99,7 @@ C. O(n)
 D. O(n*lg(n))
 
 8. What is the worst case time complexity for the "delete" operation
-   in AVL tree?	(n is the number of nodes in the tree)
+   in AVL tree?	(n is the number of nodes in the tree) B
 
 A. O(1)
 B. O(lg(n))
@@ -107,7 +107,7 @@ C. O(n)
 D. O(n*lg(n))
 
 9. Which of the following is INCORRECT about the principles of forming
-   a red-black tree?
+   a red-black tree? C
 
 A. The root node is black.
 B. If a node is red, its children must be black.
@@ -115,7 +115,7 @@ C. If a node is black, its children must be red.
 D. Each path from root to leaf node has the same number of black nodes.
 
 10. Which of the following is not accurate regarding properties of AVL and
-    red-black trees? 
+    red-black trees? A
 
 A. Both AVL tree and red-black tree always have each node balanced
    (as defined by the difference in their children's heights)
@@ -126,7 +126,7 @@ C. Both AVL tree and red-black tree make use of rotations to
 D. None of the above (all are accurate)
 
 11. Which of the following describes the relationship between the
-    set of all valid red-black trees and the set of all valid AVL trees:
+    set of all valid red-black trees and the set of all valid AVL trees: B
 
 A.  AVL is a strict super set of red-black:  every red-black tree is
     AVL balanced, but there exist AVL trees for which no red-black coloring exists
